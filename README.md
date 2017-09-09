@@ -2,8 +2,10 @@
 
 :warning: WIP
 
-[![CircleCI](https://circleci.com/gh/kazupon/vue-i18n-extensions/tree/dev?style=svg)](https://circleci.com/gh/kazupon/vue-i18n-extensions/tree/dev)
+[![CircleCI](https://circleci.com/gh/kazupon/vue-i18n-extensions/tree/dev.svg?style=svg)](https://circleci.com/gh/kazupon/vue-i18n-extensions/tree/dev)
+<!--
 [![codecov](https://codecov.io/gh/kazupon/vue-i18n-extensions/branch/dev/graph/badge.svg)](https://codecov.io/gh/kazupon/vue-i18n-extensions)
+-->
 [![npm](https://img.shields.io/npm/v/vue-i18n-extensions.svg)](https://www.npmjs.com/package/vue-i18n-extensions)
 
 vue-i18n extensions
