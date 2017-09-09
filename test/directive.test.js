@@ -23,11 +23,12 @@ const options = {
   }
 }
 
+const i18n = new VueI18n(options)
+const renderer = createRenderer({
+  directives: { t: directive }
+})
+
 test('string literal', t => {
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     i18n,
     render (h) {
@@ -40,16 +41,14 @@ test('string literal', t => {
       })
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<p data-server-rendered=\"true\">hello</p>')
   })
 })
 
 test('object', t => {
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     i18n,
     data: { msgPath: 'named' },
@@ -64,16 +63,14 @@ test('object', t => {
       })
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<p data-server-rendered=\"true\">やあ、kazupon！</p>')
   })
 })
 
 test('has some children', t => {
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     i18n,
     render (h) {
@@ -91,7 +88,9 @@ test('has some children', t => {
       }, [h('p', ['child1']), h('p', ['child2'])])
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<div data-server-rendered=\"true\">hello</div>')
   })
 })
@@ -99,10 +98,6 @@ test('has some children', t => {
 test('not support value type warning', t => {
   const spy = sinon.spy(console, 'warn')
 
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     i18n,
     render (h) {
@@ -114,7 +109,9 @@ test('not support value type warning', t => {
       })
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<p data-server-rendered=\"true\"></p>')
     t.true(spy.withArgs('[vue-i18n-extensions] not support value type').calledOnce)
     spy.restore()
@@ -124,10 +121,6 @@ test('not support value type warning', t => {
 test('required path warning', t => {
   const spy = sinon.spy(console, 'warn')
 
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     i18n,
     data: { msgPath: 'named' },
@@ -142,7 +135,9 @@ test('required path warning', t => {
       })
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<p data-server-rendered=\"true\"></p>')
     t.true(spy.withArgs('[vue-i18n-extensions] required `path` in v-t directive').calledOnce)
     spy.restore()
@@ -152,10 +147,6 @@ test('required path warning', t => {
 test('not exist VueI18n instance warning', t => {
   const spy = sinon.spy(console, 'warn')
 
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     render (h) {
       // <p v-t="'hello'"></p>
@@ -167,7 +158,9 @@ test('not exist VueI18n instance warning', t => {
       })
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<p data-server-rendered=\"true\"></p>')
     t.true(spy.withArgs('[vue-i18n-extensions] not exist VueI18n instance in Vue instance').calledOnce)
     spy.restore()
@@ -175,10 +168,6 @@ test('not exist VueI18n instance warning', t => {
 })
 
 test('array args', t => {
-  const i18n = new VueI18n(options)
-  const renderer = createRenderer({
-    directives: { t: directive }
-  })
   const app = new Vue({
     i18n,
     data: { msgPath: 'list' },
@@ -193,7 +182,9 @@ test('array args', t => {
       })
     }
   })
+
   renderer.renderToString(app, (err, html) => {
+    t.falsy(err)
     t.is(html, '<p data-server-rendered=\"true\">やあ、kazupon！</p>')
   })
 })

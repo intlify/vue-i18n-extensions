@@ -31,7 +31,7 @@ export function directive (vnode, dir) {
     return
   }
 
-  let params = []
+  const params = []
   locale && params.push(locale)
 
   if (args && (Array.isArray(args) || isPlainObject(args))) {
