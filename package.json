@@ -6,6 +6,12 @@
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
   },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-core/register"
+    ]
+  },
   "bugs": {
     "url": "https://github.com/kazupon/vue-i18n-extensions/issues"
   },
@@ -26,46 +32,41 @@
     "sinon": "^3.2.1",
     "vue": "^2.4.2",
     "vue-i18n": "^7.2.0",
-    "vue-server-renderer": "^2.4.2"
+    "vue-server-renderer": "^2.4.2",
+    "vue-template-compiler": "^2.4.2"
+  },
+  "engines": {
+    "node": ">= 4.0"
   },
   "files": [
     "lib",
     "src"
   ],
   "homepage": "https://github.com/kazupon/vue-i18n-extensions#readme",
-  "main": "lib/index.js",
   "keywords": [
-    "vue",
-    "vue-i18n",
+    "extensions",
     "i18n",
     "optimaization",
-    "extensions",
-    "server-side-rendering"
+    "server-side-rendering",
+    "vue",
+    "vue-i18n"
   ],
   "license": "MIT",
-  "engines": {
-    "node": ">= 4.0"
-  },
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kazupon/vue-i18n-extensions.git"
   },
   "scripts": {
     "build": "cross-env BABEL_ENV=production babel ./src --out-dir ./lib",
-    "watch": "cross-env BABEL_ENV=development babel ./src --out-dir ./lib --watch",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -n ./node_modules/git-commit-message-convention/convention.js",
-    "release": "conventional-github-releaser -n ./node_modules/git-commit-message-convention/convention.js",
     "clean": "rm -rf ./coverage && rm -rf ./lib/*.js*",
     "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov",
     "lint": "eslint ./src ./test",
+    "release": "conventional-github-releaser -n ./node_modules/git-commit-message-convention/convention.js",
     "test": "npm run lint && npm run test:cover",
     "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/nyc report --reporter=html ava",
-    "test:unit": "cross-env BABEL_ENV=test ava"
-  },
-  "ava": {
-    "babel": "inherit",
-    "require": [
-      "babel-core/register"
-    ]
+    "test:unit": "cross-env BABEL_ENV=test ava",
+    "watch": "cross-env BABEL_ENV=development babel ./src --out-dir ./lib --watch"
   }
 }
