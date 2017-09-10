@@ -65,6 +65,8 @@ renderer.renderToString(app, (err, html) => {
 ### module: `v-t` custom directive compiler module
 This module is `v-t` custom directive module for vue compiler. You can specify it as [`modules` option](https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#vue-template-compiler) of `vue-template-compiler`.
 
+> :warning: NOTE: This extension is not isomorphic/universal codes. for Node.js environment only.
+
 The following example that use `compile` function of `vue-template-compiler`:
 
 ```javascript

@@ -36,7 +36,7 @@
     "vue-template-compiler": "^2.4.2"
   },
   "engines": {
-    "node": ">= 4.0"
+    "node": ">= 6.0"
   },
   "files": [
     "lib",
@@ -68,5 +68,8 @@
     "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/nyc report --reporter=html ava",
     "test:unit": "cross-env BABEL_ENV=test ava",
     "watch": "cross-env BABEL_ENV=development babel ./src --out-dir ./lib --watch"
+  },
+  "dependencies": {
+    "vm2": "^3.5.0"
   }
 }

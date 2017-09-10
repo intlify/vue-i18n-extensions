@@ -1,3 +1,7 @@
+import { VM } from 'vm2'
+
+const vm = new VM()
+
 export function warn (msg, err) {
   if (typeof console !== 'undefined') {
     console.warn('[vue-i18n-extensions] ' + msg)
@@ -37,7 +41,7 @@ export function removeAttr (el, name) {
 export function evaluateValue (expression) {
   const ret = { status: 'ng', value: undefined }
   try {
-    const val = (new Function('return ' + expression))()
+    const val = vm.run(`(new Function('return ' + ${JSON.stringify(expression)}))()`)
     ret.status = 'ok'
     ret.value = val
   } catch (e) { }
