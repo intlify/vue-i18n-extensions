@@ -12,13 +12,11 @@ const options = {
   messages: {
     en: {
       hello: 'hello',
-      named: 'hi {name}!',
-      list: 'hi {0}!'
+      named: 'hi {name}!'
     },
     ja: {
       hello: 'こんにちは',
-      named: 'やあ、{name}！',
-      list: 'やあ、{0}！'
+      named: 'やあ、{name}！'
     }
   }
 }
@@ -58,4 +56,16 @@ test('not support value warning', t => {
   t.deepEqual(errors, [])
   t.truthy(spy.withArgs('[vue-i18n-extensions] not support value type').calledOnce)
   spy.restore()
+})
+
+test('detect missing translation', t => {
+  i18n.missing = (locale, key, vm) => {
+    t.is(locale, 'en')
+    t.is(key, 'foo.bar')
+    t.is(vm, null)
+  }
+  const { ast, render, errors } = compile(`<p v-t="'foo.bar'"></p>`, { modules: [i18nModule] })
+  t.is(ast.i18n, 'foo.bar')
+  t.is(render, `with(this){return _c(\'p\',{domProps:{"textContent":_s("foo.bar")}})}`)
+  t.deepEqual(errors, [])
 })
