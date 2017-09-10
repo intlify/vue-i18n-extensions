@@ -16,7 +16,7 @@ This library exports the following extensions:
 $ npm i --save-dev vue-i18n-extensions
 ```
 
-## :rocket: Extentions
+## :rocket: Extensions
 
 ### directive: `v-t` custom directive for server-side
 This directive is `v-t` custom directive for server-side-rendering. You can specify it as [`directives` option](https://ssr.vuejs.org/en/api.html#directives) of `createRenderer` function.
