@@ -71,7 +71,7 @@ test('detect missing translation', t => {
 })
 
 test('fallback custom directive', t => {
-  const { ast, render, errors } = compile(`<p v-t="'foo.bar'"></p>`)
+  const { ast, errors } = compile(`<p v-t="'foo.bar'"></p>`)
   t.falsy(ast.i18n)
   t.deepEqual(ast.directives[0], { name: 't', rawName: 'v-t', value: '\'foo.bar\'', arg: null, modifiers: undefined })
   t.deepEqual(errors, [])
