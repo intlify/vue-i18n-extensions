@@ -69,3 +69,10 @@ test('detect missing translation', t => {
   t.is(render, `with(this){return _c(\'p\',{domProps:{"textContent":_s("foo.bar")}})}`)
   t.deepEqual(errors, [])
 })
+
+test('fallback custom directive', t => {
+  const { ast, render, errors } = compile(`<p v-t="'foo.bar'"></p>`)
+  t.falsy(ast.i18n)
+  t.deepEqual(ast.directives[0], { name: 't', rawName: 'v-t', value: '\'foo.bar\'', arg: null, modifiers: undefined })
+  t.deepEqual(errors, [])
+})
