@@ -1,3 +1,13 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/kazupon/vue-i18n-extensions/compare/v0.1.0...v0.2.0) (2018-08-11)
+
+
+### :bug: Bug Fixes
+
+* fix cannot resolve dependency ([c620eda](https://github.com/kazupon/vue-i18n-extensions/commit/c620eda)), closes [#2](https://github.com/kazupon/vue-i18n-extensions/issues/2)
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2017-09-22)
 
