@@ -1,7 +1,7 @@
 const Vue = require('vue')
 const VueI18n = require('vue-i18n')
 const { createRenderer } = require('vue-server-renderer')
-const { directive } = require('../index')
+const { directive } = require('../src/index')
 
 Vue.use(VueI18n)
 
