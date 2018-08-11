@@ -2,5 +2,5 @@
 *.log
 *.swp
 *.yml
+src/__tests__
 coverage
-test
