@@ -1,8 +1,9 @@
-const Vue = require('vue')
 const VueI18n = require('vue-i18n')
+const { createLocalVue } = require('@vue/test-utils')
 const { createRenderer } = require('vue-server-renderer')
 const { directive } = require('../src/index')
 
+const Vue = createLocalVue()
 Vue.use(VueI18n)
 
 const options = {
