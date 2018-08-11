@@ -1,10 +1,9 @@
-import test from 'ava'
-import sinon from 'sinon'
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
-import { createRenderer } from 'vue-server-renderer'
-import { directive } from '../src/index'
+const VueI18n = require('vue-i18n')
+const { createLocalVue } = require('@vue/test-utils')
+const { createRenderer } = require('vue-server-renderer')
+const { directive } = require('../src/index')
 
+const Vue = createLocalVue()
 Vue.use(VueI18n)
 
 const options = {
@@ -28,10 +27,10 @@ const renderer = createRenderer({
   directives: { t: directive }
 })
 
-test('string literal', t => {
+it('string literal', () => {
   const app = new Vue({
     i18n,
-    render (h) {
+    render: (h) => {
       // <p v-t="'hello'"></p>
       return h('p', {
         directives: [{
@@ -43,12 +42,12 @@ test('string literal', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<p data-server-rendered=\"true\">hello</p>')
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
   })
 })
 
-test('object', t => {
+it('object', () => {
   const app = new Vue({
     i18n,
     data: { msgPath: 'named' },
@@ -65,12 +64,12 @@ test('object', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<p data-server-rendered=\"true\">やあ、kazupon！</p>')
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
   })
 })
 
-test('has some children', t => {
+it('has some children', () => {
   const app = new Vue({
     i18n,
     render (h) {
@@ -90,13 +89,14 @@ test('has some children', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<div data-server-rendered=\"true\">hello</div>')
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
   })
 })
 
-test('not support value type warning', t => {
-  const spy = sinon.spy(console, 'warn')
+it('not support value type warning', () => {
+  const spy = jest.spyOn(global.console, 'warn')
+  spy.mockImplementation(x => x)
 
   const app = new Vue({
     i18n,
@@ -111,15 +111,17 @@ test('not support value type warning', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<p data-server-rendered=\"true\"></p>')
-    t.true(spy.withArgs('[vue-i18n-extensions] not support value type').calledOnce)
-    spy.restore()
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
+    expect(spy.mock.calls[0][0]).toBe('[vue-i18n-extensions] not support value type')
+    spy.mockReset()
+    spy.mockRestore()
   })
 })
 
-test('required path warning', t => {
-  const spy = sinon.spy(console, 'warn')
+it('required path warning', () => {
+  const spy = jest.spyOn(global.console, 'warn')
+  spy.mockImplementation(x => x)
 
   const app = new Vue({
     i18n,
@@ -137,15 +139,17 @@ test('required path warning', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<p data-server-rendered=\"true\"></p>')
-    t.true(spy.withArgs('[vue-i18n-extensions] required `path` in v-t directive').calledOnce)
-    spy.restore()
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
+    expect(spy.mock.calls[0][0]).toBe('[vue-i18n-extensions] required `path` in v-t directive')
+    spy.mockReset()
+    spy.mockRestore()
   })
 })
 
-test('not exist VueI18n instance warning', t => {
-  const spy = sinon.spy(console, 'warn')
+it('VueI18n instance does not exists warning', () => {
+  const spy = jest.spyOn(global.console, 'warn')
+  spy.mockImplementation(x => x)
 
   const app = new Vue({
     render (h) {
@@ -160,14 +164,15 @@ test('not exist VueI18n instance warning', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<p data-server-rendered=\"true\"></p>')
-    t.true(spy.withArgs('[vue-i18n-extensions] not exist VueI18n instance in Vue instance').calledOnce)
-    spy.restore()
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
+    expect(spy.mock.calls[0][0]).toBe('[vue-i18n-extensions] VueI18n instance does not exists in Vue instance')
+    spy.mockReset()
+    spy.mockRestore()
   })
 })
 
-test('array args', t => {
+it('array args', () => {
   const app = new Vue({
     i18n,
     data: { msgPath: 'list' },
@@ -184,7 +189,7 @@ test('array args', t => {
   })
 
   renderer.renderToString(app, (err, html) => {
-    t.falsy(err)
-    t.is(html, '<p data-server-rendered=\"true\">やあ、kazupon！</p>')
+    if (err) throw new Error(err)
+    expect(html).toMatchSnapshot()
   })
 })

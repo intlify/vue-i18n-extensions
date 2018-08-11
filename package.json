@@ -6,43 +6,49 @@
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
   },
-  "ava": {
-    "babel": "inherit",
-    "require": [
-      "babel-core/register"
-    ]
-  },
   "bugs": {
     "url": "https://github.com/kazupon/vue-i18n-extensions/issues"
   },
+  "dependencies": {
+    "vm2": "^3.5.0"
+  },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "babel-cli": "^6.24.0",
-    "babel-eslint": "^7.2.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.0",
+    "@vue/server-test-utils": "^1.0.0-beta.21",
+    "@vue/test-utils": "^1.0.0-beta.21",
+    "babel-eslint": "^8.2.5",
     "conventional-changelog-cli": "^1.2.0",
     "conventional-github-releaser": "^1.1.3",
-    "cross-env": "^5.0.5",
-    "eslint": "^3.18.0",
-    "eslint-config-vue": "^2.0.2",
-    "eslint-plugin-vue": "^2.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-vue": "^4.7.1",
     "git-commit-message-convention": "git://github.com/kazupon/git-commit-message-convention.git",
-    "nyc": "^10.2.0",
-    "sinon": "^3.2.1",
+    "jest": "^23.4.1",
+    "jest-serializer-vue": "^2.0.2",
     "vue": "^2.4.2",
-    "vue-i18n": "^7.2.0",
+    "vue-i18n": "^8.0.0",
+    "vue-jest": "^2.6.0",
     "vue-server-renderer": "^2.4.2",
     "vue-template-compiler": "^2.4.2"
   },
   "engines": {
-    "node": ">= 6.0"
+    "node": ">= 8.0"
   },
   "files": [
-    "lib",
     "src"
   ],
   "homepage": "https://github.com/kazupon/vue-i18n-extensions#readme",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ]
+  },
   "keywords": [
     "extensions",
     "i18n",
@@ -52,24 +58,18 @@
     "vue-i18n"
   ],
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kazupon/vue-i18n-extensions.git"
   },
   "scripts": {
-    "build": "cross-env BABEL_ENV=production babel ./src --out-dir ./lib",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -n ./node_modules/git-commit-message-convention/convention.js",
-    "clean": "rm -rf ./coverage && rm -rf ./lib/*.js*",
-    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov",
-    "lint": "eslint ./src ./test",
+    "clean": "rm -rf ./coverage",
+    "lint": "eslint --fix --ext .js,.vue ./src",
     "release": "conventional-github-releaser -n ./node_modules/git-commit-message-convention/convention.js",
     "test": "npm run lint && npm run test:cover",
-    "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/nyc report --reporter=html ava",
-    "test:unit": "cross-env BABEL_ENV=test ava",
-    "watch": "cross-env BABEL_ENV=development babel ./src --out-dir ./lib --watch"
-  },
-  "dependencies": {
-    "vm2": "^3.5.0"
+    "test:cover": "jest --coverage",
+    "test:unit": "jest"
   }
 }

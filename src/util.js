@@ -1,8 +1,8 @@
-import { VM } from 'vm2'
+const { VM } = require('vm2')
 
 const vm = new VM()
 
-export function warn (msg, err) {
+function warn (msg, err) {
   if (typeof console !== 'undefined') {
     console.warn('[vue-i18n-extensions] ' + msg)
     /* istanbul ignore if */
@@ -14,19 +14,19 @@ export function warn (msg, err) {
 
 const toString = Object.prototype.toString
 const OBJECT_STRING = '[object Object]'
-export function isPlainObject (obj) {
+function isPlainObject (obj) {
   return toString.call(obj) === OBJECT_STRING
 }
 
-export function addProp (el, name, value) {
+function addProp (el, name, value) {
   (el.props || (el.props = [])).push({ name, value })
 }
 
-export function getAttr (el, name) {
+function getAttr (el, name) {
   return el.attrsMap[name]
 }
 
-export function removeAttr (el, name) {
+function removeAttr (el, name) {
   if ((el.attrsMap[name]) !== null) {
     const list = el.attrsList
     for (let i = 0, l = list.length; i < l; i++) {
@@ -38,7 +38,7 @@ export function removeAttr (el, name) {
   }
 }
 
-export function evaluateValue (expression) {
+function evaluateValue (expression) {
   const ret = { status: 'ng', value: undefined }
   try {
     const val = vm.run(`(new Function('return ' + ${JSON.stringify(expression)}))()`)
@@ -46,4 +46,13 @@ export function evaluateValue (expression) {
     ret.value = val
   } catch (e) { }
   return ret
+}
+
+module.exports = {
+  warn,
+  isPlainObject,
+  addProp,
+  getAttr,
+  removeAttr,
+  evaluateValue
 }
