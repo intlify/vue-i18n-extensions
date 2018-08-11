@@ -1,13 +1,13 @@
-import {
+const {
   warn,
   isPlainObject,
   addProp,
   getAttr,
   removeAttr,
   evaluateValue
-} from './util'
+} = require('./util')
 
-export function directive (vnode, dir) {
+function directive (vnode, dir) {
   const value = dir.value
 
   const { path, locale, args } = parseValue(value)
@@ -23,12 +23,12 @@ export function directive (vnode, dir) {
   }
 
   if (!vm) {
-    warn('not exist Vue instance in VNode context')
+    warn('Vue instance does not exists in VNode context')
     return
   }
 
   if (!vm.$i18n) {
-    warn('not exist VueI18n instance in Vue instance')
+    warn('VueI18n instance does not exists in Vue instance')
     return
   }
 
@@ -36,9 +36,9 @@ export function directive (vnode, dir) {
   vnode.children = [vm._v(vm.$i18n.t(path, ...params))]
 }
 
-export function module (i18n) {
+function compilerModule (i18n) {
   return {
-    transformNode (el) {
+    transformNode: function (el) {
       const exp = getAttr(el, 'v-t')
       if (!exp) { return }
 
@@ -60,7 +60,7 @@ export function module (i18n) {
       removeAttr(el, 'v-t')
     },
 
-    genData (el) {
+    genData: function (el) {
       if (el.i18n) {
         addProp(el, 'textContent', `_s(${JSON.stringify(el.i18n)})`) // generate via 'domProps'
         el.children = [] // clear children, due to be inserted with textContet
@@ -93,4 +93,9 @@ function makeParams (locale, args) {
   }
 
   return params
+}
+
+module.exports = {
+  directive,
+  module: compilerModule
 }

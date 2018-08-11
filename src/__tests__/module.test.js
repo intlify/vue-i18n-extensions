@@ -1,3 +1,4 @@
+/*
 import test from 'ava'
 import sinon from 'sinon'
 import Vue from 'vue'
@@ -76,3 +77,4 @@ test('fallback custom directive', t => {
   t.deepEqual(ast.directives[0], { name: 't', rawName: 'v-t', value: '\'foo.bar\'', arg: null, modifiers: undefined })
   t.deepEqual(errors, [])
 })
+*/
