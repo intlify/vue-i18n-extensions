@@ -1,6 +1,9 @@
-const { VM } = require('vm2')
-
-const vm = new VM()
+const stringRE = /'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*\$\{|\}(?:[^`\\]|\\.)*`|`(?:[^`\\]|\\.)*`/g
+const ecmaKeywordsRE = new RegExp('\\b' + (
+  'delete,typeof,instanceof,void,do,if,for,let,new,try,var,case,else,with,await,break,catch,class,const,' +
+  'alert,eval,super,throw,while,yield,delete,export,import,return,switch,default,' +
+  'extends,finally,continue,debugger,function,arguments'
+).split(',').join('\\b|\\b') + '\\b')
 
 function warn (msg, err) {
   if (typeof console !== 'undefined') {
@@ -40,11 +43,16 @@ function removeAttr (el, name) {
 
 function evaluateValue (expression) {
   const ret = { status: 'ng', value: undefined }
+
+  if (expression.match(ecmaKeywordsRE)) { return ret }
+  if (!expression.match(stringRE)) { return ret }
+
   try {
-    const val = vm.run(`(new Function('return ' + ${JSON.stringify(expression)}))()`)
+    const val = (new Function(`return ${expression}`))()
     ret.status = 'ok'
     ret.value = val
   } catch (e) { }
+  
   return ret
 }
 

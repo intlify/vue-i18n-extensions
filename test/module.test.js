@@ -44,7 +44,20 @@ it('not transform with dynamic params', () => {
   expect(ast.i18n).toBeFalsy()
   expect(render).toEqual(`with(this){return _c('p',{directives:[{name:"t",rawName:"v-t",value:(hello),expression:"hello"}]})}`)
   expect(errors).toEqual([])
-  expect(spy.mock.calls[0][0]).toEqual('[vue-i18n-extensions] pre-localization with v-t support only static params')
+  expect(spy.mock.calls[0][0]).toEqual('[vue-i18n-extensions] not support params in pre-localization')
+  spy.mockReset()
+  spy.mockRestore()
+})
+
+it('not support ecmascript keywords', () => {
+  const spy = jest.spyOn(global.console, 'warn')
+  spy.mockImplementation(x => x)
+  const { ast, render, errors } = compile(`<p v-t="while(true){alert('!');"></p>`, { modules: [i18nModule] })
+  expect(ast.i18n).toBeFalsy()
+  expect(render).toEqual(`with(this){return _c('p',{directives:[{name:"t",rawName:"v-t",value:(while(true){alert('!');),expression:"while(true){alert('!');"}]})}`)
+  expect(errors).toEqual([`avoid using JavaScript keyword as property name: \"while\"
+  Raw expression: v-t=\"while(true){alert('!');\"`])
+  expect(spy.mock.calls[0][0]).toEqual('[vue-i18n-extensions] not support params in pre-localization')
   spy.mockReset()
   spy.mockRestore()
 })
@@ -56,7 +69,7 @@ it('not support value warning', () => {
   expect(ast.i18n).toBeFalsy()
   expect(render).toEqual(`with(this){return _c('p',{directives:[{name:"t",rawName:"v-t",value:([1]),expression:"[1]"}]})}`)
   expect(errors).toEqual([])
-  expect(spy.mock.calls[0][0]).toEqual('[vue-i18n-extensions] not support value type')
+  expect(spy.mock.calls[0][0]).toEqual('[vue-i18n-extensions] not support params in pre-localization')
   spy.mockReset()
   spy.mockRestore()
 })
@@ -77,6 +90,6 @@ it('detect missing translation', done => {
 it('fallback custom directive', () => {
   const { ast, render, errors } = compile(`<p v-t="'foo.bar'"></p>`)
   expect(ast.i18n).toBeFalsy()
-  expect(ast.directives[0]).toEqual({ name: 't', rawName: 'v-t', value: '\'foo.bar\'', arg: null, modifiers: undefined })
+  expect(ast.directives[0]).toEqual({ "arg": null, "isDynamicArg": false, "modifiers": undefined, "name": "t", "rawName": "v-t", "value": "'foo.bar'" })
   expect(errors).toEqual([])
 })

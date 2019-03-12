@@ -44,7 +44,7 @@ function compilerModule (i18n) {
 
       const { status, value } = evaluateValue(exp)
       if (status === 'ng') {
-        warn('pre-localization with v-t support only static params')
+        warn('not support params in pre-localization')
         return
       }
 

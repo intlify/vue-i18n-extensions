@@ -10,11 +10,10 @@
     "url": "https://github.com/kazupon/vue-i18n-extensions/issues"
   },
   "dependencies": {
-    "vm2": "^3.5.0"
   },
   "devDependencies": {
-    "@vue/server-test-utils": "^1.0.0-beta.21",
-    "@vue/test-utils": "^1.0.0-beta.21",
+    "@vue/server-test-utils": "^1.0.0-beta.29",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "babel-eslint": "^8.2.5",
     "conventional-changelog-cli": "^1.2.0",
     "conventional-github-releaser": "^1.1.3",
@@ -23,11 +22,11 @@
     "git-commit-message-convention": "git://github.com/kazupon/git-commit-message-convention.git",
     "jest": "^23.4.1",
     "jest-serializer-vue": "^2.0.2",
-    "vue": "^2.4.2",
-    "vue-i18n": "^8.0.0",
+    "vue": "^2.6.8",
+    "vue-i18n": "^8.9.0",
     "vue-jest": "^2.6.0",
-    "vue-server-renderer": "^2.4.2",
-    "vue-template-compiler": "^2.4.2"
+    "vue-server-renderer": "^2.6.8",
+    "vue-template-compiler": "^2.6.8"
   },
   "engines": {
     "node": ">= 8.0"
