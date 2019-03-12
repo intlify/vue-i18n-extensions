@@ -1,3 +1,13 @@
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/kazupon/vue-i18n-extensions/compare/v0.2.0...v0.2.1) (2019-03-12)
+
+
+### :lock: Security Fixes
+
+* **util:** XSS vulnerability ([5f00336](https://github.com/kazupon/vue-i18n-extensions/commit/5f00336))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/kazupon/vue-i18n-extensions/compare/v0.1.0...v0.2.0) (2018-08-11)
 
