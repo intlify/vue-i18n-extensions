@@ -8,6 +8,14 @@
 
 This library exports the following extensions:
 
+## :loudspeaker: Notice
+vue-i18n-extensions will soon be transferred to [intlify organaization](https://github.com/intlify). After that, it will be developed and maintained on intlify.
+
+The `vue-i18n-extensions` that has been released on npm will be released as `@intlify/vue-i18n-extensions` in near future.
+
+Intlify is a new i18n project kickoff by @kazupon. 😉 
+
+## :star: Features
 - directive: `v-t` custom directive for server-side
 - module: `v-t` custom directive compiler module for `vue-template-compiler` or `vue-loader` (`compilerModules` option)
 
