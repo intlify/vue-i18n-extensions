@@ -1,3 +1,13 @@
+
+## v1.0.0 (2020-01-21)
+
+#### :boom: Breaking Change
+* [#19](https://github.com/intlify/vue-i18n-extensions/pull/19) upgrade node.js ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 2
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/kazupon/vue-i18n-extensions/compare/v0.2.0...v0.2.1) (2019-03-12)
 
