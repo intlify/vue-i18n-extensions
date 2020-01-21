@@ -1,5 +1,5 @@
 {
-  "name": "vue-i18n-extensions",
+  "name": "@intlify/vue-i18n-extensions",
   "description": "vue-i18n extensions",
   "version": "0.2.1",
   "author": {
@@ -7,7 +7,21 @@
     "email": "kawakazu80@gmail.com"
   },
   "bugs": {
-    "url": "https://github.com/kazupon/vue-i18n-extensions/issues"
+    "url": "https://github.com/intlify/vue-i18n-extensions/issues"
+  },
+  "changelog": {
+    "labels": {
+      "Type: Feature": ":star: Features",
+      "Type: Bug": ":bug: Bug Fixes",
+      "Type: Security": ":lock: Security Fixes",
+      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
+      "Type: Improvement": ":zap: Improvement Features",
+      "Type: Breaking": ":boom: Breaking Change",
+      "Type: Deprecated": ":warning: Deprecated Features",
+      "Type: I18n": ":globe_with_meridians: Internationalization",
+      "Type: A11y": ":wheelchair: Accessibility",
+      "Type: Documentation": ":pencil: Documentation"
+    }
   },
   "dependencies": {},
   "devDependencies": {
@@ -32,7 +46,7 @@
   "files": [
     "src"
   ],
-  "homepage": "https://github.com/kazupon/vue-i18n-extensions#readme",
+  "homepage": "https://github.com/intlify/vue-i18n-extensions#readme",
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -58,7 +72,7 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kazupon/vue-i18n-extensions.git"
+    "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
   },
   "scripts": {
     "clean": "rm -rf ./coverage",
@@ -68,19 +82,5 @@
     "test": "npm run lint && npm run test:cover",
     "test:cover": "jest --coverage -u",
     "test:unit": "jest -u"
-  },
-  "changelog": {
-    "labels": {
-      "Type: Feature": ":star: Features",
-      "Type: Bug": ":bug: Bug Fixes",
-      "Type: Security": ":lock: Security Fixes",
-      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
-      "Type: Improvement": ":zap: Improvement Features",
-      "Type: Breaking": ":boom: Breaking Change",
-      "Type: Deprecated": ":warning: Deprecated Features",
-      "Type: I18n": ":globe_with_meridians: Internationalization",
-      "Type: A11y": ":wheelchair: Accessibility",
-      "Type: Documentation": ":pencil: Documentation"
-    }
   }
 }

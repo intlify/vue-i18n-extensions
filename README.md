@@ -1,6 +1,6 @@
 # :globe_with_meridians: vue-i18n-extensions
 
-[![CircleCI](https://circleci.com/gh/kazupon/vue-i18n-extensions/tree/dev.svg?style=svg)](https://circleci.com/gh/kazupon/vue-i18n-extensions/tree/dev)
+[![CircleCI](https://circleci.com/gh/intlify/vue-i18n-extensions/tree/dev.svg?style=svg)](https://circleci.com/gh/intlify/vue-i18n-extensions/tree/dev)
 [![npm](https://img.shields.io/npm/v/vue-i18n-extensions.svg)](https://www.npmjs.com/package/vue-i18n-extensions)
 [![vue-i18n-extensions Dev Token](https://badge.devtoken.rocks/vue-i18n-extensions)](https://devtoken.rocks/package/vue-i18n-extensions)
 
@@ -22,7 +22,7 @@ Intlify is a new i18n project kickoff by @kazupon. 😉
 ## :cd: Installation
 
 ```sh
-$ npm i --save-dev vue-i18n-extensions
+$ npm i --save-dev @intlify/vue-i18n-extensions
 ```
 
 ## :rocket: Extensions
@@ -36,7 +36,7 @@ The following example:
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { createRenderer } from 'vue-server-renderer'
-import { directive as t } from 'vue-i18n-extensions'
+import { directive as t } from '@intlify/vue-i18n-extensions'
 
 Vue.use(VueI18n)
 
@@ -82,7 +82,7 @@ The following example that use `compile` function of `vue-template-compiler`:
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import { compile } from 'vue-template-compiler'
-import { module } from 'vue-i18n-extensions'
+import { module } from '@intlify/vue-i18n-extensions'
 
 Vue.use(VueI18n)
 
@@ -112,7 +112,7 @@ The following configration example of `vue-loader`:
 ```javascript
 const Vue = require('vue')
 const VueI18n = require('vue-i18n')
-const i18nExtensions = require('vue-i18n-extensions')
+const i18nExtensions = require('@intlify/vue-i18n-extensions')
 const messages = require('./locales.json')
 
 Vue.use(VueI18n)
@@ -138,15 +138,15 @@ module.exports = {
 ```
 
 ## :scroll: Changelog
-Details changes for each release are documented in the [CHANGELOG.md](https://github.com/kazupon/vue-i18n-extensions/blob/dev/CHANGELOG.md).
+Details changes for each release are documented in the [CHANGELOG.md](https://github.com/intlify/vue-i18n-extensions/blob/dev/CHANGELOG.md).
 
 
 ## :exclamation: Issues
-Please make sure to read the [Issue Reporting Checklist](https://github.com/kazupon/vue-i18n-extensions/blob/dev/CONTRIBUTING.md#issue-reporting-guidelines) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
+Please make sure to read the [Issue Reporting Checklist](https://github.com/intlify/vue-i18n-extensions/blob/dev/CONTRIBUTING.md#issue-reporting-guidelines) before opening an issue. Issues not conforming to the guidelines may be closed immediately.
 
 
 ## :muscle: Contribution
-Please make sure to read the [Contributing Guide](https://github.com/kazupon/vue-i18n-extensions/blob/dev/CONTRIBUTING.md) before making a pull request.
+Please make sure to read the [Contributing Guide](https://github.com/intlify/vue-i18n-extensions/blob/dev/CONTRIBUTING.md) before making a pull request.
 
 ## :copyright: License
 
