@@ -1,9 +1,9 @@
 const stringRE = /'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*\$\{|\}(?:[^`\\]|\\.)*`|`(?:[^`\\]|\\.)*`/g
-const ecmaKeywordsRE = new RegExp('\\b' + (
+const ecmaKeywordsRE = new RegExp('(?<!\\.)\\b' + (
   'delete,typeof,instanceof,void,do,if,for,let,new,try,var,case,else,with,await,break,catch,class,const,' +
   'alert,eval,super,throw,while,yield,delete,export,import,return,switch,default,' +
   'extends,finally,continue,debugger,function,arguments'
-).split(',').join('\\b|\\b') + '\\b')
+).split(',').join('\\b(?!\\.)|(?<!\\.)\\b') + '\\b(?!\\.)')
 
 function warn (msg, err) {
   if (typeof console !== 'undefined') {
