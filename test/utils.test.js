@@ -23,3 +23,9 @@ it('ecmascript keyword should not be evaluate', () => {
   expect(status).toEqual('ng')
   expect(value).toEqual(undefined)
 })
+
+it('string literal containing period delimited ecmascript keywords should evaluate', () => {
+  const { status, value } = evaluateValue(`'new.alert.import'`)
+  expect(status).toEqual('ok')
+  expect(value).toEqual('new.alert.import')
+})
