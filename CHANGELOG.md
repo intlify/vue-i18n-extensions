@@ -1,4 +1,13 @@
 
+## v1.0.1 (2020-02-27)
+
+#### :bug: Bug Fixes
+* [#30](https://github.com/intlify/vue-i18n-extensions/pull/30) Update ecma keyword detection regex to not misfire on strings containing periods ([@ewohlken2](https://github.com/ewohlken2))
+
+#### Committers: 1
+- [@ewohlken2](https://github.com/ewohlken2)
+
+
 ## v1.0.0 (2020-01-21)
 
 #### :boom: Breaking Change
