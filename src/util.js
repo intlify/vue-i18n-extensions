@@ -48,7 +48,7 @@ function evaluateValue (expression) {
   if (!expression.match(stringRE)) { return ret }
 
   try {
-    const val = (new Function(`return ${expression}`))()
+    const val = (new Function(`return ${expression.trim()}`))()
     ret.status = 'ok'
     ret.value = val
   } catch (e) { }
