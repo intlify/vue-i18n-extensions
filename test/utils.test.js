@@ -29,3 +29,11 @@ it('string literal containing period delimited ecmascript keywords should evalua
   expect(status).toEqual('ok')
   expect(value).toEqual('new.alert.import')
 })
+
+it('string literal containing whitespace and newline keywords should evaluate', () => {
+  const { status, value } = evaluateValue(`
+      'hello'
+  `)
+  expect(status).toEqual('ok')
+  expect(value).toEqual('hello')
+})
