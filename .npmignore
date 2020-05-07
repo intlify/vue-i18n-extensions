@@ -2,5 +2,6 @@
 *.log
 *.swp
 *.yml
-test
 coverage
+__snapshots__
+test

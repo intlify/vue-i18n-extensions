@@ -1,19 +1,33 @@
+'use strict'
+
 module.exports = {
   root: true,
+  globals: {
+    page: true,
+    browser: true,
+    context: true
+  },
+  env: {
+    node: true,
+    jest: true
+  },
+  extends: [
+    'plugin:vue-libs/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
+  ],
+  plugins: ['@typescript-eslint'],
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: 'babel-eslint',
-    ecmaVersion: 2015,
+    parser: '@typescript-eslint/parser',
     sourceType: 'module'
   },
-  plugins: [
-    'vue'
-  ],
-  extends: [
-    // 'eslint:recommended',
-    'plugin:vue/essential'
-  ],
   rules: {
-    'object-curly-spacing': ['error', 'always'],
-    'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 1 }]
+    'object-curly-spacing': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
+    '@typescript-eslint/no-use-before-define': 'off'
   }
 }
