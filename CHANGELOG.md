@@ -1,4 +1,15 @@
 
+## v1.0.2 (2020-05-07)
+
+#### :bug: Bug Fixes
+* [#39](https://github.com/intlify/vue-i18n-extensions/pull/39) fix: v-t argument evaluation ([@kazupon](https://github.com/kazupon))
+* [#32](https://github.com/intlify/vue-i18n-extensions/pull/32) Added whitespace trim to handle oddly formatted vue templates ([@ewohlken2](https://github.com/ewohlken2))
+
+#### Committers: 2
+- [@ewohlken2](https://github.com/ewohlken2)
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v1.0.1 (2020-02-27)
 
 #### :bug: Bug Fixes
