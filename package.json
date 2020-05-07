@@ -23,7 +23,9 @@
       "Type: Documentation": ":pencil: Documentation"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/parser": "^7.9.6"
+  },
   "devDependencies": {
     "@vue/server-test-utils": "^1.0.0-beta.29",
     "@vue/test-utils": "^1.0.0-beta.29",
@@ -34,11 +36,11 @@
     "jest-serializer-vue": "^2.0.2",
     "lerna-changelog": "^1.0.0",
     "shipjs": "^0.18.0",
-    "vue": "^2.6.8",
-    "vue-i18n": "^8.9.0",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.17.0",
     "vue-jest": "^3.0.0",
-    "vue-server-renderer": "^2.6.8",
-    "vue-template-compiler": "^2.6.8"
+    "vue-server-renderer": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
   },
   "engines": {
     "node": ">= 10.0"
