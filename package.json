@@ -1,7 +1,7 @@
 {
   "name": "@intlify/vue-i18n-extensions",
   "description": "vue-i18n extensions",
-  "version": "2.0.0-alpha.0",
+  "version": "1.0.2",
   "author": {
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
@@ -23,28 +23,44 @@
       "Type: Documentation": ":pencil: Documentation"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "@babel/parser": "^7.9.6",
+    "@vue/compiler-dom": "^3.0.0-beta.5",
+    "@vue/shared": "^3.0.0-beta.5",
+    "vue-i18n": "^9.0.0-alpha.8"
+  },
   "devDependencies": {
     "@types/jest": "^25.0.0",
     "@types/node": "^13.1.4",
+    "@types/webpack": "^4.41.1",
+    "@types/webpack-merge": "^4.1.5",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "@typescript-eslint/typescript-estree": "^2.26.0",
-    "@vue/compiler-core": "^3.0.0-beta.9",
+    "@vue/compiler-sfc": "^3.0.0-beta.5",
+    "@vue/runtime-dom": "^3.0.0-beta.5",
+    "@vue/server-renderer": "^3.0.0-beta.5",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue-libs": "^4.0.0",
     "jest": "^26.0.0",
+    "jest-puppeteer": "^4.4.0",
     "jest-watch-typeahead": "^0.6.0",
     "lerna-changelog": "^1.0.0",
     "opener": "^1.5.1",
+    "puppeteer": "^2.1.1",
     "shipjs": "^0.18.0",
     "ts-jest": "^25.3.0",
     "typescript": "^3.8.3",
     "typescript-eslint-language-service": "^2.0.3",
-    "vue": "^3.0.0-beta.9",
-    "vue-i18n": "^9.0.0-alpha.7"
+    "vue": "^3.0.0-beta.5",
+    "vue-loader": "^16.0.0-beta.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "engines": {
     "node": ">= 10.0"
@@ -63,6 +79,9 @@
   ],
   "license": "MIT",
   "main": "lib/index.js",
+  "peerDependencies": {
+    "vue": "^3.0.0-beta.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
@@ -70,6 +89,7 @@
   "scripts": {
     "build": "tsc -p .",
     "build:watch": "tsc -p . --watch",
+    "example": "yarn build && webpack-dev-server --config example/webpack.config.js --inline --hot",
     "clean": "rm -rf ./coverage && rm -rf ./lib/*.js*",
     "coverage": "opener coverage/lcov-report/index.html",
     "fix": "yarn lint:fix && yarn format:fix",
@@ -79,8 +99,9 @@
     "lint:fix": "yarn lint --fix",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
-    "test": "yarn lint && yarn test:cover",
+    "test": "yarn lint && yarn test:cover && yarn test:e2e",
     "test:cover": "yarn test:unit --coverage",
+    "test:e2e": "yarn build && jest --runInBand --config ./jest.e2e.config.js",
     "test:unit": "jest --env node",
     "test:watch": "jest --env node --watch"
   }

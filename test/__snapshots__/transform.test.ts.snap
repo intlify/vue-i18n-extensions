@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`string literal: <div v-t="'hello'"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+const _hoisted_1 = { textContent: \\"こんにちは！\\" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", _hoisted_1))
+}"
+`;
