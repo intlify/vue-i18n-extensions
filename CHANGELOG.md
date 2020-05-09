@@ -1,4 +1,13 @@
 
+## v2.0.0-alpha.1 (2020-05-09)
+
+#### :star: Features
+* [#43](https://github.com/intlify/vue-i18n-extensions/pull/43) feat: transform v-t ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v1.0.2 (2020-05-07)
 
 #### :bug: Bug Fixes
