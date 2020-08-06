@@ -28,25 +28,39 @@ export function defineTransformVT(i18n: I18n): DirectiveTransform {
       // TODO: throw error with context.OnError
       // NOTE: We need to support from @vue/compiler-core
       // https://github.com/vuejs/vue-next/issues/1147
-      report(ReportCodes.UNEXPECTED_DIRECTIVE_EXPRESSION, { mode: 'error', args: [node.loc.source || ''], loc: node.loc })
+      report(ReportCodes.UNEXPECTED_DIRECTIVE_EXPRESSION, {
+        mode: 'error',
+        args: [node.loc.source || ''],
+        loc: node.loc
+      })
     }
     if (node.children.length > 0) {
       // TODO: throw error with context.OnError
       // NOTE: We need to support from @vue/compiler-core
       // https://github.com/vuejs/vue-next/issues/1147
-      report(ReportCodes.ORVERRIDE_ELEMENT_CHILDREN, { mode: 'error', args: [node.loc.source || ''], loc: node.loc })
+      report(ReportCodes.ORVERRIDE_ELEMENT_CHILDREN, {
+        mode: 'error',
+        args: [node.loc.source || ''],
+        loc: node.loc
+      })
       node.children.length = 0
     }
 
     const simpleExp = exp as SimpleExpressionNode
     if (simpleExp.isConstant) {
       if (dir.modifiers.includes('preserve')) {
-        report(ReportCodes.NOT_SUPPORTED_PRESERVE, { args: [node.loc.source || ''], loc: node.loc })
+        report(ReportCodes.NOT_SUPPORTED_PRESERVE, {
+          args: [node.loc.source || ''],
+          loc: node.loc
+        })
       }
 
       const { status, value } = evaluateValue(simpleExp.content)
       if (status === 'ng') {
-        report(ReportCodes.FAILED_VALUE_EVALUATION, { args: [node.loc.source || ''], loc: node.loc })
+        report(ReportCodes.FAILED_VALUE_EVALUATION, {
+          args: [node.loc.source || ''],
+          loc: node.loc
+        })
         return { props: [] }
       }
 
@@ -71,7 +85,10 @@ export function defineTransformVT(i18n: I18n): DirectiveTransform {
         ]
       }
     } else {
-      report(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, { args: [node.loc.source || ''], loc: node.loc })
+      report(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, {
+        args: [node.loc.source || ''],
+        loc: node.loc
+      })
       return { props: [] }
     }
   }

@@ -39,7 +39,10 @@ const ReportMessages: { [code: number]: string } = {
   [ReportCodes.ORVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`
 }
 
-export function getReportMessage(code: ReportCodes, ...args: unknown[]): string {
+export function getReportMessage(
+  code: ReportCodes,
+  ...args: unknown[]
+): string {
   return format(ReportMessages[code], ...args)
 }
 

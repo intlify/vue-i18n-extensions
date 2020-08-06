@@ -100,7 +100,9 @@ test('data binding', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(getMessage(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, source))
+  expect(spyWarn.mock.calls[0][0]).toEqual(
+    getMessage(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, source)
+  )
 })
 
 test('preserve modifier', () => {
@@ -123,7 +125,9 @@ test('preserve modifier', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(getMessage(ReportCodes.NOT_SUPPORTED_PRESERVE, source))
+  expect(spyWarn.mock.calls[0][0]).toEqual(
+    getMessage(ReportCodes.NOT_SUPPORTED_PRESERVE, source)
+  )
 })
 
 test('no specify', () => {
@@ -143,7 +147,9 @@ test('no specify', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(getMessage(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, source))
+  expect(spyWarn.mock.calls[0][0]).toEqual(
+    getMessage(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, source)
+  )
 })
 
 test('JavaScript syntax', () => {
@@ -180,7 +186,9 @@ test('invalid expression', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(getMessage(ReportCodes.FAILED_VALUE_EVALUATION, source))
+  expect(spyWarn.mock.calls[0][0]).toEqual(
+    getMessage(ReportCodes.FAILED_VALUE_EVALUATION, source)
+  )
 })
 
 test('have child elements', () => {
@@ -199,7 +207,9 @@ test('have child elements', () => {
       prefixIdentifiers: true,
       directiveTransforms: { t: transformVT }
     })
-  }).toThrowError(getReportMessage(ReportCodes.ORVERRIDE_ELEMENT_CHILDREN, source))
+  }).toThrowError(
+    getReportMessage(ReportCodes.ORVERRIDE_ELEMENT_CHILDREN, source)
+  )
 })
 
 test('missing translation', () => {
@@ -219,5 +229,7 @@ test('missing translation', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(`[vue-i18n] Not found 'foo.bar' key in 'ja' locale messages.`)
+  expect(spyWarn.mock.calls[0][0]).toEqual(
+    `[vue-i18n] Not found 'foo.bar' key in 'ja' locale messages.`
+  )
 })
