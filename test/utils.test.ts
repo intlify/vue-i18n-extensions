@@ -1,4 +1,4 @@
-import { evaluateValue } from '../src/utils'
+import { evaluateValue } from '../src/transpiler'
 
 test('string literal should be evaluate', () => {
   const { status, value } = evaluateValue(`'hello'`)

@@ -1,23 +1,19 @@
-import { parse } from '@babel/parser'
+import { isObject } from '@vue/shared'
 
-interface EvaluateReturn {
-  status: 'ok' | 'ng'
-  value?: unknown
-}
+const RE_ARGS = /\{([0-9a-zA-Z]+)\}/g
 
-export function evaluateValue(expression: string): EvaluateReturn {
-  const ret = { status: 'ng', value: undefined } as EvaluateReturn
-
-  try {
-    const ast = parse(`const a = ${expression.trim()}`)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const node = (ast.program.body[0] as any).declarations[0].init
-    if (node.type === 'StringLiteral' || node.type === 'ObjectExpression') {
-      const val = new Function(`return ${expression.trim()}`)()
-      ret.status = 'ok'
-      ret.value = val
+// eslint-disable-next-line
+export function format(message: string, ...args: any): string {
+  if (args.length === 1 && isObject(args[0])) {
+    args = args[0]
+  }
+  if (!args || !args.hasOwnProperty) {
+    args = {}
+  }
+  return message.replace(
+    RE_ARGS,
+    (match: string, identifier: string): string => {
+      return args.hasOwnProperty(identifier) ? args[identifier] : ''
     }
-  } catch (e) {}
-
-  return ret
+  )
 }
