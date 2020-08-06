@@ -1,5 +1,2087 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`data binding: <div v-t="hello"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\"))
+}"
+`;
+
+exports[`data binding: <div v-t="hello"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 19,
+            "line": 1,
+            "offset": 18,
+          },
+          "source": "<div v-t=\\"hello\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 19,
+          "line": 1,
+          "offset": 18,
+        },
+        "source": "<div v-t=\\"hello\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "_ctx.hello",
+            "isConstant": false,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 16,
+                "line": 1,
+                "offset": 15,
+              },
+              "source": "hello",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 17,
+              "line": 1,
+              "offset": 16,
+            },
+            "source": "v-t=\\"hello\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "source": "<div v-t=\\"hello\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 19,
+      "line": 1,
+      "offset": 18,
+    },
+    "source": "<div v-t=\\"hello\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`invalid expression: <p v-t="[0]"></p> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"p\\"))
+}"
+`;
+
+exports[`invalid expression: <p v-t="[0]"></p> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 18,
+            "line": 1,
+            "offset": 17,
+          },
+          "source": "<p v-t=\\"[0]\\"></p>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"p\\"",
+        "type": 13,
+      },
+      "isSelfClosing": false,
+      "loc": Object {
+        "end": Object {
+          "column": 18,
+          "line": 1,
+          "offset": 17,
+        },
+        "source": "<p v-t=\\"[0]\\"></p>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "[0]",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 12,
+                "line": 1,
+                "offset": 11,
+              },
+              "source": "[0]",
+              "start": Object {
+                "column": 9,
+                "line": 1,
+                "offset": 8,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 13,
+              "line": 1,
+              "offset": 12,
+            },
+            "source": "v-t=\\"[0]\\"",
+            "start": Object {
+              "column": 4,
+              "line": 1,
+              "offset": 3,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "p",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "source": "<p v-t=\\"[0]\\"></p>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"p\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 18,
+      "line": 1,
+      "offset": 17,
+    },
+    "source": "<p v-t=\\"[0]\\"></p>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`missing translation: <div v-t="'foo.bar'"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+const _hoisted_1 = { textContent: \\"foo.bar\\" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", _hoisted_1))
+}"
+`;
+
+exports[`missing translation: <div v-t="'foo.bar'"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 23,
+            "line": 1,
+            "offset": 22,
+          },
+          "source": "<div v-t=\\"'foo.bar'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": Object {
+          "content": "_hoisted_1",
+          "hoisted": Object {
+            "loc": Object {
+              "end": Object {
+                "column": 23,
+                "line": 1,
+                "offset": 22,
+              },
+              "source": "<div v-t=\\"'foo.bar'\\"/>",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "properties": Array [
+              Object {
+                "key": Object {
+                  "content": "textContent",
+                  "isConstant": false,
+                  "isStatic": true,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 21,
+                      "line": 1,
+                      "offset": 20,
+                    },
+                    "source": "v-t=\\"'foo.bar'\\"",
+                    "start": Object {
+                      "column": 6,
+                      "line": 1,
+                      "offset": 5,
+                    },
+                  },
+                  "type": 4,
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                  "source": "",
+                  "start": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                },
+                "type": 16,
+                "value": Object {
+                  "content": "\\"foo.bar\\"",
+                  "identifiers": Array [],
+                  "isConstant": true,
+                  "isStatic": false,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 20,
+                      "line": 1,
+                      "offset": 19,
+                    },
+                    "source": "'foo.bar'",
+                    "start": Object {
+                      "column": 11,
+                      "line": 1,
+                      "offset": 10,
+                    },
+                  },
+                  "type": 4,
+                },
+              },
+            ],
+            "type": 15,
+          },
+          "isConstant": true,
+          "isStatic": false,
+          "loc": Object {
+            "end": Object {
+              "column": 23,
+              "line": 1,
+              "offset": 22,
+            },
+            "source": "<div v-t=\\"'foo.bar'\\"/>",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 4,
+        },
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 23,
+          "line": 1,
+          "offset": 22,
+        },
+        "source": "<div v-t=\\"'foo.bar'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "\\"foo.bar\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": "'foo.bar'",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 21,
+              "line": 1,
+              "offset": 20,
+            },
+            "source": "v-t=\\"'foo.bar'\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 23,
+        "line": 1,
+        "offset": 22,
+      },
+      "source": "<div v-t=\\"'foo.bar'\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": Object {
+      "content": "_hoisted_1",
+      "hoisted": Object {
+        "loc": Object {
+          "end": Object {
+            "column": 23,
+            "line": 1,
+            "offset": 22,
+          },
+          "source": "<div v-t=\\"'foo.bar'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "properties": Array [
+          Object {
+            "key": Object {
+              "content": "textContent",
+              "isConstant": false,
+              "isStatic": true,
+              "loc": Object {
+                "end": Object {
+                  "column": 21,
+                  "line": 1,
+                  "offset": 20,
+                },
+                "source": "v-t=\\"'foo.bar'\\"",
+                "start": Object {
+                  "column": 6,
+                  "line": 1,
+                  "offset": 5,
+                },
+              },
+              "type": 4,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 16,
+            "value": Object {
+              "content": "\\"foo.bar\\"",
+              "identifiers": Array [],
+              "isConstant": true,
+              "isStatic": false,
+              "loc": Object {
+                "end": Object {
+                  "column": 20,
+                  "line": 1,
+                  "offset": 19,
+                },
+                "source": "'foo.bar'",
+                "start": Object {
+                  "column": 11,
+                  "line": 1,
+                  "offset": 10,
+                },
+              },
+              "type": 4,
+            },
+          },
+        ],
+        "type": 15,
+      },
+      "isConstant": true,
+      "isStatic": false,
+      "loc": Object {
+        "end": Object {
+          "column": 23,
+          "line": 1,
+          "offset": 22,
+        },
+        "source": "<div v-t=\\"'foo.bar'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": 4,
+    },
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [
+    Object {
+      "loc": Object {
+        "end": Object {
+          "column": 23,
+          "line": 1,
+          "offset": 22,
+        },
+        "source": "<div v-t=\\"'foo.bar'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "properties": Array [
+        Object {
+          "key": Object {
+            "content": "textContent",
+            "isConstant": false,
+            "isStatic": true,
+            "loc": Object {
+              "end": Object {
+                "column": 21,
+                "line": 1,
+                "offset": 20,
+              },
+              "source": "v-t=\\"'foo.bar'\\"",
+              "start": Object {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+            "source": "",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 16,
+          "value": Object {
+            "content": "\\"foo.bar\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": "'foo.bar'",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+        },
+      ],
+      "type": 15,
+    },
+  ],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 23,
+      "line": 1,
+      "offset": 22,
+    },
+    "source": "<div v-t=\\"'foo.bar'\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`no specify: <div v-t=""/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\"))
+}"
+`;
+
+exports[`no specify: <div v-t=""/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 14,
+            "line": 1,
+            "offset": 13,
+          },
+          "source": "<div v-t=\\"\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 14,
+          "line": 1,
+          "offset": 13,
+        },
+        "source": "<div v-t=\\"\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "",
+            "isConstant": false,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+              "source": "",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 12,
+              "line": 1,
+              "offset": 11,
+            },
+            "source": "v-t=\\"\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "source": "<div v-t=\\"\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 14,
+      "line": 1,
+      "offset": 13,
+    },
+    "source": "<div v-t=\\"\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`object literal: <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+const _hoisted_1 = { textContent: \\"こんにちは、kazupon！\\" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", _hoisted_1))
+}"
+`;
+
+exports[`object literal: <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 72,
+            "line": 1,
+            "offset": 71,
+          },
+          "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": Object {
+          "content": "_hoisted_1",
+          "hoisted": Object {
+            "loc": Object {
+              "end": Object {
+                "column": 72,
+                "line": 1,
+                "offset": 71,
+              },
+              "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "properties": Array [
+              Object {
+                "key": Object {
+                  "content": "textContent",
+                  "isConstant": false,
+                  "isStatic": true,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 70,
+                      "line": 1,
+                      "offset": 69,
+                    },
+                    "source": "v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"",
+                    "start": Object {
+                      "column": 6,
+                      "line": 1,
+                      "offset": 5,
+                    },
+                  },
+                  "type": 4,
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                  "source": "",
+                  "start": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                },
+                "type": 16,
+                "value": Object {
+                  "content": "\\"こんにちは、kazupon！\\"",
+                  "identifiers": Array [],
+                  "isConstant": true,
+                  "isStatic": false,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 69,
+                      "line": 1,
+                      "offset": 68,
+                    },
+                    "source": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
+                    "start": Object {
+                      "column": 11,
+                      "line": 1,
+                      "offset": 10,
+                    },
+                  },
+                  "type": 4,
+                },
+              },
+            ],
+            "type": 15,
+          },
+          "isConstant": true,
+          "isStatic": false,
+          "loc": Object {
+            "end": Object {
+              "column": 72,
+              "line": 1,
+              "offset": 71,
+            },
+            "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 4,
+        },
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 72,
+          "line": 1,
+          "offset": 71,
+        },
+        "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "\\"こんにちは、kazupon！\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 69,
+                "line": 1,
+                "offset": 68,
+              },
+              "source": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 70,
+              "line": 1,
+              "offset": 69,
+            },
+            "source": "v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 72,
+        "line": 1,
+        "offset": 71,
+      },
+      "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": Object {
+      "content": "_hoisted_1",
+      "hoisted": Object {
+        "loc": Object {
+          "end": Object {
+            "column": 72,
+            "line": 1,
+            "offset": 71,
+          },
+          "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "properties": Array [
+          Object {
+            "key": Object {
+              "content": "textContent",
+              "isConstant": false,
+              "isStatic": true,
+              "loc": Object {
+                "end": Object {
+                  "column": 70,
+                  "line": 1,
+                  "offset": 69,
+                },
+                "source": "v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"",
+                "start": Object {
+                  "column": 6,
+                  "line": 1,
+                  "offset": 5,
+                },
+              },
+              "type": 4,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 16,
+            "value": Object {
+              "content": "\\"こんにちは、kazupon！\\"",
+              "identifiers": Array [],
+              "isConstant": true,
+              "isStatic": false,
+              "loc": Object {
+                "end": Object {
+                  "column": 69,
+                  "line": 1,
+                  "offset": 68,
+                },
+                "source": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
+                "start": Object {
+                  "column": 11,
+                  "line": 1,
+                  "offset": 10,
+                },
+              },
+              "type": 4,
+            },
+          },
+        ],
+        "type": 15,
+      },
+      "isConstant": true,
+      "isStatic": false,
+      "loc": Object {
+        "end": Object {
+          "column": 72,
+          "line": 1,
+          "offset": 71,
+        },
+        "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": 4,
+    },
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [
+    Object {
+      "loc": Object {
+        "end": Object {
+          "column": 72,
+          "line": 1,
+          "offset": 71,
+        },
+        "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "properties": Array [
+        Object {
+          "key": Object {
+            "content": "textContent",
+            "isConstant": false,
+            "isStatic": true,
+            "loc": Object {
+              "end": Object {
+                "column": 70,
+                "line": 1,
+                "offset": 69,
+              },
+              "source": "v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"",
+              "start": Object {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+            "source": "",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 16,
+          "value": Object {
+            "content": "\\"こんにちは、kazupon！\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 69,
+                "line": 1,
+                "offset": 68,
+              },
+              "source": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+        },
+      ],
+      "type": 15,
+    },
+  ],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 72,
+      "line": 1,
+      "offset": 71,
+    },
+    "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`plural: <div v-t="{ path: 'banana', choice: 2 }"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+const _hoisted_1 = { textContent: \\"2 bananas\\" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", _hoisted_1))
+}"
+`;
+
+exports[`plural: <div v-t="{ path: 'banana', choice: 2 }"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 43,
+            "line": 1,
+            "offset": 42,
+          },
+          "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": Object {
+          "content": "_hoisted_1",
+          "hoisted": Object {
+            "loc": Object {
+              "end": Object {
+                "column": 43,
+                "line": 1,
+                "offset": 42,
+              },
+              "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "properties": Array [
+              Object {
+                "key": Object {
+                  "content": "textContent",
+                  "isConstant": false,
+                  "isStatic": true,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 41,
+                      "line": 1,
+                      "offset": 40,
+                    },
+                    "source": "v-t=\\"{ path: 'banana', choice: 2 }\\"",
+                    "start": Object {
+                      "column": 6,
+                      "line": 1,
+                      "offset": 5,
+                    },
+                  },
+                  "type": 4,
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                  "source": "",
+                  "start": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                },
+                "type": 16,
+                "value": Object {
+                  "content": "\\"2 bananas\\"",
+                  "identifiers": Array [],
+                  "isConstant": true,
+                  "isStatic": false,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 40,
+                      "line": 1,
+                      "offset": 39,
+                    },
+                    "source": "{ path: 'banana', choice: 2 }",
+                    "start": Object {
+                      "column": 11,
+                      "line": 1,
+                      "offset": 10,
+                    },
+                  },
+                  "type": 4,
+                },
+              },
+            ],
+            "type": 15,
+          },
+          "isConstant": true,
+          "isStatic": false,
+          "loc": Object {
+            "end": Object {
+              "column": 43,
+              "line": 1,
+              "offset": 42,
+            },
+            "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 4,
+        },
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 43,
+          "line": 1,
+          "offset": 42,
+        },
+        "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "\\"2 bananas\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 40,
+                "line": 1,
+                "offset": 39,
+              },
+              "source": "{ path: 'banana', choice: 2 }",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 41,
+              "line": 1,
+              "offset": 40,
+            },
+            "source": "v-t=\\"{ path: 'banana', choice: 2 }\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": Object {
+      "content": "_hoisted_1",
+      "hoisted": Object {
+        "loc": Object {
+          "end": Object {
+            "column": 43,
+            "line": 1,
+            "offset": 42,
+          },
+          "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "properties": Array [
+          Object {
+            "key": Object {
+              "content": "textContent",
+              "isConstant": false,
+              "isStatic": true,
+              "loc": Object {
+                "end": Object {
+                  "column": 41,
+                  "line": 1,
+                  "offset": 40,
+                },
+                "source": "v-t=\\"{ path: 'banana', choice: 2 }\\"",
+                "start": Object {
+                  "column": 6,
+                  "line": 1,
+                  "offset": 5,
+                },
+              },
+              "type": 4,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 16,
+            "value": Object {
+              "content": "\\"2 bananas\\"",
+              "identifiers": Array [],
+              "isConstant": true,
+              "isStatic": false,
+              "loc": Object {
+                "end": Object {
+                  "column": 40,
+                  "line": 1,
+                  "offset": 39,
+                },
+                "source": "{ path: 'banana', choice: 2 }",
+                "start": Object {
+                  "column": 11,
+                  "line": 1,
+                  "offset": 10,
+                },
+              },
+              "type": 4,
+            },
+          },
+        ],
+        "type": 15,
+      },
+      "isConstant": true,
+      "isStatic": false,
+      "loc": Object {
+        "end": Object {
+          "column": 43,
+          "line": 1,
+          "offset": 42,
+        },
+        "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": 4,
+    },
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [
+    Object {
+      "loc": Object {
+        "end": Object {
+          "column": 43,
+          "line": 1,
+          "offset": 42,
+        },
+        "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "properties": Array [
+        Object {
+          "key": Object {
+            "content": "textContent",
+            "isConstant": false,
+            "isStatic": true,
+            "loc": Object {
+              "end": Object {
+                "column": 41,
+                "line": 1,
+                "offset": 40,
+              },
+              "source": "v-t=\\"{ path: 'banana', choice: 2 }\\"",
+              "start": Object {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+            "source": "",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 16,
+          "value": Object {
+            "content": "\\"2 bananas\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 40,
+                "line": 1,
+                "offset": 39,
+              },
+              "source": "{ path: 'banana', choice: 2 }",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+        },
+      ],
+      "type": 15,
+    },
+  ],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 43,
+      "line": 1,
+      "offset": 42,
+    },
+    "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`preserve modifier: <div v-t.preserve="'hello'"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+const _hoisted_1 = { textContent: \\"こんにちは！\\" }
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", _hoisted_1))
+}"
+`;
+
+exports[`preserve modifier: <div v-t.preserve="'hello'"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 30,
+            "line": 1,
+            "offset": 29,
+          },
+          "source": "<div v-t.preserve=\\"'hello'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": Object {
+          "content": "_hoisted_1",
+          "hoisted": Object {
+            "loc": Object {
+              "end": Object {
+                "column": 30,
+                "line": 1,
+                "offset": 29,
+              },
+              "source": "<div v-t.preserve=\\"'hello'\\"/>",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "properties": Array [
+              Object {
+                "key": Object {
+                  "content": "textContent",
+                  "isConstant": false,
+                  "isStatic": true,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 28,
+                      "line": 1,
+                      "offset": 27,
+                    },
+                    "source": "v-t.preserve=\\"'hello'\\"",
+                    "start": Object {
+                      "column": 6,
+                      "line": 1,
+                      "offset": 5,
+                    },
+                  },
+                  "type": 4,
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                  "source": "",
+                  "start": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                },
+                "type": 16,
+                "value": Object {
+                  "content": "\\"こんにちは！\\"",
+                  "identifiers": Array [],
+                  "isConstant": true,
+                  "isStatic": false,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 27,
+                      "line": 1,
+                      "offset": 26,
+                    },
+                    "source": "'hello'",
+                    "start": Object {
+                      "column": 20,
+                      "line": 1,
+                      "offset": 19,
+                    },
+                  },
+                  "type": 4,
+                },
+              },
+            ],
+            "type": 15,
+          },
+          "isConstant": true,
+          "isStatic": false,
+          "loc": Object {
+            "end": Object {
+              "column": 30,
+              "line": 1,
+              "offset": 29,
+            },
+            "source": "<div v-t.preserve=\\"'hello'\\"/>",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 4,
+        },
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 30,
+          "line": 1,
+          "offset": 29,
+        },
+        "source": "<div v-t.preserve=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "\\"こんにちは！\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 27,
+                "line": 1,
+                "offset": 26,
+              },
+              "source": "'hello'",
+              "start": Object {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 28,
+              "line": 1,
+              "offset": 27,
+            },
+            "source": "v-t.preserve=\\"'hello'\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [
+            "preserve",
+          ],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 30,
+        "line": 1,
+        "offset": 29,
+      },
+      "source": "<div v-t.preserve=\\"'hello'\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": Object {
+      "content": "_hoisted_1",
+      "hoisted": Object {
+        "loc": Object {
+          "end": Object {
+            "column": 30,
+            "line": 1,
+            "offset": 29,
+          },
+          "source": "<div v-t.preserve=\\"'hello'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "properties": Array [
+          Object {
+            "key": Object {
+              "content": "textContent",
+              "isConstant": false,
+              "isStatic": true,
+              "loc": Object {
+                "end": Object {
+                  "column": 28,
+                  "line": 1,
+                  "offset": 27,
+                },
+                "source": "v-t.preserve=\\"'hello'\\"",
+                "start": Object {
+                  "column": 6,
+                  "line": 1,
+                  "offset": 5,
+                },
+              },
+              "type": 4,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 16,
+            "value": Object {
+              "content": "\\"こんにちは！\\"",
+              "identifiers": Array [],
+              "isConstant": true,
+              "isStatic": false,
+              "loc": Object {
+                "end": Object {
+                  "column": 27,
+                  "line": 1,
+                  "offset": 26,
+                },
+                "source": "'hello'",
+                "start": Object {
+                  "column": 20,
+                  "line": 1,
+                  "offset": 19,
+                },
+              },
+              "type": 4,
+            },
+          },
+        ],
+        "type": 15,
+      },
+      "isConstant": true,
+      "isStatic": false,
+      "loc": Object {
+        "end": Object {
+          "column": 30,
+          "line": 1,
+          "offset": 29,
+        },
+        "source": "<div v-t.preserve=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": 4,
+    },
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [
+    Object {
+      "loc": Object {
+        "end": Object {
+          "column": 30,
+          "line": 1,
+          "offset": 29,
+        },
+        "source": "<div v-t.preserve=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "properties": Array [
+        Object {
+          "key": Object {
+            "content": "textContent",
+            "isConstant": false,
+            "isStatic": true,
+            "loc": Object {
+              "end": Object {
+                "column": 28,
+                "line": 1,
+                "offset": 27,
+              },
+              "source": "v-t.preserve=\\"'hello'\\"",
+              "start": Object {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+            "source": "",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 16,
+          "value": Object {
+            "content": "\\"こんにちは！\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 27,
+                "line": 1,
+                "offset": 26,
+              },
+              "source": "'hello'",
+              "start": Object {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+            },
+            "type": 4,
+          },
+        },
+      ],
+      "type": 15,
+    },
+  ],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 30,
+      "line": 1,
+      "offset": 29,
+    },
+    "source": "<div v-t.preserve=\\"'hello'\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
 exports[`string literal: <div v-t="'hello'"/> 1`] = `
 "const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
@@ -8,4 +2090,402 @@ const _hoisted_1 = { textContent: \\"こんにちは！\\" }
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", _hoisted_1))
 }"
+`;
+
+exports[`string literal: <div v-t="'hello'"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [],
+      "codegenNode": Object {
+        "children": undefined,
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 21,
+            "line": 1,
+            "offset": 20,
+          },
+          "source": "<div v-t=\\"'hello'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": Object {
+          "content": "_hoisted_1",
+          "hoisted": Object {
+            "loc": Object {
+              "end": Object {
+                "column": 21,
+                "line": 1,
+                "offset": 20,
+              },
+              "source": "<div v-t=\\"'hello'\\"/>",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "properties": Array [
+              Object {
+                "key": Object {
+                  "content": "textContent",
+                  "isConstant": false,
+                  "isStatic": true,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 19,
+                      "line": 1,
+                      "offset": 18,
+                    },
+                    "source": "v-t=\\"'hello'\\"",
+                    "start": Object {
+                      "column": 6,
+                      "line": 1,
+                      "offset": 5,
+                    },
+                  },
+                  "type": 4,
+                },
+                "loc": Object {
+                  "end": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                  "source": "",
+                  "start": Object {
+                    "column": 1,
+                    "line": 1,
+                    "offset": 0,
+                  },
+                },
+                "type": 16,
+                "value": Object {
+                  "content": "\\"こんにちは！\\"",
+                  "identifiers": Array [],
+                  "isConstant": true,
+                  "isStatic": false,
+                  "loc": Object {
+                    "end": Object {
+                      "column": 18,
+                      "line": 1,
+                      "offset": 17,
+                    },
+                    "source": "'hello'",
+                    "start": Object {
+                      "column": 11,
+                      "line": 1,
+                      "offset": 10,
+                    },
+                  },
+                  "type": 4,
+                },
+              },
+            ],
+            "type": 15,
+          },
+          "isConstant": true,
+          "isStatic": false,
+          "loc": Object {
+            "end": Object {
+              "column": 21,
+              "line": 1,
+              "offset": 20,
+            },
+            "source": "<div v-t=\\"'hello'\\"/>",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 4,
+        },
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": "<div v-t=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "\\"こんにちは！\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 18,
+                "line": 1,
+                "offset": 17,
+              },
+              "source": "'hello'",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 19,
+              "line": 1,
+              "offset": 18,
+            },
+            "source": "v-t=\\"'hello'\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": undefined,
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 21,
+        "line": 1,
+        "offset": 20,
+      },
+      "source": "<div v-t=\\"'hello'\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": Object {
+      "content": "_hoisted_1",
+      "hoisted": Object {
+        "loc": Object {
+          "end": Object {
+            "column": 21,
+            "line": 1,
+            "offset": 20,
+          },
+          "source": "<div v-t=\\"'hello'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "properties": Array [
+          Object {
+            "key": Object {
+              "content": "textContent",
+              "isConstant": false,
+              "isStatic": true,
+              "loc": Object {
+                "end": Object {
+                  "column": 19,
+                  "line": 1,
+                  "offset": 18,
+                },
+                "source": "v-t=\\"'hello'\\"",
+                "start": Object {
+                  "column": 6,
+                  "line": 1,
+                  "offset": 5,
+                },
+              },
+              "type": 4,
+            },
+            "loc": Object {
+              "end": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": Object {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 16,
+            "value": Object {
+              "content": "\\"こんにちは！\\"",
+              "identifiers": Array [],
+              "isConstant": true,
+              "isStatic": false,
+              "loc": Object {
+                "end": Object {
+                  "column": 18,
+                  "line": 1,
+                  "offset": 17,
+                },
+                "source": "'hello'",
+                "start": Object {
+                  "column": 11,
+                  "line": 1,
+                  "offset": 10,
+                },
+              },
+              "type": 4,
+            },
+          },
+        ],
+        "type": 15,
+      },
+      "isConstant": true,
+      "isStatic": false,
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": "<div v-t=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": 4,
+    },
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [
+    Object {
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": "<div v-t=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "properties": Array [
+        Object {
+          "key": Object {
+            "content": "textContent",
+            "isConstant": false,
+            "isStatic": true,
+            "loc": Object {
+              "end": Object {
+                "column": 19,
+                "line": 1,
+                "offset": 18,
+              },
+              "source": "v-t=\\"'hello'\\"",
+              "start": Object {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+            "source": "",
+            "start": Object {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": 16,
+          "value": Object {
+            "content": "\\"こんにちは！\\"",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 18,
+                "line": 1,
+                "offset": 17,
+              },
+              "source": "'hello'",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+        },
+      ],
+      "type": 15,
+    },
+  ],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 21,
+      "line": 1,
+      "offset": 20,
+    },
+    "source": "<div v-t=\\"'hello'\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
 `;
