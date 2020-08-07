@@ -1,4 +1,19 @@
 
+## v2.0.0-alpha.2 (2020-08-07)
+
+#### :star: Features
+* [#60](https://github.com/intlify/vue-i18n-extensions/pull/60) feat: support SSR ([@kazupon](https://github.com/kazupon))
+
+#### :zap: Improvement Features
+* [#59](https://github.com/intlify/vue-i18n-extensions/pull/59) improve directive compilation ([@kazupon](https://github.com/kazupon))
+
+#### :pencil: Documentation
+* [#61](https://github.com/intlify/vue-i18n-extensions/pull/61) API docs ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v2.0.0-alpha.1 (2020-05-09)
 
 #### :star: Features
