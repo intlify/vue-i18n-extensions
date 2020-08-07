@@ -5,3 +5,6 @@
 coverage
 __snapshots__
 test
+etc
+dist/*.json
+temp/

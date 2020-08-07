@@ -34,6 +34,8 @@ type VTDirectiveValue = {
 
 /**
  * Transform options for `v-t` custom directive
+ *
+ * @public
  */
 export interface TransformVTDirectiveOptions {
   /**
@@ -49,7 +51,7 @@ export interface TransformVTDirectiveOptions {
    * I18n Mode
    *
    * @remarks
-   * Specify the mode of the API used by vue-i18n
+   * Specify the API style of vue-i18n. If you use legacy API style (e.g. `$t`) at vue-i18n, you need to specify `legacy`.
    *
    * @default 'composable'
    */
@@ -63,8 +65,46 @@ export interface TransformVTDirectiveOptions {
  * Transform that  `v-t` custom directive is optimized vue-i18n code by Vue compiler.
  * This transform can improve the performance by pre-translating, and it does support SSR.
  *
- * @param options - `v-t` custom directive transform options
+ * @param options - `v-t` custom directive transform options, see {@link TransformVTDirectiveOptions}
  * @returns Directive transform
+ *
+ * @example
+ * ```js
+ * import { compile } from '@vue/compiler-dom'
+ * import { createI18n } from 'vue-i18n'
+ * import { transformVTDirective } from '@intlify/vue-i18n-extensions'
+ *
+ * // create i18n instance
+ * const i18n = createI18n({
+ *   locale: 'ja',
+ *   messages: {
+ *     en: {
+ *       hello: 'hello'
+ *     },
+ *     ja: {
+ *       hello: 'こんにちは'
+ *     }
+ *   }
+ * })
+ *
+ * // get transform from  `transformVTDirective` function, with `i18n` option
+ * const transformVT = transformVTDirective({ i18n })
+ *
+ * const { code } = compile(`<p v-t="'hello'"></p>`, {
+ *   mode: 'function',
+ *   hoistStatic: true,
+ *   prefixIdentifiers: true,
+ *   directiveTransforms: { t: transformVT } // <- you need to specify to `directiveTransforms` option!
+ * })
+ *
+ * console.log(code)
+ * // output ->
+ * //   const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+ * //   return function render(_ctx, _cache) {
+ * //     return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは！\\"))
+ * //   }
+ * ```
+ * @public
  */
 export function transformVTDirective(
   options: TransformVTDirectiveOptions = {}

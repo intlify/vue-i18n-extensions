@@ -194,6 +194,11 @@ You can specify the transform resulting from `transformVTDirective` in the compi
 - `rollup-plugin-vue`
 
 
+## API
+
+About details, See [docs](./docs/@intlify/vue-i18n-extensions-api.md)
+
+
 ## :copyright: License
 
 [MIT](http://opensource.org/licenses/MIT)
