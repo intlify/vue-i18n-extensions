@@ -1,7 +1,13 @@
+/**
+ * @jest-environment jsdom
+ */
+import * as runtimeDom from '@vue/runtime-dom'
 import { compile } from '@vue/compiler-dom'
-import { createI18n } from 'vue-i18n'
-import { defineTransformVT } from '../src/index'
+import { defineComponent } from 'vue'
+import { createI18n, useI18n } from 'vue-i18n'
+import { transformVTDirective } from '../src/index'
 import { getReportMessage, ReportCodes } from '../src/report'
+import { mount } from './helper'
 
 function getMessage(code, ...args) {
   return `[vue-i18n-extensions] ${getReportMessage(code, ...args)}`
@@ -18,108 +24,70 @@ afterEach(() => {
   jest.restoreAllMocks()
 })
 
-test('string literal', () => {
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {
-      ja: { hello: 'こんにちは！' },
-      en: { hello: 'hello!' }
-    }
+describe('literal', () => {
+  test('path', () => {
+    const transformVT = transformVTDirective()
+    const source = `<div v-t="'hello'"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
   })
-  const transformVT = defineTransformVT(i18n)
-  const source = `<div v-t="'hello'"/>`
-  const { code, ast } = compile(source, {
-    mode: 'function',
-    hoistStatic: true,
-    prefixIdentifiers: true,
-    directiveTransforms: { t: transformVT }
+
+  test('object: path, locale, args, plural', () => {
+    const transformVT = transformVTDirective()
+    const source = `<div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
   })
-  expect(code).toMatchSnapshot(source)
-  expect(ast).toMatchSnapshot(source)
 })
 
-test('object literal', () => {
-  const i18n = createI18n({
-    locale: 'en',
-    messages: {
-      en: { hello: 'hello, {name}!' },
-      ja: { hello: 'こんにちは、{name}！' }
-    }
-  })
-  const transformVT = defineTransformVT(i18n)
-  const source = `<div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/>`
-  const { code, ast } = compile(source, {
-    mode: 'function',
-    hoistStatic: true,
-    prefixIdentifiers: true,
-    directiveTransforms: { t: transformVT }
-  })
-  expect(code).toMatchSnapshot(source)
-  expect(ast).toMatchSnapshot(source)
-})
-
-test('plural', () => {
-  const i18n = createI18n({
-    locale: 'en',
-    messages: {
-      en: {
-        banana: 'no bananas | {n} banana | {n} bananas'
-      }
-    }
+describe('binding', () => {
+  test('simple variable', () => {
+    const transformVT = transformVTDirective()
+    const source = `<div v-t="hello"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
   })
 
-  const transformVT = defineTransformVT(i18n)
-  const source = `<div v-t="{ path: 'banana', choice: 2 }"/>`
-  const { code, ast } = compile(source, {
-    mode: 'function',
-    hoistStatic: true,
-    prefixIdentifiers: true,
-    directiveTransforms: { t: transformVT }
+  test('object', () => {
+    const transformVT = transformVTDirective()
+    const source = `<div v-t="{ path: foo.bar.buz, locale, plural: 2, args: { name: 'banana' } }"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
   })
-  expect(code).toMatchSnapshot(source)
-  expect(ast).toMatchSnapshot(source)
-})
-
-test('data binding', () => {
-  spyWarn.mockImplementation(x => x)
-
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {
-      ja: { hello: 'こんにちは！' },
-      en: { hello: 'hello!' }
-    }
-  })
-  const transformVT = defineTransformVT(i18n)
-  const source = `<div v-t="hello"/>`
-  const { code, ast } = compile(source, {
-    mode: 'function',
-    hoistStatic: true,
-    prefixIdentifiers: true,
-    directiveTransforms: { t: transformVT }
-  })
-  expect(code).toMatchSnapshot(source)
-  expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(
-    getMessage(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, source)
-  )
 })
 
 test('preserve modifier', () => {
   spyWarn.mockImplementation(x => x)
 
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {
-      ja: { hello: 'こんにちは！' },
-      en: { hello: 'hello!' }
-    }
-  })
-  const transformVT = defineTransformVT(i18n)
+  const transformVT = transformVTDirective()
   const source = `<div v-t.preserve="'hello'"/>`
   const { code, ast } = compile(source, {
     mode: 'function',
-    hoistStatic: true,
+    hoistStatic: false,
     prefixIdentifiers: true,
     directiveTransforms: { t: transformVT }
   })
@@ -131,38 +99,25 @@ test('preserve modifier', () => {
 })
 
 test('no specify', () => {
-  spyWarn.mockImplementation(x => x)
-
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {}
-  })
-  const transformVT = defineTransformVT(i18n)
+  const transformVT = transformVTDirective()
   const source = `<div v-t=""/>`
   const { code, ast } = compile(source, {
     mode: 'function',
-    hoistStatic: true,
+    hoistStatic: false,
     prefixIdentifiers: true,
     directiveTransforms: { t: transformVT }
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(
-    getMessage(ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION, source)
-  )
 })
 
 test('JavaScript syntax', () => {
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {}
-  })
-  const transformVT = defineTransformVT(i18n)
+  const transformVT = transformVTDirective()
   const source = `<p v-t="while(true){alert('!');"></p>`
   expect(() => {
     compile(source, {
       mode: 'function',
-      hoistStatic: true,
+      hoistStatic: false,
       prefixIdentifiers: true,
       directiveTransforms: { t: transformVT }
     })
@@ -170,40 +125,25 @@ test('JavaScript syntax', () => {
 })
 
 test('invalid expression', () => {
-  spyWarn.mockImplementation(x => x)
-
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {}
-  })
-  const transformVT = defineTransformVT(i18n)
+  const transformVT = transformVTDirective()
   const source = `<p v-t="[0]"></p>`
   const { code, ast } = compile(source, {
     mode: 'function',
-    hoistStatic: true,
+    hoistStatic: false,
     prefixIdentifiers: true,
     directiveTransforms: { t: transformVT }
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(
-    getMessage(ReportCodes.FAILED_VALUE_EVALUATION, source)
-  )
 })
 
 test('have child elements', () => {
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {
-      ja: 'hello'
-    }
-  })
-  const transformVT = defineTransformVT(i18n)
+  const transformVT = transformVTDirective()
   const source = `<p v-t="'hello'"><span>foo</span></p>`
   expect(() => {
     compile(source, {
       mode: 'function',
-      hoistStatic: true,
+      hoistStatic: false,
       prefixIdentifiers: true,
       directiveTransforms: { t: transformVT }
     })
@@ -212,15 +152,76 @@ test('have child elements', () => {
   )
 })
 
-test('missing translation', () => {
-  spyWarn.mockImplementation(x => x)
-
-  const i18n = createI18n({
-    locale: 'ja',
-    messages: {}
+describe('legacy', () => {
+  test('path', () => {
+    const transformVT = transformVTDirective({ mode: 'legacy' })
+    const source = `<div v-t="'hello'"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
   })
-  const transformVT = defineTransformVT(i18n)
-  const source = `<div v-t="'foo.bar'"/>`
+
+  test('path, plural', () => {
+    const transformVT = transformVTDirective({ mode: 'legacy' })
+    const source = `<div v-t="{ path: 'dessert', choice: 2 }"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
+  })
+
+  test('path, plural, locale', () => {
+    const transformVT = transformVTDirective({ mode: 'legacy' })
+    const source = `<div v-t="{ path: 'dessert', locale: 'en', choice: 2 }"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
+  })
+
+  test('path, plural, named', () => {
+    const transformVT = transformVTDirective({ mode: 'legacy' })
+    const source = `<div v-t="{ path: 'dessert', choice: 2, args: { name: 'kazupon' } }"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
+  })
+
+  test('path, locale, named', () => {
+    const transformVT = transformVTDirective({ mode: 'legacy' })
+    const source = `<div v-t="{ path: 'dessert', locale: 'ja', args: { name: 'kazupon' } }"/>`
+    const { code, ast } = compile(source, {
+      mode: 'function',
+      hoistStatic: false,
+      prefixIdentifiers: true,
+      directiveTransforms: { t: transformVT }
+    })
+    expect(code).toMatchSnapshot(source)
+    expect(ast).toMatchSnapshot(source)
+  })
+})
+
+test('hoistStatic option: on', () => {
+  const transformVT = transformVTDirective()
+  const source = `<div v-t="'hello'"/>`
   const { code, ast } = compile(source, {
     mode: 'function',
     hoistStatic: true,
@@ -229,7 +230,47 @@ test('missing translation', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(
-    `[vue-i18n] Not found 'foo.bar' key in 'ja' locale messages.`
-  )
+})
+
+test('prefixIdentifiers option: off', () => {
+  const transformVT = transformVTDirective()
+  const source = `<div v-t="'hello'"/>`
+  const { code, ast } = compile(source, {
+    mode: 'function',
+    hoistStatic: true,
+    prefixIdentifiers: false,
+    directiveTransforms: { t: transformVT }
+  })
+  expect(code).toMatchSnapshot(source)
+  expect(ast).toMatchSnapshot(source)
+})
+
+test('render in app', async () => {
+  const i18n = createI18n({})
+
+  const transformVT = transformVTDirective()
+  const source = `<div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/>`
+  const { code } = compile(source, {
+    mode: 'function',
+    prefixIdentifiers: true,
+    directiveTransforms: { t: transformVT }
+  })
+  const render = new Function('Vue', code)(runtimeDom)
+  const App = defineComponent({
+    render,
+    setup() {
+      return useI18n({
+        locale: 'ja',
+        messages: {
+          en: {
+            apple: 'no apples | one apple | {count} apples',
+            banana: 'no bananas | {n} banana | {n} bananas',
+            dessert: 'I eat @:{name}!'
+          }
+        }
+      })
+    }
+  })
+  const wrapper = await mount(App, i18n)
+  expect(wrapper.html()).toEqual(`<div>I eat 2 bananas!</div>`)
 })

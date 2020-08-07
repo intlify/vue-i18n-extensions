@@ -19,7 +19,7 @@ export const enum ReportCodes {
   // item.
   SUCCESS,
   UNEXPECTED_DIRECTIVE_EXPRESSION,
-  NOT_SUPPORTED_BINDING_PRE_TRANSLATION,
+  NOT_SUPPORTED,
   FAILED_VALUE_EVALUATION,
   REQUIRED_PARAMETER,
   INVALID_PARAMETER_TYPE,
@@ -31,7 +31,7 @@ export const enum ReportCodes {
 // TODO: should be extracted as i18n resources (intlify project self hosting!)
 const ReportMessages: { [code: number]: string } = {
   [ReportCodes.UNEXPECTED_DIRECTIVE_EXPRESSION]: `Unexpected directive expression: {0}`,
-  [ReportCodes.NOT_SUPPORTED_BINDING_PRE_TRANSLATION]: `Not support binding in pre-localization: {0}`,
+  [ReportCodes.NOT_SUPPORTED]: `Not supported transform: {0}`,
   [ReportCodes.FAILED_VALUE_EVALUATION]: `Failed valu evaluation: {0}`,
   [ReportCodes.REQUIRED_PARAMETER]: `Required parameter: {0}`,
   [ReportCodes.INVALID_PARAMETER_TYPE]: `Required parameter: {0}`,

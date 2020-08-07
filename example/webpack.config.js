@@ -3,7 +3,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const { createI18n } = require('vue-i18n')
 const en = require('./locales/en.json')
 const ja = require('./locales/ja.json')
-const { defineTransformVT } = require('../lib/index')
+const { transformVTDirective } = require('../lib/index')
 
 const i18n = createI18n({
   locale: 'ja',
@@ -12,7 +12,7 @@ const i18n = createI18n({
     ja
   }
 })
-const transformVT = defineTransformVT(i18n)
+const transformVT = transformVTDirective(i18n)
 
 module.exports = {
   mode: 'development',
@@ -56,20 +56,6 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader'
       }
-      /*,
-      {
-        resourceQuery: /blockType=i18n/,
-        type: 'javascript/auto',
-        use: [
-          {
-            loader: path.resolve(__dirname, '../lib/index.js'),
-            options: {
-              preCompile: true
-            }
-          }
-        ]
-      }
-      */
     ]
   },
   plugins: [new VueLoaderPlugin()]

@@ -1,0 +1,645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic: <div v-t="'hello'"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは！\\"))
+}"
+`;
+
+exports[`basic: <div v-t="'hello'"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "content": "こんにちは！",
+          "type": 2,
+        },
+      ],
+      "codegenNode": Object {
+        "children": Object {
+          "content": "こんにちは！",
+          "type": 2,
+        },
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 21,
+            "line": 1,
+            "offset": 20,
+          },
+          "source": "<div v-t=\\"'hello'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": "<div v-t=\\"'hello'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "'hello'",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 18,
+                "line": 1,
+                "offset": 17,
+              },
+              "source": "'hello'",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 19,
+              "line": 1,
+              "offset": 18,
+            },
+            "source": "v-t=\\"'hello'\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": Object {
+      "content": "こんにちは！",
+      "type": 2,
+    },
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 21,
+        "line": 1,
+        "offset": 20,
+      },
+      "source": "<div v-t=\\"'hello'\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 21,
+      "line": 1,
+      "offset": 20,
+    },
+    "source": "<div v-t=\\"'hello'\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`missing translation: <div v-t="'foo.bar'"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", null, \\"foo.bar\\"))
+}"
+`;
+
+exports[`missing translation: <div v-t="'foo.bar'"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "content": "foo.bar",
+          "type": 2,
+        },
+      ],
+      "codegenNode": Object {
+        "children": Object {
+          "content": "foo.bar",
+          "type": 2,
+        },
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 23,
+            "line": 1,
+            "offset": 22,
+          },
+          "source": "<div v-t=\\"'foo.bar'\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 23,
+          "line": 1,
+          "offset": 22,
+        },
+        "source": "<div v-t=\\"'foo.bar'\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "'foo.bar'",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 20,
+                "line": 1,
+                "offset": 19,
+              },
+              "source": "'foo.bar'",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 21,
+              "line": 1,
+              "offset": 20,
+            },
+            "source": "v-t=\\"'foo.bar'\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": Object {
+      "content": "foo.bar",
+      "type": 2,
+    },
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 23,
+        "line": 1,
+        "offset": 22,
+      },
+      "source": "<div v-t=\\"'foo.bar'\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 23,
+      "line": 1,
+      "offset": 22,
+    },
+    "source": "<div v-t=\\"'foo.bar'\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`named: <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは、kazupon！\\"))
+}"
+`;
+
+exports[`named: <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "content": "こんにちは、kazupon！",
+          "type": 2,
+        },
+      ],
+      "codegenNode": Object {
+        "children": Object {
+          "content": "こんにちは、kazupon！",
+          "type": 2,
+        },
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 72,
+            "line": 1,
+            "offset": 71,
+          },
+          "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 72,
+          "line": 1,
+          "offset": 71,
+        },
+        "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 69,
+                "line": 1,
+                "offset": 68,
+              },
+              "source": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 70,
+              "line": 1,
+              "offset": 69,
+            },
+            "source": "v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": Object {
+      "content": "こんにちは、kazupon！",
+      "type": 2,
+    },
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 72,
+        "line": 1,
+        "offset": 71,
+      },
+      "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 72,
+      "line": 1,
+      "offset": 71,
+    },
+    "source": "<div v-t=\\"{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
+
+exports[`plural: <div v-t="{ path: 'banana', choice: 2 }"/> 1`] = `
+"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+
+return function render(_ctx, _cache) {
+  return (_openBlock(), _createBlock(\\"div\\", null, \\"2 bananas\\"))
+}"
+`;
+
+exports[`plural: <div v-t="{ path: 'banana', choice: 2 }"/> 2`] = `
+Object {
+  "cached": 0,
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "content": "2 bananas",
+          "type": 2,
+        },
+      ],
+      "codegenNode": Object {
+        "children": Object {
+          "content": "2 bananas",
+          "type": 2,
+        },
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "loc": Object {
+          "end": Object {
+            "column": 43,
+            "line": 1,
+            "offset": 42,
+          },
+          "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+          "start": Object {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": undefined,
+        "props": undefined,
+        "tag": "\\"div\\"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": Object {
+        "end": Object {
+          "column": 43,
+          "line": 1,
+          "offset": 42,
+        },
+        "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+        "start": Object {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": Array [
+        Object {
+          "arg": undefined,
+          "exp": Object {
+            "content": "{ path: 'banana', choice: 2 }",
+            "identifiers": Array [],
+            "isConstant": true,
+            "isStatic": false,
+            "loc": Object {
+              "end": Object {
+                "column": 40,
+                "line": 1,
+                "offset": 39,
+              },
+              "source": "{ path: 'banana', choice: 2 }",
+              "start": Object {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": Object {
+            "end": Object {
+              "column": 41,
+              "line": 1,
+              "offset": 40,
+            },
+            "source": "v-t=\\"{ path: 'banana', choice: 2 }\\"",
+            "start": Object {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": Array [],
+          "name": "t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": Object {
+    "children": Object {
+      "content": "2 bananas",
+      "type": 2,
+    },
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "loc": Object {
+      "end": Object {
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+      "start": Object {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": undefined,
+    "props": undefined,
+    "tag": "\\"div\\"",
+    "type": 13,
+  },
+  "components": Array [],
+  "directives": Array [],
+  "helpers": Array [
+    Symbol(createVNode),
+    Symbol(openBlock),
+    Symbol(createBlock),
+  ],
+  "hoists": Array [],
+  "imports": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 43,
+      "line": 1,
+      "offset": 42,
+    },
+    "source": "<div v-t=\\"{ path: 'banana', choice: 2 }\\"/>",
+    "start": Object {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "temps": 0,
+  "type": 0,
+}
+`;
