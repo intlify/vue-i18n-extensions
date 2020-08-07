@@ -5,7 +5,7 @@ import * as runtimeDom from '@vue/runtime-dom'
 import { compile } from '@vue/compiler-dom'
 import { defineComponent } from 'vue'
 import { createI18n, useI18n } from 'vue-i18n'
-import { transformVTDirective } from '../src/index'
+import { transformVTDirective } from '../src/transform'
 import { getReportMessage, ReportCodes } from '../src/report'
 import { mount } from './helper'
 

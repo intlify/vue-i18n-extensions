@@ -1,6 +1,6 @@
 import * as runtimeDom from '@vue/runtime-dom'
 import { compile } from '@vue/compiler-ssr'
-import { transformVTDirective } from '../src/index'
+import { transformVTDirective } from '../src/transform'
 import { defineComponent, createSSRApp } from 'vue'
 import { renderToString } from '@vue/server-renderer'
 import { createI18n, useI18n } from 'vue-i18n'
