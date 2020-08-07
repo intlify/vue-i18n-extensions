@@ -1409,10 +1409,10 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-api-docs-gen@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/api-docs-gen/-/api-docs-gen-0.1.1.tgz#471d45f316200d4b17b39655c9f1bd616cd5b683"
-  integrity sha512-wu8Zv9hnSOaGhuBK3Hu6Izkwno7eNdR4jbsI0JPAbx00n+VaSFHeefFFpYX/tynjXzHjsAzx1SJUTn+UMyN5Dg==
+api-docs-gen@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/api-docs-gen/-/api-docs-gen-0.1.2.tgz#2f3f4d52f91b58ccddd3863edfa874d41001ee77"
+  integrity sha512-CxJ5PmeyafoZTH0XatBLqb+LOJTtcphNLC7+NeFOXdXuGemXQwh4k2YpJ1naIcKOCA6HIBbxCdNRw5Tvjf2NdA==
   dependencies:
     "@microsoft/api-extractor-model" "^7.8.11"
     "@microsoft/tsdoc" "^0.12.20"
