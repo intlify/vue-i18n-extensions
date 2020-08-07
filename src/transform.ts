@@ -172,13 +172,13 @@ export function transformVTDirective(
 function isSimpleExpressionNode(
   node: Node | undefined
 ): node is SimpleExpressionNode {
-  return node !== null && node?.type === NodeTypes.SIMPLE_EXPRESSION
+  return node != null && node.type === NodeTypes.SIMPLE_EXPRESSION
 }
 
 function isCompoundExpressionNode(
   node: Node | undefined
 ): node is CompoundExpressionNode {
-  return node !== null && node?.type === NodeTypes.COMPOUND_EXPRESSION
+  return node != null && node.type === NodeTypes.COMPOUND_EXPRESSION
 }
 
 function mapNodeContentHanlder(
