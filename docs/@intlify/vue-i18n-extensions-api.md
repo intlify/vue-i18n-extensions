@@ -22,7 +22,7 @@ export declare function transformVTDirective(options?: TransformVTDirectiveOptio
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| options | TransformVTDirectiveOptions | `v-t` custom directive transform options |
+| options | TransformVTDirectiveOptions | `v-t` custom directive transform options, see [TransformVTDirectiveOptions](#transformvtdirectiveoptions) |
 
 #### Returns
 
@@ -56,6 +56,19 @@ const i18n = createI18n({
 // get transform from  `transformVTDirective` function, with `i18n` option
 const transformVT = transformVTDirective({ i18n })
 
+const { code } = compile(`<p v-t="'hello'"></p>`, {
+  mode: 'function',
+  hoistStatic: true,
+  prefixIdentifiers: true,
+  directiveTransforms: { t: transformVT } // <- you need to specify to `directiveTransforms` option!
+})
+
+console.log(code)
+// output ->
+//   const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+//   return function render(_ctx, _cache) {
+//     return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは！\\"))
+//   }
 ```
 
 
@@ -101,7 +114,7 @@ mode?: I18nMode;
 
 #### Remarks
 
-Specify the mode of the API used by vue-i18n 'composable'
+Specify the API style of vue-i18n. If you use legacy API style (e.g. `$t`) at vue-i18n, you need to specify `legacy`. 'composable'
 
 
 
