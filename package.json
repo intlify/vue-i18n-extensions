@@ -30,6 +30,7 @@
     "vue-i18n": "^9.0.0-alpha.12"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.9.3",
     "@types/jest": "^26.0.0",
     "@types/node": "^13.1.4",
     "@types/webpack": "^4.41.1",
@@ -40,6 +41,7 @@
     "@vue/compiler-ssr": "^3.0.0-rc.5",
     "@vue/runtime-dom": "^3.0.0-rc.5",
     "@vue/server-renderer": "^3.0.0-rc.5",
+    "api-docs-gen": "^0.1.1",
     "babel-loader": "^8.1.0",
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.10.1",
@@ -67,7 +69,8 @@
     "node": ">= 10.0"
   },
   "files": [
-    "lib"
+    "lib/*.js",
+    "dist/*.d.ts"
   ],
   "homepage": "https://github.com/intlify/vue-i18n-extensions#readme",
   "keywords": [
@@ -83,18 +86,23 @@
   "peerDependencies": {
     "vue": "^3.0.0-rc.5"
   },
+  "types": "dist/vue-i18n-extensions.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
   },
   "scripts": {
-    "build": "tsc -p .",
-    "build:watch": "tsc -p . --watch",
+    "build": "yarn build:transpile && yarn build:extract",
+    "build:transpile": "tsc -p .",
+    "build:extract": "api-extractor run -l -c ./api-extractor.json",
+    "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
+    "watch": "tsc -p . --watch",
     "example": "yarn build && webpack-dev-server --config example/webpack.config.js --inline --hot",
     "clean": "npm-run-all clean:*",
-    "clean:lib": "rm -rf ./lib/*.js",
     "clean:cache:jest": "jest --clearCache",
     "clean:coverage": "rm -rf ./coverage",
+    "clean:lib": "rm -rf ./lib/*.*",
+    "clean:extract": "rm -rf ./temp/*.* ./dist/*.* ./etc/*.*",
     "coverage": "opener coverage/lcov-report/index.html",
     "fix": "npm-run-all --parallel lint:fix format:fix",
     "format": "prettier --config .prettierrc --ignore-path .prettierignore '**/*.{js,json,html}'",
@@ -105,7 +113,7 @@
     "release:trigger": "shipjs trigger",
     "test": "yarn lint && yarn test:cover && yarn test:e2e",
     "test:cover": "yarn clean:cache:jest && yarn test:unit --coverage",
-    "test:e2e": "yarn build && jest --runInBand --config ./jest.e2e.config.js",
+    "test:e2e": "jest --runInBand --config ./jest.e2e.config.js",
     "test:unit": "yarn clean:cache:jest && jest --env node",
     "test:watch": "yarn clean:cache:jest && jest --env node --watch"
   }
