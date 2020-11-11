@@ -191,7 +191,8 @@ You can specify the transform resulting from `transformVTDirective` in the compi
 - `@vue/compiler-ssr` (`options` at `compile` function)
 - `@vue/compiler-sfc` (`compilerOptions` at `compileTemplate` function)
 - `vue-loader` (`compilerOptions` at `options`)
-- `rollup-plugin-vue`
+- `rollup-plugin-vue` (`compilerOptions` at [`Options`](https://github.com/vuejs/rollup-plugin-vue/blob/next/src/index.ts#L50))
+- `vite` (`vueCompilerOptions` at [`CoreOptions`](https://github.com/vitejs/vite/blob/master/src/node/config.ts#L154))
 
 
 ## API
