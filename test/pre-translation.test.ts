@@ -79,8 +79,11 @@ test('missing translation', () => {
   spyWarn.mockImplementation(x => x)
 
   const i18n = createI18n({
+    legacy: false,
     locale: 'ja',
-    messages: {}
+    messages: {
+      ja: {}
+    }
   })
   const transformVT = transformVTDirective({ i18n })
   const source = `<div v-t="'foo.bar'"/>`

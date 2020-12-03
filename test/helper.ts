@@ -22,6 +22,7 @@ export interface MountOptions {
   provide: Record<string | symbol, any> // eslint-disable-line @typescript-eslint/no-explicit-any
   components: ComponentOptions['components']
   slots: Record<string, string>
+  installI18n: boolean
 }
 
 interface Wrapper {
@@ -54,9 +55,17 @@ afterAll(() => {
   activeWrapperRemovers = []
 })
 
-export function mount(
+export const isBoolean = (val: unknown): val is boolean =>
+  typeof val === 'boolean'
+
+export function mount<
+  Messages = {},
+  DateTimeFormats = {},
+  NumberFormats = {},
+  Legacy extends boolean = true
+>(
   targetComponent: Parameters<typeof createApp>[0],
-  i18n: I18n,
+  i18n: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>,
   options: Partial<MountOptions> = {}
 ): Promise<Wrapper> {
   const TargetComponent = targetComponent as Component
@@ -64,6 +73,7 @@ export function mount(
     // NOTE: only supports props as an object
     const propsData = reactive(
       Object.assign(
+        // @ts-ignore
         initialProps(TargetComponent.props || {}),
         options.propsData
       )
@@ -87,7 +97,8 @@ export function mount(
         })
         return () => {
           return h(
-            TargetComponent,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            TargetComponent as any,
             {
               ref: componentInstanceRef,
               onVnodeMounted() {

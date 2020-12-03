@@ -65,9 +65,9 @@ Object {
         Object {
           "arg": undefined,
           "exp": Object {
+            "constType": 3,
             "content": "'hello'",
             "identifiers": Array [],
-            "isConstant": true,
             "isStatic": false,
             "loc": Object {
               "end": Object {
@@ -226,9 +226,9 @@ Object {
         Object {
           "arg": undefined,
           "exp": Object {
+            "constType": 0,
             "content": "'foo.bar'",
             "identifiers": Array [],
-            "isConstant": true,
             "isStatic": false,
             "loc": Object {
               "end": Object {
@@ -387,9 +387,9 @@ Object {
         Object {
           "arg": undefined,
           "exp": Object {
+            "constType": 3,
             "content": "{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }",
             "identifiers": Array [],
-            "isConstant": true,
             "isStatic": false,
             "loc": Object {
               "end": Object {
@@ -548,9 +548,9 @@ Object {
         Object {
           "arg": undefined,
           "exp": Object {
+            "constType": 3,
             "content": "{ path: 'banana', choice: 2 }",
             "identifiers": Array [],
-            "isConstant": true,
             "isStatic": false,
             "loc": Object {
               "end": Object {

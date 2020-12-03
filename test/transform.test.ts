@@ -246,7 +246,7 @@ test('prefixIdentifiers option: off', () => {
 })
 
 test('render in app', async () => {
-  const i18n = createI18n({})
+  const i18n = createI18n({ legacy: false })
 
   const transformVT = transformVTDirective()
   const source = `<div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/>`

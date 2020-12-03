@@ -15,14 +15,14 @@ Transform `v-t` custom directive
 
 **Signature:**
 ```typescript
-export declare function transformVTDirective(options?: TransformVTDirectiveOptions): DirectiveTransform;
+export declare function transformVTDirective<Messages = {}, DateTimeFormats = {}, NumberFormats = {}, Legacy extends boolean = true>(options?: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy>): DirectiveTransform;
 ```
 
 #### Parameters
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| options | TransformVTDirectiveOptions | `v-t` custom directive transform options, see [TransformVTDirectiveOptions](#transformvtdirectiveoptions) |
+| options | TransformVTDirectiveOptions&lt;Messages, DateTimeFormats, NumberFormats, Legacy&gt; | `v-t` custom directive transform options, see [TransformVTDirectiveOptions](#transformvtdirectiveoptions) |
 
 #### Returns
 
@@ -81,7 +81,7 @@ Transform options for `v-t` custom directive
 
 **Signature:**
 ```typescript
-export interface TransformVTDirectiveOptions 
+export interface TransformVTDirectiveOptions<Messages = {}, DateTimeFormats = {}, NumberFormats = {}, Legacy extends boolean = true> 
 ```
 
 
@@ -96,7 +96,7 @@ I18n instance
 
 **Signature:**
 ```typescript
-i18n?: I18n;
+i18n?: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>;
 ```
 
 #### Remarks
@@ -114,7 +114,9 @@ mode?: I18nMode;
 
 #### Remarks
 
-Specify the API style of vue-i18n. If you use legacy API style (e.g. `$t`) at vue-i18n, you need to specify `legacy`. 'composable'
+Specify the API style of vue-i18n. If you use legacy API style (e.g. `$t`) at vue-i18n, you need to specify `legacy`.
+
+ 'composition'
 
 
 
