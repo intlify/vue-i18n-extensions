@@ -2,7 +2,7 @@ import { compile } from '@vue/compiler-dom'
 import { createI18n } from 'vue-i18n'
 import { transformVTDirective } from '../src/transform'
 
-let spyWarn
+let spyWarn: any // eslint-disable-line @typescript-eslint/no-explicit-any
 beforeEach(() => {
   spyWarn = jest.spyOn(global.console, 'warn')
 })
@@ -76,11 +76,14 @@ test('plural', () => {
 })
 
 test('missing translation', () => {
-  spyWarn.mockImplementation(x => x)
+  spyWarn.mockImplementation(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
 
   const i18n = createI18n({
+    legacy: false,
     locale: 'ja',
-    messages: {}
+    messages: {
+      ja: {}
+    }
   })
   const transformVT = transformVTDirective({ i18n })
   const source = `<div v-t="'foo.bar'"/>`
@@ -93,6 +96,6 @@ test('missing translation', () => {
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
   expect(spyWarn.mock.calls[0][0]).toEqual(
-    `[vue-i18n] Not found 'foo.bar' key in 'ja' locale messages.`
+    `[intlify] Not found 'foo.bar' key in 'ja' locale messages.`
   )
 })

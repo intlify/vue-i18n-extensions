@@ -9,11 +9,11 @@ import { transformVTDirective } from '../src/transform'
 import { getReportMessage, ReportCodes } from '../src/report'
 import { mount } from './helper'
 
-function getMessage(code, ...args) {
+function getMessage(code: ReportCodes, ...args: unknown[]) {
   return `[vue-i18n-extensions] ${getReportMessage(code, ...args)}`
 }
 
-let spyWarn
+let spyWarn: any // eslint-disable-line @typescript-eslint/no-explicit-any
 beforeEach(() => {
   spyWarn = jest.spyOn(global.console, 'warn')
 })
@@ -81,7 +81,7 @@ describe('binding', () => {
 })
 
 test('preserve modifier', () => {
-  spyWarn.mockImplementation(x => x)
+  spyWarn.mockImplementation(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
 
   const transformVT = transformVTDirective()
   const source = `<div v-t.preserve="'hello'"/>`
@@ -246,7 +246,7 @@ test('prefixIdentifiers option: off', () => {
 })
 
 test('render in app', async () => {
-  const i18n = createI18n({})
+  const i18n = createI18n({ legacy: false })
 
   const transformVT = transformVTDirective()
   const source = `<div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/>`

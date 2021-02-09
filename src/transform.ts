@@ -37,7 +37,12 @@ type VTDirectiveValue = {
  *
  * @public
  */
-export interface TransformVTDirectiveOptions {
+export interface TransformVTDirectiveOptions<
+  Messages = {},
+  DateTimeFormats = {},
+  NumberFormats = {},
+  Legacy extends boolean = true
+> {
   /**
    * I18n instance
    *
@@ -46,16 +51,25 @@ export interface TransformVTDirectiveOptions {
    * The translation will use the global resources registered in the I18n instance,
    * that is, `v-t` diretive transform is also a limitation that the resources of each component cannot be used.
    */
-  i18n?: I18n
+  i18n?: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>
   /**
    * I18n Mode
    *
    * @remarks
    * Specify the API style of vue-i18n. If you use legacy API style (e.g. `$t`) at vue-i18n, you need to specify `legacy`.
    *
-   * @default 'composable'
+   * @default 'composition'
    */
   mode?: I18nMode
+}
+
+// compatibility for this commit(v3.0.3)
+// https://github.com/vuejs/vue-next/commit/90bdf59f4c84ec0af9bab402c37090d82806cfc1
+const enum ConstantTypes {
+  NOT_CONSTANT = 0,
+  CAN_SKIP_PATCH,
+  CAN_HOIST,
+  CAN_STRINGIFY
 }
 
 /**
@@ -106,14 +120,24 @@ export interface TransformVTDirectiveOptions {
  * ```
  * @public
  */
-export function transformVTDirective(
-  options: TransformVTDirectiveOptions = {}
+export function transformVTDirective<
+  Messages = {},
+  DateTimeFormats = {},
+  NumberFormats = {},
+  Legacy extends boolean = true
+>(
+  options: TransformVTDirectiveOptions<
+    Messages,
+    DateTimeFormats,
+    NumberFormats,
+    Legacy
+  > = {}
 ): DirectiveTransform {
   const i18nInstance = options.i18n
   const mode =
-    isString(options.mode) && ['composable', 'legacy'].includes(options.mode)
+    isString(options.mode) && ['composition', 'legacy'].includes(options.mode)
       ? options.mode
-      : 'composable'
+      : 'composition'
 
   return (dir, node, context) => {
     const { exp, loc } = dir
@@ -150,7 +174,7 @@ export function transformVTDirective(
     }
 
     if (isSimpleExpressionNode(exp)) {
-      if (exp.isConstant && i18nInstance) {
+      if (isConstant(exp) && i18nInstance) {
         const { status, value } = evaluateValue(exp.content)
         if (status === 'ng') {
           report(ReportCodes.FAILED_VALUE_EVALUATION, {
@@ -166,7 +190,12 @@ export function transformVTDirective(
           return { props: [] }
         }
 
-        const content = i18nInstance.global.t(...makeParams(parsedValue!))
+        const global =
+          i18nInstance.mode === 'composition'
+            ? (i18nInstance.global as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+            : (i18nInstance.global as any).__composer // eslint-disable-line @typescript-eslint/no-explicit-any
+        const content = global.t(...makeParams(parsedValue!))
+
         node.children.push({
           type: NodeTypes.TEXT,
           content
@@ -179,7 +208,13 @@ export function transformVTDirective(
         node.children.push({
           type: NodeTypes.INTERPOLATION,
           content: createCompoundExpression([
-            createSimpleExpression(code, false, loc)
+            createSimpleExpression(
+              code,
+              false,
+              loc,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              ConstantTypes.NOT_CONSTANT as any
+            )
           ])
         } as InterpolationNode)
         return { props: [] }
@@ -195,7 +230,13 @@ export function transformVTDirective(
       node.children.push({
         type: NodeTypes.INTERPOLATION,
         content: createCompoundExpression([
-          createSimpleExpression(code, false, loc)
+          createSimpleExpression(
+            code,
+            false,
+            loc,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ConstantTypes.NOT_CONSTANT as any
+          )
         ])
       } as InterpolationNode)
       return { props: [] }
@@ -219,6 +260,19 @@ function isCompoundExpressionNode(
   node: Node | undefined
 ): node is CompoundExpressionNode {
   return node != null && node.type === NodeTypes.COMPOUND_EXPRESSION
+}
+
+function isConstant(node: SimpleExpressionNode): boolean {
+  if ('isConstant' in node) {
+    // for v3.0.3 earlier
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (node as any).isConstant
+  } else if ('constType' in node) {
+    // for v3.0.3 or later
+    return (node.constType as number) <= ConstantTypes.CAN_STRINGIFY
+  } else {
+    throw Error('unexpected error')
+  }
 }
 
 function mapNodeContentHanlder(
@@ -292,7 +346,7 @@ function generateTranslationCode(
   mode: I18nMode,
   params: TranslationParams
 ): string {
-  return mode === 'composable'
+  return mode === 'composition'
     ? generateComposableCode(context, params)
     : generateLegacyCode(context, params)
 }

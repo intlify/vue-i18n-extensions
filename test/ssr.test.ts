@@ -5,8 +5,9 @@ import { defineComponent, createSSRApp } from 'vue'
 import { renderToString } from '@vue/server-renderer'
 import { createI18n, useI18n } from 'vue-i18n'
 
-test('v-t: composable', async () => {
+test('v-t: composition', async () => {
   const i18n = createI18n({
+    legacy: false,
     locale: 'ja',
     messages: {}
   })
@@ -41,7 +42,6 @@ test('v-t: composable', async () => {
 
 test('v-t: legacy', async () => {
   const i18n = createI18n({
-    legacy: true,
     locale: 'ja',
     messages: {}
   })
