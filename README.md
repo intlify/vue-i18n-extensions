@@ -8,7 +8,7 @@
 
 **NOTE:** :warning: This `next` branch is development branch for Vue 3! The stable version is now in [`master`](https://github.com/intlify/vue-i18n-extensions/tree/master) branch!
 
-## Status: Beta ![Test](https://github.com/intlify/vue-i18n-extensions/workflows/Test/badge.svg)
+## Status: RC ![Test](https://github.com/intlify/vue-i18n-extensions/workflows/Test/badge.svg)
 
 This library exports the following extensions:
 
