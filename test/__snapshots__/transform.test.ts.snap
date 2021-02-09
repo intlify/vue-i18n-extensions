@@ -4,7 +4,7 @@ exports[`binding object: <div v-t="{ path: foo.bar.buz, locale, plural: 2, args:
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })), 1 /* TEXT */))
 }"
 `;
 
@@ -18,7 +18,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
                 "isStatic": false,
                 "loc": Object {
@@ -60,7 +60,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
                 "isStatic": false,
                 "loc": Object {
@@ -113,7 +113,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -264,7 +264,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
             "isStatic": false,
             "loc": Object {
@@ -317,7 +317,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -354,7 +354,7 @@ exports[`binding simple variable: <div v-t="hello"/> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.hello, {  }, {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.hello, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -368,7 +368,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(_ctx.hello, {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -410,7 +410,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(_ctx.hello, {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -463,7 +463,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -533,7 +533,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t(_ctx.hello, {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -586,7 +586,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -623,7 +623,7 @@ exports[`hoistStatic option: on: <div v-t="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -637,7 +637,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -679,7 +679,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -732,7 +732,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -803,7 +803,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t('hello', {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -856,7 +856,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -893,7 +893,7 @@ exports[`invalid expression: <p v-t="[0]"></p> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"p\\", null, _toDisplayString(_ctx.t(, {  }, {  }))))
+  return (_openBlock(), _createBlock(\\"p\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -907,7 +907,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(, {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -949,7 +949,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(, {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -1002,7 +1002,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"p\\"",
         "type": 13,
@@ -1073,7 +1073,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t(, {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -1126,7 +1126,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"p\\"",
     "type": 13,
@@ -1163,7 +1163,7 @@ exports[`legacy path, locale, named: <div v-t="{ path: 'dessert', locale: 'ja', 
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('dessert', 'ja', { name: 'kazupon' }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('dessert', 'ja', { name: 'kazupon' })), 1 /* TEXT */))
 }"
 `;
 
@@ -1177,7 +1177,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$t('dessert', 'ja', { name: 'kazupon' })",
                 "isStatic": false,
                 "loc": Object {
@@ -1219,7 +1219,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$t('dessert', 'ja', { name: 'kazupon' })",
                 "isStatic": false,
                 "loc": Object {
@@ -1272,7 +1272,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -1343,7 +1343,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.$t('dessert', 'ja', { name: 'kazupon' })",
             "isStatic": false,
             "loc": Object {
@@ -1396,7 +1396,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -1433,7 +1433,7 @@ exports[`legacy path, plural, locale: <div v-t="{ path: 'dessert', locale: 'en',
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, 'en'))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, 'en')), 1 /* TEXT */))
 }"
 `;
 
@@ -1447,7 +1447,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$tc('dessert', 2, 'en')",
                 "isStatic": false,
                 "loc": Object {
@@ -1489,7 +1489,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$tc('dessert', 2, 'en')",
                 "isStatic": false,
                 "loc": Object {
@@ -1542,7 +1542,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -1613,7 +1613,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.$tc('dessert', 2, 'en')",
             "isStatic": false,
             "loc": Object {
@@ -1666,7 +1666,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -1703,7 +1703,7 @@ exports[`legacy path, plural, named: <div v-t="{ path: 'dessert', choice: 2, arg
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, { name: 'kazupon' }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, { name: 'kazupon' })), 1 /* TEXT */))
 }"
 `;
 
@@ -1717,7 +1717,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$tc('dessert', 2, { name: 'kazupon' })",
                 "isStatic": false,
                 "loc": Object {
@@ -1759,7 +1759,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$tc('dessert', 2, { name: 'kazupon' })",
                 "isStatic": false,
                 "loc": Object {
@@ -1812,7 +1812,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -1883,7 +1883,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.$tc('dessert', 2, { name: 'kazupon' })",
             "isStatic": false,
             "loc": Object {
@@ -1936,7 +1936,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -1973,7 +1973,7 @@ exports[`legacy path, plural: <div v-t="{ path: 'dessert', choice: 2 }"/> 1`] = 
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -1987,7 +1987,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$tc('dessert', 2, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -2029,7 +2029,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$tc('dessert', 2, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -2082,7 +2082,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -2153,7 +2153,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.$tc('dessert', 2, {  })",
             "isStatic": false,
             "loc": Object {
@@ -2206,7 +2206,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -2243,7 +2243,7 @@ exports[`legacy path: <div v-t="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('hello', {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('hello', {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -2257,7 +2257,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$t('hello', {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -2299,7 +2299,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.$t('hello', {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -2352,7 +2352,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -2423,7 +2423,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.$t('hello', {  })",
             "isStatic": false,
             "loc": Object {
@@ -2476,7 +2476,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -2513,7 +2513,7 @@ exports[`literal object: path, locale, args, plural: <div v-t="{ path: 'dessert'
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })), 1 /* TEXT */))
 }"
 `;
 
@@ -2527,7 +2527,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
                 "isStatic": false,
                 "loc": Object {
@@ -2569,7 +2569,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
                 "isStatic": false,
                 "loc": Object {
@@ -2622,7 +2622,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -2693,7 +2693,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
             "isStatic": false,
             "loc": Object {
@@ -2746,7 +2746,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -2783,7 +2783,7 @@ exports[`literal path: <div v-t="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -2797,7 +2797,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -2839,7 +2839,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -2892,7 +2892,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -2963,7 +2963,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t('hello', {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -3016,7 +3016,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -3053,7 +3053,7 @@ exports[`no specify: <div v-t=""/> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(, {  }, {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -3067,7 +3067,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(, {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -3109,7 +3109,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t(, {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -3162,7 +3162,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -3232,7 +3232,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t(, {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -3285,7 +3285,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -3325,7 +3325,7 @@ return function render(_ctx, _cache) {
   with (_ctx) {
     const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = _Vue
 
-    return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(t('hello', {  }, {  }))))
+    return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(t('hello', {  }, {  })), 1 /* TEXT */))
   }
 }"
 `;
@@ -3340,7 +3340,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -3382,7 +3382,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -3435,7 +3435,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -3505,7 +3505,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "t('hello', {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -3558,7 +3558,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,
@@ -3595,7 +3595,7 @@ exports[`preserve modifier: <div v-t.preserve="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  }))))
+  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -3609,7 +3609,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -3651,7 +3651,7 @@ Object {
           "content": Object {
             "children": Array [
               Object {
-                "constType": 2,
+                "constType": 0,
                 "content": "_ctx.t('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": Object {
@@ -3704,7 +3704,7 @@ Object {
             "offset": 0,
           },
         },
-        "patchFlag": undefined,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": "\\"div\\"",
         "type": 13,
@@ -3777,7 +3777,7 @@ Object {
       "content": Object {
         "children": Array [
           Object {
-            "constType": 2,
+            "constType": 0,
             "content": "_ctx.t('hello', {  }, {  })",
             "isStatic": false,
             "loc": Object {
@@ -3830,7 +3830,7 @@ Object {
         "offset": 0,
       },
     },
-    "patchFlag": undefined,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": "\\"div\\"",
     "type": 13,

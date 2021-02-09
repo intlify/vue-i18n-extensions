@@ -213,7 +213,7 @@ export function transformVTDirective<
               false,
               loc,
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              ConstantTypes.CAN_HOIST as any
+              ConstantTypes.NOT_CONSTANT as any
             )
           ])
         } as InterpolationNode)
@@ -235,7 +235,7 @@ export function transformVTDirective<
             false,
             loc,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ConstantTypes.CAN_HOIST as any
+            ConstantTypes.NOT_CONSTANT as any
           )
         ])
       } as InterpolationNode)
