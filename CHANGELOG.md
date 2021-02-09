@@ -1,4 +1,13 @@
 
+## v2.0.0-rc.1 (2021-02-09)
+
+#### :zap: Improvement Features
+* [#79](https://github.com/intlify/vue-i18n-extensions/pull/79) fix: vue 3.0.3 compatible ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v2.0.0-beta.1 (2020-09-17)
 
 #### :zap: Improvement Features
