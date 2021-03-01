@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "@babel/parser": "^7.9.6",
-    "@vue/compiler-dom": "^3.0.5",
-    "@vue/shared": "^3.0.5",
-    "vue-i18n": "^9.0.0-rc.5"
+    "@vue/compiler-dom": "^3.0.6",
+    "@vue/shared": "^3.0.6",
+    "vue-i18n": "^9.0.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.12.0",
@@ -37,14 +37,14 @@
     "@types/webpack-merge": "^4.1.5",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
-    "@vue/compiler-sfc": "^3.0.5",
-    "@vue/compiler-ssr": "^3.0.5",
-    "@vue/runtime-dom": "^3.0.5",
-    "@vue/server-renderer": "^3.0.5",
+    "@vue/compiler-sfc": "^3.0.6",
+    "@vue/compiler-ssr": "^3.0.6",
+    "@vue/runtime-dom": "^3.0.6",
+    "@vue/server-renderer": "^3.0.6",
     "api-docs-gen": "^0.2.6",
     "babel-loader": "^8.1.0",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-vue-libs": "^4.0.0",
     "jest": "^26.4.2",
@@ -84,7 +84,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "peerDependencies": {
-    "vue": "^3.0.5"
+    "vue": "^3.0.0"
   },
   "types": "dist/vue-i18n-extensions.d.ts",
   "repository": {

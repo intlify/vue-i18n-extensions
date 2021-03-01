@@ -1,14 +1,13 @@
 # :globe_with_meridians: @intlify/vue-i18n-extensions
 
 [![CircleCI](https://circleci.com/gh/intlify/vue-i18n-extensions/tree/next.svg?style=svg)](https://circleci.com/gh/intlify/vue-i18n-extensions/tree/dev)
+[![npm](https://img.shields.io/npm/v/@intlify/vue-i18n-extensions/next.svg)](https://www.npmjs.com/package/@intlify/vue-i18n-extensions)
 [![npm](https://img.shields.io/npm/v/@intlify/vue-i18n-extensions.svg)](https://www.npmjs.com/package/@intlify/vue-i18n-extensions)
 [![vue-i18n-extensions Dev Token](https://badge.devtoken.rocks/vue-i18n-extensions)](https://devtoken.rocks/package/vue-i18n-extensions)
 
 > Extensions for vue-i18n
 
-**NOTE:** :warning: This `next` branch is development branch for Vue 3! The stable version is now in [`master`](https://github.com/intlify/vue-i18n-extensions/tree/master) branch!
-
-## Status: RC ![Test](https://github.com/intlify/vue-i18n-extensions/workflows/Test/badge.svg)
+**NOTE:** :warning: This `next` branch is development branch for Vue 3! The version for Vue 2 is now in [`master`](https://github.com/intlify/vue-i18n-extensions/tree/master) branch!
 
 This library exports the following extensions:
 
@@ -22,7 +21,7 @@ This library exports the following extensions:
 ## :cd: Installation
 
 ```sh
-$ npm i --save-dev @intlify/vue-i18n-extensions@alpha
+$ npm i --save-dev @intlify/vue-i18n-extensions@next
 ```
 
 
