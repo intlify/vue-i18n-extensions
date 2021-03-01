@@ -1,4 +1,13 @@
 
+## v2.0.0 (2021-03-01)
+
+#### :zap: Improvement Features
+* [#89](https://github.com/intlify/vue-i18n-extensions/pull/89) upgrade deps ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v2.0.0-rc.1 (2021-02-09)
 
 #### :zap: Improvement Features
