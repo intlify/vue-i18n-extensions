@@ -12,7 +12,6 @@ import {
   TO_DISPLAY_STRING,
   TransformContext
 } from '@vue/compiler-dom'
-import { isObject, isString, isSymbol, toDisplayString } from '@vue/shared'
 import { I18n, I18nMode, Locale } from 'vue-i18n'
 import {
   evaluateValue,
@@ -21,7 +20,13 @@ import {
 } from './transpiler'
 import { report, ReportCodes } from './report'
 import { createContentBuilder, ContentBuilder } from './builder'
-import { isNumber } from './utils'
+import {
+  isNumber,
+  isObject,
+  isString,
+  isSymbol,
+  toDisplayString
+} from '@intlify/shared'
 
 // TODO: should be imported from vue-i18n
 type VTDirectiveValue = {
