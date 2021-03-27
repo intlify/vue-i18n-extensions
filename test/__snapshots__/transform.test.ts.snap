@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`binding object: <div v-t="{ path: foo.bar.buz, locale, plural: 2, args: { name: 'banana' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })), 1 /* TEXT */))
@@ -326,7 +326,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -351,7 +350,7 @@ Object {
 `;
 
 exports[`binding simple variable: <div v-t="hello"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.hello, {  }, {  })), 1 /* TEXT */))
@@ -595,7 +594,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -620,7 +618,7 @@ Object {
 `;
 
 exports[`hoistStatic option: on: <div v-t="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
@@ -865,7 +863,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -890,7 +887,7 @@ Object {
 `;
 
 exports[`invalid expression: <p v-t="[0]"></p> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"p\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
@@ -1135,7 +1132,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -1160,7 +1156,7 @@ Object {
 `;
 
 exports[`legacy path, locale, named: <div v-t="{ path: 'dessert', locale: 'ja', args: { name: 'kazupon' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('dessert', 'ja', { name: 'kazupon' })), 1 /* TEXT */))
@@ -1405,7 +1401,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -1430,7 +1425,7 @@ Object {
 `;
 
 exports[`legacy path, plural, locale: <div v-t="{ path: 'dessert', locale: 'en', choice: 2 }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, 'en')), 1 /* TEXT */))
@@ -1675,7 +1670,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -1700,7 +1694,7 @@ Object {
 `;
 
 exports[`legacy path, plural, named: <div v-t="{ path: 'dessert', choice: 2, args: { name: 'kazupon' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, { name: 'kazupon' })), 1 /* TEXT */))
@@ -1945,7 +1939,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -1970,7 +1963,7 @@ Object {
 `;
 
 exports[`legacy path, plural: <div v-t="{ path: 'dessert', choice: 2 }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, {  })), 1 /* TEXT */))
@@ -2215,7 +2208,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -2240,7 +2232,7 @@ Object {
 `;
 
 exports[`legacy path: <div v-t="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('hello', {  })), 1 /* TEXT */))
@@ -2485,7 +2477,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -2510,7 +2501,7 @@ Object {
 `;
 
 exports[`literal object: path, locale, args, plural: <div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })), 1 /* TEXT */))
@@ -2755,7 +2746,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -2780,7 +2770,7 @@ Object {
 `;
 
 exports[`literal path: <div v-t="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
@@ -3025,7 +3015,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -3050,7 +3039,7 @@ Object {
 `;
 
 exports[`no specify: <div v-t=""/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
@@ -3294,7 +3283,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -3323,7 +3311,7 @@ exports[`prefixIdentifiers option: off: <div v-t="'hello'"/> 1`] = `
 
 return function render(_ctx, _cache) {
   with (_ctx) {
-    const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = _Vue
+    const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = _Vue
 
     return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(t('hello', {  }, {  })), 1 /* TEXT */))
   }
@@ -3567,7 +3555,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -3592,7 +3579,7 @@ Object {
 `;
 
 exports[`preserve modifier: <div v-t.preserve="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
@@ -3839,7 +3826,6 @@ Object {
   "directives": Array [],
   "helpers": Array [
     Symbol(toDisplayString),
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],

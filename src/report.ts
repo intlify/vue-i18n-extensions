@@ -1,6 +1,5 @@
-import { format } from './utils'
+import { format, isString } from '@intlify/shared'
 import { SourceLocation } from '@vue/compiler-core'
-import { isString } from '@vue/shared'
 
 export interface ExtensionsError extends SyntaxError {
   code: number
