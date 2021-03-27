@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic: <div v-t="'hello'"/> 1`] = `
-"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは！\\"))
@@ -137,7 +137,6 @@ Object {
   "components": Array [],
   "directives": Array [],
   "helpers": Array [
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -162,7 +161,7 @@ Object {
 `;
 
 exports[`missing translation: <div v-t="'foo.bar'"/> 1`] = `
-"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, \\"foo.bar\\"))
@@ -298,7 +297,6 @@ Object {
   "components": Array [],
   "directives": Array [],
   "helpers": Array [
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -323,7 +321,7 @@ Object {
 `;
 
 exports[`named: <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 1`] = `
-"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは、kazupon！\\"))
@@ -459,7 +457,6 @@ Object {
   "components": Array [],
   "directives": Array [],
   "helpers": Array [
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],
@@ -484,7 +481,7 @@ Object {
 `;
 
 exports[`plural: <div v-t="{ path: 'banana', choice: 2 }"/> 1`] = `
-"const { createVNode: _createVNode, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
 
 return function render(_ctx, _cache) {
   return (_openBlock(), _createBlock(\\"div\\", null, \\"2 bananas\\"))
@@ -620,7 +617,6 @@ Object {
   "components": Array [],
   "directives": Array [],
   "helpers": Array [
-    Symbol(createVNode),
     Symbol(openBlock),
     Symbol(createBlock),
   ],

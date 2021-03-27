@@ -1,4 +1,4 @@
-import { isNumber } from './utils'
+import { isNumber } from '@intlify/shared'
 
 /**
  * Content Builder options
