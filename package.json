@@ -41,7 +41,7 @@
     "@vue/compiler-ssr": "^3.0.9",
     "@vue/runtime-dom": "^3.0.9",
     "@vue/server-renderer": "^3.0.9",
-    "api-docs-gen": "^0.2.6",
+    "api-docs-gen": "^0.3.0",
     "babel-loader": "^8.2.0",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
