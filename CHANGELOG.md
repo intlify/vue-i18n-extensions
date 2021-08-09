@@ -1,4 +1,16 @@
 
+## v3.0.0 (2021-08-09)
+
+#### :star: Features
+* [#118](https://github.com/intlify/vue-i18n-extensions/pull/118) feat: support vue 3.1 ([@kazupon](https://github.com/kazupon))
+
+#### :boom: Breaking Change
+* [#116](https://github.com/intlify/vue-i18n-extensions/pull/116) breaking: drop node v10 ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v2.0.1 (2021-03-27)
 
 #### :zap: Improvement Features
