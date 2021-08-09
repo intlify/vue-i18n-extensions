@@ -34,7 +34,7 @@
     "@microsoft/api-extractor": "^7.18.4",
     "@secretlint/secretlint-rule-preset-recommend": "^3.3.0",
     "@types/jest": "^26.0.24",
-    "@types/node": "^14.14.25",
+    "@types/node": "^16.4.13",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "@vue/compiler-sfc": "^3.1.5",
@@ -61,10 +61,9 @@
     "typescript-eslint-language-service": "^4.1.4",
     "vue": "^3.1.5",
     "vue-loader": "^16.2.0",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
-    "webpack-merge": "^4.2.2",
+    "webpack": "^5.49.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
     "yorkie": "^2.0.0"
   },
   "engines": {
@@ -100,7 +99,8 @@
   },
   "main": "lib/index.js",
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.0.0"
   },
   "repository": {
     "type": "git",
@@ -117,7 +117,7 @@
     "clean:extract": "rm -rf ./temp/*.* ./dist/*.* ./etc/*.*",
     "clean:lib": "rm -rf ./lib/*.*",
     "coverage": "opener coverage/lcov-report/index.html",
-    "example": "yarn build && webpack-dev-server --config example/webpack.config.js --inline --hot",
+    "example": "webpack serve --config example/webpack.config.js --inline --hot",
     "fix": "npm-run-all --parallel lint:eslint:fix format:fix",
     "format": "prettier --config .prettierrc --ignore-path .prettierignore '**/*.{js,json,html}'",
     "format:fix": "yarn format --write",

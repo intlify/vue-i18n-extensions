@@ -2,8 +2,7 @@ module.exports = {
   server: {
     port: 8080,
     launchTimeout: 10000,
-    command:
-      'webpack-dev-server --config example/webpack.config.js --inline --hot'
+    command: 'webpack serve --config example/webpack.config.js --inline --hot'
   },
   launch: {
     dumpio: false,
