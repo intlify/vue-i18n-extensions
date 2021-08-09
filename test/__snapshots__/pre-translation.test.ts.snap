@@ -136,6 +136,7 @@ Object {
   },
   "components": Array [],
   "directives": Array [],
+  "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
     Symbol(createBlock),
@@ -296,6 +297,7 @@ Object {
   },
   "components": Array [],
   "directives": Array [],
+  "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
     Symbol(createBlock),
@@ -456,6 +458,7 @@ Object {
   },
   "components": Array [],
   "directives": Array [],
+  "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
     Symbol(createBlock),
@@ -616,6 +619,7 @@ Object {
   },
   "components": Array [],
   "directives": Array [],
+  "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
     Symbol(createBlock),
