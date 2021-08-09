@@ -85,9 +85,6 @@ export interface TransformVTDirectiveOptions<Messages = {}, DateTimeFormats = {}
 ```
 
 
-#### Methods
-
-
 #### Properties
 
 ##### i18n
