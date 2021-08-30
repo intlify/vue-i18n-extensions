@@ -45,7 +45,7 @@
     "babel-loader": "^8.2.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue-libs": "^4.0.0",
     "jest": "^27.0.6",
     "jest-puppeteer": "^5.0.4",
