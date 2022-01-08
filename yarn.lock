@@ -426,6 +426,11 @@
   resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.1.7.tgz#e7d8bc90cb59dc17dd7b4c85a73db16fcb7891fc"
   integrity sha512-zt0zlUdalumvT9AjQNxPXA36UgOndUyvBMplh8uRZU0fhWHAwhnJTcf0NaG9Qvr8I1n3HPSs96+kLb/YdwTavQ==
 
+"@intlify/shared@latest":
+  version "9.1.9"
+  resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.1.9.tgz#0baaf96128b85560666bec784ffb01f6623cc17a"
+  integrity sha512-xKGM1d0EAxdDFCWedcYXOm6V5Pfw/TMudd6/qCdEb4tv0hk9EKeg7lwQF1azE0dP2phvx0yXxrt7UQK+IZjNdw==
+
 "@intlify/vue-devtools@9.1.7":
   version "9.1.7"
   resolved "https://registry.yarnpkg.com/@intlify/vue-devtools/-/vue-devtools-9.1.7.tgz#b08d39bb5f21ba9b1954eab9466e9408129425a7"
@@ -1837,16 +1842,17 @@ anymatch@^3.0.3:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-api-docs-gen@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/api-docs-gen/-/api-docs-gen-0.3.0.tgz#e1a207ffe09d52723de3d2d7df943b1a93268e0b"
-  integrity sha512-Av/m9EW48TAzueWwgnMSo26EE/4LeBQlpA4aBksZASiTU3/bz4m0YSE7em19BCrb8iCxUe74fCcW2jn7i7lLsQ==
+api-docs-gen@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/api-docs-gen/-/api-docs-gen-0.4.0.tgz#9182b9c42fd32d7b94aac5b2d8463cd056d6fcf0"
+  integrity sha512-l+uccoeHfoHVSvVDXeOFy3YmxKbHM8s/fjgq1RxGLfbrspq16Igswn1oT+plk4y2qVuF/31KN5pJZV6Nleworw==
   dependencies:
+    "@intlify/shared" latest
     "@microsoft/api-extractor-model" "^7.12.0"
     "@microsoft/tsdoc" "^0.13.0"
     "@microsoft/tsdoc-config" "^0.15.0"
     chalk "^4.1.1"
-    debug "^4.3.1"
+    debug "^4.3.3"
     meow "^9.0.0"
 
 aproba@^1.1.1:
@@ -2951,6 +2957,13 @@ debug@^3.1.1, debug@^3.2.6:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
+
+debug@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
+  integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
+  dependencies:
+    ms "2.1.2"
 
 decamelize-keys@^1.1.0:
   version "1.1.0"
