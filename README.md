@@ -179,7 +179,8 @@ module.exports = {
       // ...
     ]
   },
-  plugins: [new VueLoaderPlugin()]
+  plugins: [new VueLoaderPlugin()],
+  parallel: false // the compilerOptions.directiveTransforms are not serializable
 }
 ```
 
