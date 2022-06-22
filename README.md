@@ -29,7 +29,7 @@ $ npm i --save-dev @intlify/vue-i18n-extensions@next
 
 ### Server-side rendering for `v-t` custom directive
 
-You can use tnrasform offered with this package, to support Server-side rendering for `v-t` custom directives.
+You can use transform offered with this package, to support Server-side rendering for `v-t` custom directives.
 
 In order to use this feature, you need to specify to Vue compiler option.
 The following example that use `compile` of `@vue/compiler-ssr`:
@@ -179,7 +179,8 @@ module.exports = {
       // ...
     ]
   },
-  plugins: [new VueLoaderPlugin()]
+  plugins: [new VueLoaderPlugin()],
+  parallel: false // the compilerOptions.directiveTransforms are not serializable
 }
 ```
 
