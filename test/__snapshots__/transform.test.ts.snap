@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`binding object: <div v-t="{ path: foo.bar.buz, locale, plural: 2, args: { name: 'banana' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })), 1 /* TEXT */))
 }"
 `;
 
@@ -100,6 +100,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 80,
@@ -304,6 +305,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 80,
@@ -328,7 +330,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -351,10 +353,10 @@ Object {
 `;
 
 exports[`binding simple variable: <div v-t="hello"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.hello, {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t(_ctx.hello, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -450,6 +452,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 19,
@@ -573,6 +576,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 19,
@@ -597,7 +601,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -620,10 +624,10 @@ Object {
 `;
 
 exports[`hoistStatic option: on: <div v-t="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -719,6 +723,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -843,6 +848,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 21,
@@ -867,7 +873,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -890,10 +896,10 @@ Object {
 `;
 
 exports[`invalid expression: <p v-t="[0]"></p> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"p\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"p\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -989,6 +995,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 18,
@@ -1113,6 +1120,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 18,
@@ -1137,7 +1145,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -1160,10 +1168,10 @@ Object {
 `;
 
 exports[`legacy path, locale, named: <div v-t="{ path: 'dessert', locale: 'ja', args: { name: 'kazupon' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('dessert', 'ja', { name: 'kazupon' })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.$t('dessert', 'ja', { name: 'kazupon' })), 1 /* TEXT */))
 }"
 `;
 
@@ -1259,6 +1267,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 74,
@@ -1383,6 +1392,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 74,
@@ -1407,7 +1417,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -1430,10 +1440,10 @@ Object {
 `;
 
 exports[`legacy path, plural, locale: <div v-t="{ path: 'dessert', locale: 'en', choice: 2 }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, 'en')), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, 'en')), 1 /* TEXT */))
 }"
 `;
 
@@ -1529,6 +1539,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 58,
@@ -1653,6 +1664,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 58,
@@ -1677,7 +1689,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -1700,10 +1712,10 @@ Object {
 `;
 
 exports[`legacy path, plural, named: <div v-t="{ path: 'dessert', choice: 2, args: { name: 'kazupon' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, { name: 'kazupon' })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, { name: 'kazupon' })), 1 /* TEXT */))
 }"
 `;
 
@@ -1799,6 +1811,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 71,
@@ -1923,6 +1936,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 71,
@@ -1947,7 +1961,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -1970,10 +1984,10 @@ Object {
 `;
 
 exports[`legacy path, plural: <div v-t="{ path: 'dessert', choice: 2 }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.$tc('dessert', 2, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -2069,6 +2083,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 44,
@@ -2193,6 +2208,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 44,
@@ -2217,7 +2233,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -2240,10 +2256,10 @@ Object {
 `;
 
 exports[`legacy path: <div v-t="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.$t('hello', {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.$t('hello', {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -2339,6 +2355,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -2463,6 +2480,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 21,
@@ -2487,7 +2505,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -2510,10 +2528,10 @@ Object {
 `;
 
 exports[`literal object: path, locale, args, plural: <div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })), 1 /* TEXT */))
 }"
 `;
 
@@ -2609,6 +2627,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 84,
@@ -2733,6 +2752,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 84,
@@ -2757,7 +2777,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -2780,10 +2800,10 @@ Object {
 `;
 
 exports[`literal path: <div v-t="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -2879,6 +2899,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -3003,6 +3024,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 21,
@@ -3027,7 +3049,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -3050,10 +3072,10 @@ Object {
 `;
 
 exports[`no specify: <div v-t=""/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -3149,6 +3171,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 14,
@@ -3272,6 +3295,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 14,
@@ -3296,7 +3320,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -3323,9 +3347,9 @@ exports[`prefixIdentifiers option: off: <div v-t="'hello'"/> 1`] = `
 
 return function render(_ctx, _cache) {
   with (_ctx) {
-    const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = _Vue
+    const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = _Vue
 
-    return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(t('hello', {  }, {  })), 1 /* TEXT */))
+    return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(t('hello', {  }, {  })), 1 /* TEXT */))
   }
 }"
 `;
@@ -3422,6 +3446,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -3545,6 +3570,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 21,
@@ -3569,7 +3595,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -3592,10 +3618,10 @@ Object {
 `;
 
 exports[`preserve modifier: <div v-t.preserve="'hello'"/> 1`] = `
-"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -3691,6 +3717,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 30,
@@ -3817,6 +3844,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 30,
@@ -3841,7 +3869,7 @@ Object {
   "helpers": Array [
     Symbol(toDisplayString),
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
