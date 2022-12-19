@@ -1,4 +1,18 @@
 
+## v4.0.0 (2022-12-19)
+
+#### :boom: Breaking Change
+* [#168](https://github.com/intlify/vue-i18n-extensions/pull/168) drop node v12 ([@kazupon](https://github.com/kazupon))
+
+#### :pencil: Documentation
+* [#141](https://github.com/intlify/vue-i18n-extensions/pull/141) Add parallel: false to vue-loader example ([@lucaswerkmeister](https://github.com/lucaswerkmeister))
+
+#### Committers: 3
+- Kasper Seweryn ([@wvffle](https://github.com/wvffle))
+- Lucas Werkmeister ([@lucaswerkmeister](https://github.com/lucaswerkmeister))
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v3.0.0 (2021-08-09)
 
 #### :star: Features
