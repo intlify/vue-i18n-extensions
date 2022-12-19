@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic: <div v-t="'hello'"/> 1`] = `
-"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは！\\"))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, \\"こんにちは！\\"))
 }"
 `;
 
@@ -28,6 +28,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -116,6 +117,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 21,
@@ -139,7 +141,7 @@ Object {
   "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -162,10 +164,10 @@ Object {
 `;
 
 exports[`missing translation: <div v-t="'foo.bar'"/> 1`] = `
-"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, \\"foo.bar\\"))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, \\"foo.bar\\"))
 }"
 `;
 
@@ -189,6 +191,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 23,
@@ -277,6 +280,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 23,
@@ -300,7 +304,7 @@ Object {
   "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -323,10 +327,10 @@ Object {
 `;
 
 exports[`named: <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 1`] = `
-"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, \\"こんにちは、kazupon！\\"))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, \\"こんにちは、kazupon！\\"))
 }"
 `;
 
@@ -350,6 +354,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 72,
@@ -438,6 +443,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 72,
@@ -461,7 +467,7 @@ Object {
   "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
@@ -484,10 +490,10 @@ Object {
 `;
 
 exports[`plural: <div v-t="{ path: 'banana', choice: 2 }"/> 1`] = `
-"const { openBlock: _openBlock, createBlock: _createBlock } = Vue
+"const { openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createBlock(\\"div\\", null, \\"2 bananas\\"))
+  return (_openBlock(), _createElementBlock(\\"div\\", null, \\"2 bananas\\"))
 }"
 `;
 
@@ -511,6 +517,7 @@ Object {
         "disableTracking": false,
         "dynamicProps": undefined,
         "isBlock": true,
+        "isComponent": false,
         "loc": Object {
           "end": Object {
             "column": 43,
@@ -599,6 +606,7 @@ Object {
     "disableTracking": false,
     "dynamicProps": undefined,
     "isBlock": true,
+    "isComponent": false,
     "loc": Object {
       "end": Object {
         "column": 43,
@@ -622,7 +630,7 @@ Object {
   "filters": Array [],
   "helpers": Array [
     Symbol(openBlock),
-    Symbol(createBlock),
+    Symbol(createElementBlock),
   ],
   "hoists": Array [],
   "imports": Array [],
