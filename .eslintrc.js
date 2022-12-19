@@ -12,14 +12,12 @@ module.exports = {
     jest: true
   },
   extends: [
-    'plugin:vue-libs/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
     'prettier'
   ],
   plugins: ['@typescript-eslint'],
-  parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module'
