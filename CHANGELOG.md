@@ -1,4 +1,13 @@
 
+## v5.0.0 (2022-12-19)
+
+#### :star: Features
+* [#173](https://github.com/intlify/vue-i18n-extensions/pull/173) feat: support Vue 3.2 ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v4.0.0 (2022-12-19)
 
 #### :boom: Breaking Change
