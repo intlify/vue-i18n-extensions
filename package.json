@@ -108,7 +108,7 @@
   "scripts": {
     "build": "yarn build:transpile && yarn build:extract && yarn build:docs",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
-    "build:extract": "api-extractor run -l -c ./api-extractor.json",
+    "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
     "build:transpile": "tsc -p .",
     "clean": "npm-run-all clean:*",
     "clean:cache:jest": "jest --clearCache",
