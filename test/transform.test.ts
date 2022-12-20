@@ -148,7 +148,7 @@ test('have child elements', () => {
       directiveTransforms: { t: transformVT }
     })
   }).toThrowError(
-    getReportMessage(ReportCodes.ORVERRIDE_ELEMENT_CHILDREN, source)
+    getReportMessage(ReportCodes.OVERRIDE_ELEMENT_CHILDREN, source)
   )
 })
 

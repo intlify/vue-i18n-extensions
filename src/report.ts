@@ -23,7 +23,7 @@ export const enum ReportCodes {
   REQUIRED_PARAMETER,
   INVALID_PARAMETER_TYPE,
   NOT_SUPPORTED_PRESERVE,
-  ORVERRIDE_ELEMENT_CHILDREN,
+  OVERRIDE_ELEMENT_CHILDREN,
   __EXTEND_POINT__
 }
 
@@ -35,7 +35,7 @@ const ReportMessages: { [code: number]: string } = {
   [ReportCodes.REQUIRED_PARAMETER]: `Required parameter: {0}`,
   [ReportCodes.INVALID_PARAMETER_TYPE]: `Required parameter: {0}`,
   [ReportCodes.NOT_SUPPORTED_PRESERVE]: `Not supportted 'preserve': {0}`,
-  [ReportCodes.ORVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`
+  [ReportCodes.OVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`
 }
 
 export function getReportMessage(
@@ -60,20 +60,20 @@ function createExtensionsError(
 
 export function report(
   code: ReportCodes,
-  optinos: ReportOptions = {}
+  options: ReportOptions = {}
 ): void | ExtensionsError {
   const mode =
-    optinos.mode &&
-    isString(optinos.mode) &&
-    ['warn', 'error'].includes(optinos.mode)
-      ? optinos.mode
+    options.mode &&
+    isString(options.mode) &&
+    ['warn', 'error'].includes(options.mode)
+      ? options.mode
       : 'warn'
 
-  const msg = getReportMessage(code, optinos.args)
+  const msg = getReportMessage(code, options.args)
   if (mode === 'warn') {
     console.warn('[vue-i18n-extensions] ' + msg)
   } else {
     // error
-    throw createExtensionsError(code, msg, optinos.loc)
+    throw createExtensionsError(code, msg, options.loc)
   }
 }
