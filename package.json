@@ -121,7 +121,7 @@
     "format": "prettier --config .prettierrc --ignore-path .prettierignore --list-different '**/*.{js,json,html}'",
     "format:fix": "yarn format --write",
     "lint": "npm-run-all --parallel lint:eslint lint:secret",
-    "lint:eslint": "eslint ./src ./test --ext .ts",
+    "lint:eslint": "eslint ./src ./test --ext .ts --cache",
     "lint:eslint:fix": "yarn lint:eslint --fix",
     "lint:secret": "npx secretlint \"**/*\"",
     "release:prepare": "shipjs prepare",
