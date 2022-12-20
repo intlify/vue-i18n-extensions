@@ -52,9 +52,9 @@ export interface TransformVTDirectiveOptions<
    * I18n instance
    *
    * @remarks
-   * If this option is specified, `v-t` custom diretive transform uses an I18n instance to pre-translate.
+   * If this option is specified, `v-t` custom directive transform uses an I18n instance to pre-translate.
    * The translation will use the global resources registered in the I18n instance,
-   * that is, `v-t` diretive transform is also a limitation that the resources of each component cannot be used.
+   * that is, `v-t` directive transform is also a limitation that the resources of each component cannot be used.
    */
   i18n?: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>
   /**
@@ -163,7 +163,7 @@ export function transformVTDirective<
       // TODO: throw error with context.OnError
       // NOTE: We need to support from @vue/compiler-core
       // https://github.com/vuejs/vue-next/issues/1147
-      report(ReportCodes.ORVERRIDE_ELEMENT_CHILDREN, {
+      report(ReportCodes.OVERRIDE_ELEMENT_CHILDREN, {
         mode: 'error',
         args: [node.loc.source || ''],
         loc: node.loc
@@ -432,7 +432,7 @@ function generateLegacyCode(
     generateNamedCode(builder, params.named)
     builder.push(` }`)
   } else {
-    // generaete plural
+    // generate plural
     builder.push(`, ${toDisplayString(params.options.plural)}`)
     if (isString(params.options.locale)) {
       // generate locale
