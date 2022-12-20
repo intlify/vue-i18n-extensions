@@ -1,4 +1,13 @@
 
+## v5.0.1 (2022-12-20)
+
+#### :zap: Improvement Features
+* [#176](https://github.com/intlify/vue-i18n-extensions/pull/176) fix: typo ([@Simon-He95](https://github.com/Simon-He95))
+
+#### Committers: 1
+- Simon He ([@Simon-He95](https://github.com/Simon-He95))
+
+
 ## v5.0.0 (2022-12-19)
 
 #### :star: Features
