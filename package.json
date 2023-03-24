@@ -32,7 +32,7 @@
   "devDependencies": {
     "@kazupon/lerna-changelog": "^4.3.0",
     "@microsoft/api-extractor": "^7.18.4",
-    "@secretlint/secretlint-rule-preset-recommend": "^3.3.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^6.0.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
