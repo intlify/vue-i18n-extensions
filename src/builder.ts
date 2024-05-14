@@ -2,6 +2,7 @@ import { isNumber } from '@intlify/shared'
 
 /**
  * Content Builder options
+ * Trigger CI
  *
  * @remarks
  * options that creating a {@link ContentBuilder}
