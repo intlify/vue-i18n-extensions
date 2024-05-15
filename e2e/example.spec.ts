@@ -12,10 +12,8 @@ describe(`pre-compilation`, () => {
     expect(await getText(page, '#directive-string')).toMatch(
       'こんにちは、世界！'
     )
-    await expect(await getText(page, '#directive-object')).toMatch(
-      'hello, world!'
-    )
+    expect(await getText(page, '#directive-object')).toMatch('hello, world!')
 
-    await ctx.serverProcess.kill()
+    ctx.serverProcess.kill()
   })
 })
