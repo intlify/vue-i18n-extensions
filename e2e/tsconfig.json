@@ -1,0 +1,14 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"types": [
+			"vitest/globals"
+		], /* Type declaration files to be included in compilation. */
+	},
+	"include": [
+		"../src/**/*",
+		"./**/*",
+		"../scripts",
+		"../shim.d.ts",
+	]
+}

@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import * as runtimeDom from '@vue/runtime-dom'
 import { compile } from '@vue/compiler-dom'
 import { defineComponent } from 'vue'
@@ -15,13 +12,13 @@ function getMessage(code: ReportCodes, ...args: unknown[]) {
 
 let spyWarn: any // eslint-disable-line @typescript-eslint/no-explicit-any
 beforeEach(() => {
-  spyWarn = jest.spyOn(global.console, 'warn')
+  spyWarn = vi.spyOn(global.console, 'warn')
 })
 
 afterEach(() => {
-  // jest.clearAllMocks()
-  // jest.resetAllMocks()
-  jest.restoreAllMocks()
+  // vi.clearAllMocks()
+  // vi.resetAllMocks()
+  vi.restoreAllMocks()
 })
 
 describe('literal', () => {

@@ -1,0 +1,32 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "generate": "npx --no-install jiti ./scripts/generate.ts",
+    "build": "vite build",
+    "check": "vue-tsc --noEmit",
+    "serve": "npx --no-install jiti ./scripts/server.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.27",
+    "vue-i18n": "^9.0.0"
+  },
+  "devDependencies": {
+    "@intlify/bundle-utils": "next",
+    "@intlify/unplugin-vue-i18n": "^0.12.0",
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.13",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "body-parser": "^1.19.1",
+    "express": "^4.19.2",
+    "h3": "^1.8.0",
+    "jiti": "^1.19.3",
+    "ofetch": "^1.1.1",
+    "typescript": "^5.0.2",
+    "vite": "^5.2.11",
+    "vue-tsc": "^2.0.17"
+  }
+}
