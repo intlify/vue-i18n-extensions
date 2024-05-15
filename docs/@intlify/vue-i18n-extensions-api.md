@@ -15,7 +15,7 @@ Transform `v-t` custom directive
 
 **Signature:**
 ```typescript
-export declare function transformVTDirective<Messages = {}, DateTimeFormats = {}, NumberFormats = {}, Legacy extends boolean = true>(options?: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy>): DirectiveTransform;
+export declare function transformVTDirective<Messages extends Record<string, unknown> = {}, DateTimeFormats extends Record<string, unknown> = {}, NumberFormats extends Record<string, unknown> = {}, Legacy extends boolean = true>(options?: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy>): DirectiveTransform;
 ```
 
 #### Parameters
@@ -81,7 +81,7 @@ Transform options for `v-t` custom directive
 
 **Signature:**
 ```typescript
-export interface TransformVTDirectiveOptions<Messages = {}, DateTimeFormats = {}, NumberFormats = {}, Legacy extends boolean = true> 
+export interface TransformVTDirectiveOptions<Messages extends Record<string, unknown> = {}, DateTimeFormats extends Record<string, unknown> = {}, NumberFormats extends Record<string, unknown> = {}, Legacy extends boolean = true> 
 ```
 
 
@@ -98,7 +98,7 @@ i18n?: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>;
 
 #### Remarks
 
-If this option is specified, `v-t` custom diretive transform uses an I18n instance to pre-translate. The translation will use the global resources registered in the I18n instance, that is, `v-t` diretive transform is also a limitation that the resources of each component cannot be used.
+If this option is specified, `v-t` custom directive transform uses an I18n instance to pre-translate. The translation will use the global resources registered in the I18n instance, that is, `v-t` directive transform is also a limitation that the resources of each component cannot be used.
 
 ##### mode
 

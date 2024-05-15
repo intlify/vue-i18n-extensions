@@ -31,6 +31,7 @@ interface Wrapper {
   rootEl: HTMLDivElement
   setProps(props: MountOptions['propsData']): Promise<void>
   html(): string
+  // prettier-ignore
   find: typeof document['querySelector']
 }
 
@@ -59,9 +60,9 @@ export const isBoolean = (val: unknown): val is boolean =>
   typeof val === 'boolean'
 
 export function mount<
-  Messages = {},
-  DateTimeFormats = {},
-  NumberFormats = {},
+  Messages extends Record<string, unknown> = {},
+  DateTimeFormats extends Record<string, unknown> = {},
+  NumberFormats extends Record<string, unknown> = {},
   Legacy extends boolean = true
 >(
   targetComponent: Parameters<typeof createApp>[0],

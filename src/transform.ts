@@ -43,9 +43,9 @@ type VTDirectiveValue = {
  * @public
  */
 export interface TransformVTDirectiveOptions<
-  Messages = {},
-  DateTimeFormats = {},
-  NumberFormats = {},
+  Messages extends Record<string, unknown> = {},
+  DateTimeFormats extends Record<string, unknown> = {},
+  NumberFormats extends Record<string, unknown> = {},
   Legacy extends boolean = true
 > {
   /**
@@ -126,9 +126,9 @@ const enum ConstantTypes {
  * @public
  */
 export function transformVTDirective<
-  Messages = {},
-  DateTimeFormats = {},
-  NumberFormats = {},
+  Messages extends Record<string, unknown> = {},
+  DateTimeFormats extends Record<string, unknown> = {},
+  NumberFormats extends Record<string, unknown> = {},
   Legacy extends boolean = true
 >(
   options: TransformVTDirectiveOptions<
