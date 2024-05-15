@@ -72,11 +72,5 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Test unit coverage
-        run: pnpm test:cover
-
-      - name: Test e2e
-        run: pnpm test:e2e
+      - name: Test
+        run: pnpm test

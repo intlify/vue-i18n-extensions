@@ -7,7 +7,7 @@ export default {
     ...config.test,
     environment: 'node',
     setupFiles: ['./scripts/vitest.setup.ts'],
-    include: ['./e2e/**/*.test.ts'],
+    include: ['./e2e/**/*.spec.ts'],
     maxWorkers: 1,
     minWorkers: 1
   }
