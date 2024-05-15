@@ -8,8 +8,7 @@ module.exports = {
     context: true
   },
   env: {
-    node: true,
-    jest: true
+    node: true
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
