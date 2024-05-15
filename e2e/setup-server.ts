@@ -24,18 +24,10 @@ export async function startServer(): Promise<ServerContext> {
   const serverProcess = execa(
     'pnpm',
     ['--filter=example', 'dev', '--port', String(port), '--host', host],
-    {
-      stdio: 'inherit',
-      env: {
-        ...process.env,
-        _PORT: String(port),
-        PORT: String(port),
-        HOST: host
-      }
-    }
+    { stdio: 'inherit', env: { ...process.env } }
   )
 
-  await waitForPort(port, { retries: 32 })
+  await waitForPort(port, { retries: 32, host })
 
   return {
     serverProcess,
