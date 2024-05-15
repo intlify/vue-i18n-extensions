@@ -23,7 +23,7 @@ export async function startServer(): Promise<ServerContext> {
 
   const serverProcess = execa(
     'pnpm',
-    ['--filter=example', 'dev', '--port', String(port)],
+    ['--filter=example', 'dev', '--port', String(port), '--host', host],
     {
       stdio: 'inherit',
       env: {
