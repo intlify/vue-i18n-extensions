@@ -9,8 +9,6 @@ describe(`pre-compilation`, () => {
   })
 
   test('rendering', async () => {
-    console.log(await page.content())
-
     expect(await getText(page, '#directive-string')).toMatch(
       'こんにちは、世界！'
     )

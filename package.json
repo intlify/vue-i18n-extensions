@@ -125,9 +125,9 @@
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
     "test": "pnpm lint && pnpm test:cover && pnpm test:e2e",
-    "test:cover": "pnpm test:unit --no-cache --coverage",
+    "test:cover": "pnpm test:unit --coverage",
     "test:e2e": "vitest -c ./vitest.e2e.config.ts",
-    "test:unit": "vitest --no-cache",
+    "test:unit": "vitest",
     "test:watch": "vitest --no-cache --watch",
     "watch": "tsc -p . --watch"
   },
