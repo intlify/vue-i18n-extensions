@@ -1,8 +1,8 @@
-import execa, { ExecaChildProcess } from 'execa'
 import { getRandomPort, waitForPort } from 'get-port-please'
+import { ChildProcess, spawn } from 'child_process'
 
 export type ServerContext = {
-  serverProcess: ExecaChildProcess
+  serverProcess: ChildProcess
   url: (val: string) => string
 }
 export async function startServer(): Promise<ServerContext> {
@@ -10,7 +10,7 @@ export async function startServer(): Promise<ServerContext> {
   const port = await getRandomPort(host)
 
   // console.log('building...')
-  // await execa('pnpm', ['--filter=example', 'build'], {
+  // await spawn('pnpm', ['--filter=example', 'build'], {
   //   stdio: 'inherit',
   //   env: {
   //     ...process.env,
@@ -21,7 +21,7 @@ export async function startServer(): Promise<ServerContext> {
   // })
   // console.log('build finished!')
 
-  const serverProcess = execa(
+  const serverProcess = spawn(
     'pnpm',
     ['--filter=example', 'dev', '--port', String(port), '--host', host],
     { stdio: 'inherit', env: { ...process.env } }
