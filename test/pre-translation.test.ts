@@ -4,13 +4,13 @@ import { transformVTDirective } from '../src/transform'
 
 let spyWarn: any // eslint-disable-line @typescript-eslint/no-explicit-any
 beforeEach(() => {
-  spyWarn = jest.spyOn(global.console, 'warn')
+  spyWarn = vi.spyOn(global.console, 'warn')
 })
 
 afterEach(() => {
-  // jest.clearAllMocks()
-  // jest.resetAllMocks()
-  jest.restoreAllMocks()
+  // vi.clearAllMocks()
+  // vi.resetAllMocks()
+  vi.restoreAllMocks()
 })
 
 test('basic', () => {
