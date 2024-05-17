@@ -114,7 +114,7 @@
     "coverage": "opener coverage/lcov-report/index.html",
     "example": "webpack serve --config example/webpack.config.js --inline --hot",
     "fix": "npm-run-all --parallel lint:eslint:fix format:fix",
-    "format": "prettier --config .prettierrc --ignore-path .prettierignore --list-different '**/*.{js,json,html}'",
+    "format": "prettier --config prettier.config.mjs --ignore-path .prettierignore --list-different '**/*.{js,json,html}'",
     "format:fix": "pnpm format --write",
     "lint": "npm-run-all --parallel lint:eslint lint:secret",
     "lint:eslint": "eslint ./src ./test",
