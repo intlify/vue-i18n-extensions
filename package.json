@@ -44,7 +44,7 @@
     "@vue/server-renderer": "^3.2.45",
     "api-docs-gen": "^0.4.0",
     "esbuild-register": "^3.5.0",
-    "eslint": "^8.30.0",
+    "eslint": "^9.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "get-port-please": "^3.1.2",
