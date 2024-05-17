@@ -76,7 +76,7 @@ test('plural', () => {
 })
 
 test('missing translation', () => {
-  spyWarn.mockImplementation(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
+  spyWarn.mockImplementation(() => {})
 
   const i18n = createI18n({
     legacy: false,

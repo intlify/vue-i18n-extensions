@@ -78,7 +78,7 @@ describe('binding', () => {
 })
 
 test('preserve modifier', () => {
-  spyWarn.mockImplementation(() => {}) // eslint-disable-line @typescript-eslint/no-empty-function
+  spyWarn.mockImplementation(() => {})
 
   const transformVT = transformVTDirective()
   const source = `<div v-t.preserve="'hello'"/>`
