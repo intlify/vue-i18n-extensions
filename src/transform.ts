@@ -225,7 +225,7 @@ export function transformVTDirective<
         return { props: [] }
       }
     } else if (isCompoundExpressionNode(exp)) {
-      const content = exp.children.map(mapNodeContentHanlder).join('')
+      const content = exp.children.map(mapNodeContentHandler).join('')
       const code = generateTranslationCode(
         context,
         mode,
@@ -280,7 +280,7 @@ function isConstant(node: SimpleExpressionNode): boolean {
   }
 }
 
-function mapNodeContentHanlder(
+function mapNodeContentHandler(
   value:
     | string
     | symbol
@@ -296,14 +296,14 @@ function mapNodeContentHanlder(
   } else if (isSimpleExpressionNode(value)) {
     return value.content
   } else if (isCompoundExpressionNode(value)) {
-    return value.children.map(mapNodeContentHanlder).join('')
+    return value.children.map(mapNodeContentHandler).join('')
   } else if (isText(value)) {
     if (isString(value.content)) {
       return value.content
     } else if (isSimpleExpressionNode(value.content)) {
       return value.content.content
     } else if (isCompoundExpressionNode(value.content)) {
-      return value.content.children.map(mapNodeContentHanlder).join('')
+      return value.content.children.map(mapNodeContentHandler).join('')
     } else {
       return ''
     }
