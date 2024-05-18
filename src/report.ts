@@ -31,10 +31,10 @@ export const enum ReportCodes {
 const ReportMessages: { [code: number]: string } = {
   [ReportCodes.UNEXPECTED_DIRECTIVE_EXPRESSION]: `Unexpected directive expression: {0}`,
   [ReportCodes.NOT_SUPPORTED]: `Not supported transform: {0}`,
-  [ReportCodes.FAILED_VALUE_EVALUATION]: `Failed valu evaluation: {0}`,
+  [ReportCodes.FAILED_VALUE_EVALUATION]: `Failed value evaluation: {0}`,
   [ReportCodes.REQUIRED_PARAMETER]: `Required parameter: {0}`,
   [ReportCodes.INVALID_PARAMETER_TYPE]: `Required parameter: {0}`,
-  [ReportCodes.NOT_SUPPORTED_PRESERVE]: `Not supportted 'preserve': {0}`,
+  [ReportCodes.NOT_SUPPORTED_PRESERVE]: `Not supported 'preserve': {0}`,
   [ReportCodes.OVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`
 }
 

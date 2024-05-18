@@ -92,7 +92,7 @@ console.log(await renderToString(app))
 
 ### Pre-Translation with using `v-t` custom directive
 
-You can pre-translation i18n locale messsages of vue-i18n.
+You can pre-translation i18n locale messages of vue-i18n.
 
 > :warning: NOTE: Only the scope of global i18n locale messages can be pre-translated !!
 
@@ -139,7 +139,7 @@ console.log(code)
 */
 ```
 
-The following configration example of `vue-loader`:
+The following configuration example of `vue-loader`:
 
 ```js
 const { VueLoaderPlugin } = require('vue-loader')
