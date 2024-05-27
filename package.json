@@ -58,7 +58,7 @@
     "typescript-eslint": "^7.9.0",
     "vitest": "^1.6.0",
     "vue": "^3.2.45",
-    "vue-loader": "^16.2.0",
+    "vue-loader": "^17.0.0",
     "yorkie": "^2.0.0"
   },
   "engines": {
