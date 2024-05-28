@@ -62,7 +62,7 @@
     "yorkie": "^2.0.0"
   },
   "engines": {
-    "node": ">= 14.18"
+    "node": ">= 18"
   },
   "files": [
     "lib/*.js",
