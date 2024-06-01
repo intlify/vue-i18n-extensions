@@ -32,7 +32,6 @@
   "devDependencies": {
     "@kazupon/lerna-changelog": "^4.3.0",
     "@microsoft/api-extractor": "^7.18.4",
-    "@secretlint/secretlint-rule-preset-recommend": "^3.3.0",
     "@types/node": "^18.11.17",
     "@vitest/coverage-v8": "^1.6.0",
     "@vue/compiler-core": "^3.2.45",
@@ -82,9 +81,6 @@
     ],
     "*.ts?(x)": [
       "prettier --parser=typescript --write"
-    ],
-    "*": [
-      "secretlint"
     ]
   },
   "main": "lib/index.js",
@@ -112,10 +108,9 @@
     "fix": "npm-run-all --parallel lint:eslint:fix format:fix",
     "format": "prettier --config prettier.config.mjs --ignore-path .prettierignore --list-different '**/*.{js,json,html}'",
     "format:fix": "pnpm format --write",
-    "lint": "npm-run-all --parallel lint:eslint lint:secret",
+    "lint": "run-p lint:eslint",
     "lint:eslint": "eslint ./src ./test",
     "lint:eslint:fix": "pnpm lint:eslint --fix",
-    "lint:secret": "npx secretlint \"**/*\"",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
     "test": "pnpm lint && pnpm test:cover && pnpm check-install && pnpm test:e2e",
