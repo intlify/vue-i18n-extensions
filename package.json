@@ -32,7 +32,7 @@
   "devDependencies": {
     "@kazupon/lerna-changelog": "^4.3.0",
     "@microsoft/api-extractor": "^7.18.4",
-    "@secretlint/secretlint-rule-preset-recommend": "^3.3.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^8.0.0",
     "@types/node": "^18.11.17",
     "@vitest/coverage-v8": "^1.6.0",
     "@vue/compiler-core": "^3.2.45",
@@ -52,7 +52,7 @@
     "opener": "^1.5.2",
     "playwright": "^1.44.0",
     "prettier": "^3.2.5",
-    "secretlint": "^3.3.0",
+    "secretlint": "^8.0.0",
     "shipjs": "^0.26.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.9.0",
