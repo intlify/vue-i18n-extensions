@@ -125,5 +125,6 @@
     "test:watch": "vitest --no-cache --watch",
     "watch": "tsc -p . --watch"
   },
-  "types": "dist/vue-i18n-extensions.d.ts"
+  "types": "dist/vue-i18n-extensions.d.ts",
+  "packageManager": "pnpm@9.1.4"
 }
