@@ -97,6 +97,7 @@
     "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
   },
   "scripts": {
+    "prepare": "git config --local core.hooksPath .githooks",
     "build": "pnpm build:transpile && pnpm build:extract && pnpm build:docs",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
