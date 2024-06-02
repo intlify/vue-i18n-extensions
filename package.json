@@ -16,6 +16,7 @@
     "vue-i18n": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/types": "^7.24.6",
     "@eslint/js": "^9.2.0",
     "@kazupon/lerna-changelog": "^4.3.0",
     "@microsoft/api-extractor": "^7.18.4",

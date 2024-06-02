@@ -21,6 +21,9 @@ importers:
         specifier: ^9.0.0
         version: 9.13.1(vue@3.4.27(typescript@5.4.5))
     devDependencies:
+      '@babel/types':
+        specifier: ^7.24.6
+        version: 7.24.6
       '@eslint/js':
         specifier: ^9.2.0
         version: 9.3.0

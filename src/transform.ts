@@ -1,23 +1,35 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-enum-comparison */
 import {
-  DirectiveTransform,
   createSimpleExpression,
-  Node,
   NodeTypes,
-  SimpleExpressionNode,
-  CompoundExpressionNode,
   isText,
-  TextNode,
-  InterpolationNode,
   createCompoundExpression,
-  TO_DISPLAY_STRING,
-  TransformContext
+  TO_DISPLAY_STRING
 } from '@vue/compiler-dom'
 import { isNumber, isObject, isString, isSymbol, toDisplayString } from '@intlify/shared'
-import { I18n, I18nMode, Locale } from 'vue-i18n'
-import { evaluateValue, parseVTExpression, TranslationParams } from './transpiler'
+import { evaluateValue, parseVTExpression } from './transpiler'
 import { report, ReportCodes } from './report'
-import { createContentBuilder, ContentBuilder } from './builder'
+import { createContentBuilder } from './builder'
+
+import type {
+  DirectiveTransform,
+  Node,
+  SimpleExpressionNode,
+  CompoundExpressionNode,
+  TextNode,
+  InterpolationNode,
+  TransformContext
+} from '@vue/compiler-dom'
+import type {
+  I18n,
+  I18nMode,
+  Locale,
+  Composer,
+  VueI18n,
+  NamedValue,
+  TranslateOptions
+} from 'vue-i18n'
+import type { TranslationParams, NestedValue } from './transpiler'
+import type { ContentBuilder } from './builder'
 
 // TODO: should be imported from vue-i18n
 type VTDirectiveValue = {
@@ -180,12 +192,23 @@ export function transformVTDirective<
           report(parseStatus, { args: [node.loc.source || ''], loc: node.loc })
           return { props: [] }
         }
+        if (parsedValue == null) {
+          report(ReportCodes.UNEXPECTED_ERROR, {
+            args: [node.loc.source || ''],
+            loc: node.loc
+          })
+          return { props: [] }
+        }
 
-        const global =
-          i18nInstance.mode === 'composition'
-            ? (i18nInstance.global as any) // eslint-disable-line @typescript-eslint/no-explicit-any
-            : (i18nInstance.global as any).__composer // eslint-disable-line @typescript-eslint/no-explicit-any
-        const content = global.t(...makeParams(parsedValue!))
+        const global = getComposer(i18nInstance as unknown as I18n)
+        if (global == null) {
+          report(ReportCodes.NOT_RESOLVED_COMPOSER, {
+            args: [node.loc.source || ''],
+            loc: node.loc
+          })
+          return { props: [] }
+        }
+        const content = global.t(...makeParams(parsedValue))
 
         node.children.push({
           type: NodeTypes.TEXT,
@@ -199,13 +222,7 @@ export function transformVTDirective<
         node.children.push({
           type: NodeTypes.INTERPOLATION,
           content: createCompoundExpression([
-            createSimpleExpression(
-              code,
-              false,
-              loc,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              ConstantTypes.NOT_CONSTANT as any
-            )
+            createSimpleExpression(code, false, loc, ConstantTypes.NOT_CONSTANT as number)
           ])
         } as InterpolationNode)
         return { props: [] }
@@ -217,13 +234,7 @@ export function transformVTDirective<
       node.children.push({
         type: NodeTypes.INTERPOLATION,
         content: createCompoundExpression([
-          createSimpleExpression(
-            code,
-            false,
-            loc,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            ConstantTypes.NOT_CONSTANT as any
-          )
+          createSimpleExpression(code, false, loc, ConstantTypes.NOT_CONSTANT as number)
         ])
       } as InterpolationNode)
       return { props: [] }
@@ -237,6 +248,34 @@ export function transformVTDirective<
   }
 }
 
+function getComposer(i18n: I18n): Composer | null {
+  return isI18nInstance(i18n) ? getComposerInternal(i18n) : null
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isI18nInstance(i18n: any): i18n is I18n {
+  return i18n != null && 'global' in i18n && 'mode' in i18n
+}
+
+function getComposerInternal(i18n: I18n): Composer | null {
+  if (i18n.mode === 'composition') {
+    return isComposer(i18n.global) ? i18n.global : null
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+    return isVueI18n(i18n.global) ? ((i18n.global as any).__composer as Composer) : null
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isComposer(target: any): target is Composer {
+  return target != null && !('__composer' in target)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isVueI18n(target: any): target is VueI18n {
+  return target != null && '__composer' in target
+}
+
 function isSimpleExpressionNode(node: Node | undefined): node is SimpleExpressionNode {
   return node != null && node.type === NodeTypes.SIMPLE_EXPRESSION
 }
@@ -248,13 +287,13 @@ function isCompoundExpressionNode(node: Node | undefined): node is CompoundExpre
 function isConstant(node: SimpleExpressionNode): boolean {
   if ('isConstant' in node) {
     // for v3.0.3 earlier
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (node as any).isConstant
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+    return (node as any).isConstant as boolean
   } else if ('constType' in node) {
     // for v3.0.3 or later
-    return (node.constType as number) <= ConstantTypes.CAN_STRINGIFY
+    return (node.constType as number) <= (ConstantTypes.CAN_STRINGIFY as unknown as number)
   } else {
-    throw Error('unexpected error')
+    throw Error('unexpected error in Vue SimpleExpressionNode')
   }
 }
 
@@ -303,11 +342,11 @@ function parseValue(value: unknown): [VTDirectiveValue | null, ReportCodes] {
   }
 }
 
-function makeParams(value: VTDirectiveValue): unknown[] {
+function makeParams(value: VTDirectiveValue): [string, NamedValue, TranslateOptions] {
   const { path, locale, args, choice, plural } = value
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const options = {} as any
-  const named: { [prop: string]: unknown } = args || {}
+
+  const options = {} as TranslateOptions
+  const named: NamedValue = args || {}
 
   if (isString(locale)) {
     options.locale = locale
@@ -366,12 +405,13 @@ function generateComposableCode(context: TransformContext, params: TranslationPa
   return content
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function generateNamedCode(builder: ContentBuilder, named: any): void {
+function generateNamedCode(
+  builder: ContentBuilder,
+  named: NestedValue<Record<string, unknown>>
+): void {
   const keys = Object.keys(named)
   keys.forEach(k => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const v: any = named[k]
+    const v = named[k]
     if (isObject(v)) {
       builder.push(`${k}: { `)
       generateNamedCode(builder, v)
@@ -419,5 +459,3 @@ function generateLegacyCode(context: TransformContext, params: TranslationParams
   const content = builder.content
   return content
 }
-
-/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-enum-comparison */
