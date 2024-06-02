@@ -96,9 +96,11 @@ console.log(await renderToString(app))
 
 You can pre-translation i18n locale messages of vue-i18n.
 
-> [!WARNING] **Only the global scope** i18n locale messages can be pre-translated !!
+> [!WARNING]
+> Only the global scope i18n locale messages can be pre-translated !!
 
-> [!WARNING] only `v-t` custom directive is supported !!
+> [!WARNING]
+> only `v-t` custom directive is supported !!
 
 In order to use this feature, you need to specify to Vue compiler option.
 The following example that use `compile` of `@vue/compiler-dom`:
