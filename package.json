@@ -32,7 +32,7 @@
     "eslint": "^9.2.0",
     "get-port-please": "^3.1.2",
     "gh-changelogen": "^0.2.8",
-    "globals": "^14.0.0",
+    "globals": "^15.0.0",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.5",
     "npm-run-all2": "^6.0.0",
