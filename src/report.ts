@@ -24,6 +24,8 @@ export const enum ReportCodes {
   INVALID_PARAMETER_TYPE,
   NOT_SUPPORTED_PRESERVE,
   OVERRIDE_ELEMENT_CHILDREN,
+  NOT_RESOLVED_COMPOSER,
+  UNEXPECTED_ERROR,
   __EXTEND_POINT__
 }
 
@@ -35,7 +37,9 @@ const ReportMessages: { [code: number]: string } = {
   [ReportCodes.REQUIRED_PARAMETER]: `Required parameter: {0}`,
   [ReportCodes.INVALID_PARAMETER_TYPE]: `Required parameter: {0}`,
   [ReportCodes.NOT_SUPPORTED_PRESERVE]: `Not supported 'preserve': {0}`,
-  [ReportCodes.OVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`
+  [ReportCodes.OVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`,
+  [ReportCodes.NOT_RESOLVED_COMPOSER]: `Not resolved vue-i18n composer: {0}`,
+  [ReportCodes.UNEXPECTED_ERROR]: `Unexpected error: {0}`
 }
 
 export function getReportMessage(code: ReportCodes, ...args: unknown[]): string {
