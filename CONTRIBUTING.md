@@ -1,14 +1,15 @@
 # vue-i18n-extensions Contributing Guide
 
-- [Issue Reporting Guidelines](#issue-reporting-guidelines)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Development Setup](#development-setup)
+- [vue-i18n-extensions Contributing Guide](#vue-i18n-extensions-contributing-guide)
+  - [Issue Reporting Guidelines](#issue-reporting-guidelines)
+  - [Pull Request Guidelines](#pull-request-guidelines)
+    - [Work Step Example](#work-step-example)
+  - [Development Setup](#development-setup)
+    - [Commonly used NPM scripts](#commonly-used-npm-scripts)
 
 ## Issue Reporting Guidelines
 
 - The issue list of this repo is **exclusively** for bug reports and feature requests. Non-conforming issues will be closed immediately.
-
-  - For simple beginner questions, you can get quick answers from [`#vue-i18n` channel of Discord](https://chat.vuejs.org/)
 
 - Try to search for your issue, it may have already been answered or even fixed in the master branch.
 
@@ -22,15 +23,15 @@
 
 ## Pull Request Guidelines
 
-- The `master` branch is basically just a snapshot of the latest stable release. All development should be done in dedicated branches. **Do not submit PRs against the `master` branch.**
+- The `next` branch is basically just a snapshot of the latest stable release. All development should be done in dedicated branches. **Do not submit PRs against the `next` branch.**
 
-- Checkout a topic branch from the relevant branch, e.g. `master`, and merge back against that branch.
+- Checkout a topic branch from the relevant branch, e.g. `next`, and merge back against that branch.
 
-- Work in the `src` folder and **DO NOT** checkin `dist` in the commits.
+- Work in the `src` folder and **DO NOT** checkin `dist` and `lib` in the commits.
 
 - It's OK to have multiple small commits as you work on the PR - we will let GitHub automatically squash it before merging.
 
-- Make sure `npm test` passes. (see [development setup](#development-setup))
+- Make sure `pnpm test` passes. (see [development setup](#development-setup))
 
 - If adding new feature:
 
@@ -54,24 +55,24 @@
 
 After cloning the repo, run:
 
-    $ npm install
+    $ pnpm install
 
 ### Commonly used NPM scripts
 
     # watch and serve with hot reload unit test at localhost:8080
-    $ npm run dev
+    $ pnpm dev
 
     # lint source codes
-    $ npm run lint
+    $ pnpm lint
 
     # run unit tests
-    $ npm run test:unit
+    $ pnpm test:unit
 
     # build all dist files, including npm packages
-    $ npm run build
+    $ pnpm build
 
     # run the full test suite, include linting
-    $ npm test
+    $ pnpm test
 
 There are some other scripts available in the `scripts` section of the `package.json` file.
 

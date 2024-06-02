@@ -16,7 +16,6 @@ export default [
       'lib/**',
       'dist/**',
       'docsgen.config.js',
-      'ship.config.js',
       'prettier.config.mjs'
     ]
   },

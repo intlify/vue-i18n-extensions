@@ -9,20 +9,6 @@
   "bugs": {
     "url": "https://github.com/intlify/vue-i18n-extensions/issues"
   },
-  "changelog": {
-    "labels": {
-      "Type: Feature": ":star: Features",
-      "Type: Bug": ":bug: Bug Fixes",
-      "Type: Security": ":lock: Security Fixes",
-      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
-      "Type: Improvement": ":zap: Improvement Features",
-      "Type: Breaking": ":boom: Breaking Change",
-      "Type: Deprecated": ":warning: Deprecated Features",
-      "Type: I18n": ":globe_with_meridians: Internationalization",
-      "Type: A11y": ":wheelchair: Accessibility",
-      "Type: Documentation": ":pencil: Documentation"
-    }
-  },
   "dependencies": {
     "@babel/parser": "^7.24.6",
     "@intlify/shared": "^9.0.0",
@@ -42,17 +28,19 @@
     "@vue/runtime-dom": "^3.2.45",
     "@vue/server-renderer": "^3.2.45",
     "api-docs-gen": "^0.4.0",
-    "esbuild-register": "^3.5.0",
+    "bumpp": "^9.4.1",
     "eslint": "^9.2.0",
     "get-port-please": "^3.1.2",
+    "gh-changelogen": "^0.2.8",
     "globals": "^14.0.0",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.5",
     "npm-run-all2": "^6.0.0",
     "opener": "^1.5.2",
+    "pkg-types": "^1.1.1",
     "playwright": "^1.44.0",
     "prettier": "^3.2.5",
-    "shipjs": "^0.26.0",
+    "tsx": "^4.11.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.9.0",
     "vitest": "^1.6.0",
@@ -99,11 +87,14 @@
   },
   "scripts": {
     "prepare": "git config --local core.hooksPath .githooks",
+    "prepublish": "npm run build",
+    "changelog": "gh-changelogen --repo=@intlify/vue-i18n-extensions",
+    "release": "bumpp --commit \"release: v%s\" --push --tag",
     "build": "pnpm build:transpile && pnpm build:extract && pnpm build:docs",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
     "build:transpile": "tsc -p tsconfig.build.json",
-    "check-install": "node -r esbuild-register scripts/playwright.ts",
+    "check-install": "tsx scripts/playwright.ts",
     "clean": "run-p clean:*",
     "clean:coverage": "rm -rf ./coverage",
     "clean:extract": "rm -rf ./temp/*.* ./dist/*.* ./etc/*.*",
@@ -116,14 +107,12 @@
     "fix": "run-p \"fix:* {@}\" --",
     "fix:prettier": "prettier . --write",
     "fix:eslint": "eslint . --fix",
-    "release:prepare": "shipjs prepare",
-    "release:trigger": "shipjs trigger",
-    "test": "pnpm lint && pnpm test:cover && pnpm check-install && pnpm test:e2e",
+    "test": "pnpm test:cover && pnpm check-install && pnpm test:e2e",
     "test:cover": "pnpm test:unit --coverage --coverage.include=src",
     "test:e2e": "vitest -c ./vitest.e2e.config.ts run",
     "test:unit": "vitest run",
     "test:watch": "vitest --no-cache --watch",
-    "watch": "tsc -p . --watch"
+    "watch": "tsc -p tsconfig.build.json --watch"
   },
   "types": "dist/vue-i18n-extensions.d.ts",
   "packageManager": "pnpm@9.1.4"

@@ -1,31 +1,62 @@
 name: Release
 
+# trigger by `git tag` push only via `yarn release`
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*'
 
 jobs:
   release:
-    name: Release
-    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
-    runs-on: Ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout codes
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Enable corepack
         run: corepack enable
-      - uses: actions/setup-node@v4
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
         with:
-          registry-url: 'https://registry.npmjs.org'
-      - run: git switch next
-      - run: |
-          if [ -f "pnpm-lock.yaml" ]; then
-            pnpm install
-          else
-            npm install
-          fi
-      - run: npm run release:trigger
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Create github releases
+        run: |
+          npx changelogithub
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          SLACK_INCOMING_HOOK: ${{ secrets.SLACK_INCOMING_HOOK }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Extract version tag
+        if: startsWith( github.ref, 'refs/tags/v' )
+        uses: jungwinter/split@v2
+        id: split
+        with:
+          msg: ${{ github.ref }}
+          separator: '/'
+
+      - name: Sync changelog from github releases
+        run: |
+          pnpm changelog --tag=${{ steps.split.outputs._2 }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changelog
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: main
+          file_pattern: 'CHANGELOG.md'
+          commit_message: 'chore: generate changelog'
+
+      - name: Publish package
+        run: ./scripts/release.sh
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
