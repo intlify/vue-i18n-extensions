@@ -110,13 +110,7 @@ jobs:
         # does not need to explicitly set chromium after https://github.com/microsoft/playwright/issues/14862 is solved
         run: pnpm playwright install chromium
 
-      - name: Restore dist cache
-        uses: actions/cache@v4
-        with:
-          path: packages/*/dist
-          key: build-vue-i18n-next-os-${{ matrix.os }}-${{ github.sha }}
-
-      - name: Build
+      - name: Building
         run: pnpm build
 
       - name: Testing
@@ -132,6 +126,7 @@ jobs:
       matrix:
         node-version: [18]
         os: [ubuntu-latest]
+
     name: Nightly release
     steps:
       - name: Checkout codes
@@ -149,11 +144,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Restore dist cache
-        uses: actions/cache@v4
-        with:
-          path: dist
-          key: ${{ matrix.os }}-node-v${{ matrix.node-version }}-${{ github.sha }}
+      - name: Building
+        run: pnpm build:nightly
 
       - name: Release Nightly
         if: |
