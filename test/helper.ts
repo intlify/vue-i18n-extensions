@@ -62,11 +62,10 @@ export const isBoolean = (val: unknown): val is boolean => typeof val === 'boole
 export function mount<
   Messages extends Record<string, unknown> = Record<string, unknown>,
   DateTimeFormats extends Record<string, unknown> = Record<string, unknown>,
-  NumberFormats extends Record<string, unknown> = Record<string, unknown>,
-  Legacy extends boolean = true
+  NumberFormats extends Record<string, unknown> = Record<string, unknown>
 >(
   targetComponent: Parameters<typeof createApp>[0],
-  i18n: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>,
+  i18n: I18n<Messages, DateTimeFormats, NumberFormats>,
   options: Partial<MountOptions> = {}
 ): Promise<Wrapper> {
   const TargetComponent = targetComponent as Component & {
