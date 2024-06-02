@@ -6,6 +6,6 @@ lib
 *.swp
 *~
 etc
-dist/
-temp/
+dist
+temp
 .eslintcache
