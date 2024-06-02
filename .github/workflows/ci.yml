@@ -156,5 +156,5 @@ jobs:
           !startsWith(github.event.head_commit.message, 'docs')
         run: ./scripts/release.sh
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_ORG_TOKEN}}
           NIGHTLY_RELEASE: 'true'
