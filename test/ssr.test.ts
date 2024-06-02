@@ -18,7 +18,9 @@ test('v-t: composition', async () => {
     mode: 'function',
     directiveTransforms: { t: transformVT }
   })
-  const render = Function('require', 'Vue', code)(require, runtimeDom)
+  // prettier-ignore
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     setup() {
       return useI18n({
@@ -52,7 +54,9 @@ test('v-t: legacy', async () => {
     mode: 'function',
     directiveTransforms: { t: transformVT }
   })
-  const render = Function('require', 'Vue', code)(require, runtimeDom)
+  // prettier-ignore
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     data: () => ({ dessert: 'banana' }),
     i18n: {

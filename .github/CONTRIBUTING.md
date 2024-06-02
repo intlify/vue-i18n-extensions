@@ -33,6 +33,7 @@
 - Make sure `npm test` passes. (see [development setup](#development-setup))
 
 - If adding new feature:
+
   - Add accompanying test case.
   - Provide convincing reason to add this feature. Ideally you should open a suggestion issue first and have it greenlighted before working on it.
 
@@ -41,6 +42,7 @@
   - Add appropriate test coverage if applicable.
 
 ### Work Step Example
+
 - Fork the repository from [intlify/vue-i18n-extensions](https://github.com/intlify/vue-i18n-extensions) !
 - Create your topic branch from `master`: `git branch my-new-topic origin/master`
 - Add codes and pass tests !
@@ -74,4 +76,3 @@ After cloning the repo, run:
 There are some other scripts available in the `scripts` section of the `package.json` file.
 
 The default test script will do the following: lint with ESLint -> unit tests with coverage. **Please make sure to have this pass successfully before submitting a PR.** Although the same tests will be run against your PR on the CI server, it is better to have it working locally beforehand.
-

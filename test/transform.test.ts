@@ -10,9 +10,9 @@ function getMessage(code: ReportCodes, ...args: unknown[]) {
   return `[vue-i18n-extensions] ${getReportMessage(code, ...args)}`
 }
 
-let spyWarn: any // eslint-disable-line @typescript-eslint/no-explicit-any
+let spyWarn: ReturnType<typeof vi.spyOn>
 beforeEach(() => {
-  spyWarn = vi.spyOn(global.console, 'warn')
+  spyWarn = vi.spyOn(global.console, 'warn') as ReturnType<typeof vi.spyOn>
 })
 
 afterEach(() => {
@@ -90,9 +90,7 @@ test('preserve modifier', () => {
   })
   expect(code).toMatchSnapshot(source)
   expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(
-    getMessage(ReportCodes.NOT_SUPPORTED_PRESERVE, source)
-  )
+  expect(spyWarn.mock.calls[0][0]).toEqual(getMessage(ReportCodes.NOT_SUPPORTED_PRESERVE, source))
 })
 
 test('no specify', () => {
@@ -144,9 +142,7 @@ test('have child elements', () => {
       prefixIdentifiers: true,
       directiveTransforms: { t: transformVT }
     })
-  }).toThrowError(
-    getReportMessage(ReportCodes.OVERRIDE_ELEMENT_CHILDREN, source)
-  )
+  }).toThrowError(getReportMessage(ReportCodes.OVERRIDE_ELEMENT_CHILDREN, source))
 })
 
 describe('legacy', () => {
@@ -252,7 +248,8 @@ test('render in app', async () => {
     prefixIdentifiers: true,
     directiveTransforms: { t: transformVT }
   })
-  const render = new Function('Vue', code)(runtimeDom)
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  const render = new Function('Vue', code)(runtimeDom) as Function
   const App = defineComponent({
     render,
     setup() {

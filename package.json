@@ -24,15 +24,17 @@
     }
   },
   "dependencies": {
-    "@babel/parser": "^7.20.0",
+    "@babel/parser": "^7.24.6",
     "@intlify/shared": "^9.0.0",
     "@vue/compiler-dom": "^3.2.45",
     "vue-i18n": "^9.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.2.0",
     "@kazupon/lerna-changelog": "^4.3.0",
     "@microsoft/api-extractor": "^7.18.4",
-    "@types/node": "^18.11.17",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.13.0",
     "@vitest/coverage-v8": "^1.6.0",
     "@vue/compiler-core": "^3.2.45",
     "@vue/compiler-sfc": "^3.2.45",
@@ -42,16 +44,14 @@
     "api-docs-gen": "^0.4.0",
     "esbuild-register": "^3.5.0",
     "eslint": "^9.2.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
     "get-port-please": "^3.1.2",
+    "globals": "^14.0.0",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.5",
     "npm-run-all2": "^6.0.0",
     "opener": "^1.5.2",
     "playwright": "^1.44.0",
     "prettier": "^3.2.5",
-    "secretlint": "^3.3.0",
     "shipjs": "^0.26.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.9.0",
@@ -76,11 +76,16 @@
   ],
   "license": "MIT",
   "lint-staged": {
-    "*.js": [
+    "*.{json,md,yml}": [
       "prettier --write"
     ],
+    "*.{js,mjs,cjs}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
     "*.ts?(x)": [
-      "prettier --parser=typescript --write"
+      "prettier --parser=typescript --write",
+      "eslint --fix"
     ]
   },
   "main": "lib/index.js",
@@ -97,26 +102,26 @@
     "build": "pnpm build:transpile && pnpm build:extract && pnpm build:docs",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
-    "build:transpile": "tsc -p .",
+    "build:transpile": "tsc -p tsconfig.build.json",
     "check-install": "node -r esbuild-register scripts/playwright.ts",
-    "clean": "npm-run-all clean:*",
+    "clean": "run-p clean:*",
     "clean:coverage": "rm -rf ./coverage",
     "clean:extract": "rm -rf ./temp/*.* ./dist/*.* ./etc/*.*",
     "clean:lib": "rm -rf ./lib/*.*",
     "coverage": "opener coverage/lcov-report/index.html",
     "example": "webpack serve --config example/webpack.config.js --inline --hot",
-    "fix": "npm-run-all --parallel lint:eslint:fix format:fix",
-    "format": "prettier --config prettier.config.mjs --ignore-path .prettierignore --list-different '**/*.{js,json,html}'",
-    "format:fix": "pnpm format --write",
-    "lint": "run-p lint:eslint",
-    "lint:eslint": "eslint ./src ./test",
-    "lint:eslint:fix": "pnpm lint:eslint --fix",
+    "lint": "run-p \"lint:* {@}\" --",
+    "lint:prettier": "prettier . --check",
+    "lint:eslint": "eslint .",
+    "fix": "run-p \"fix:* {@}\" --",
+    "fix:prettier": "prettier . --write",
+    "fix:eslint": "eslint . --fix",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
     "test": "pnpm lint && pnpm test:cover && pnpm check-install && pnpm test:e2e",
-    "test:cover": "pnpm test:unit --coverage",
-    "test:e2e": "vitest -c ./vitest.e2e.config.ts",
-    "test:unit": "vitest",
+    "test:cover": "pnpm test:unit --coverage --coverage.include=src",
+    "test:e2e": "vitest -c ./vitest.e2e.config.ts run",
+    "test:unit": "vitest run",
     "test:watch": "vitest --no-cache --watch",
     "watch": "tsc -p . --watch"
   },

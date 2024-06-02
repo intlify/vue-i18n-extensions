@@ -38,10 +38,7 @@ const ReportMessages: { [code: number]: string } = {
   [ReportCodes.OVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`
 }
 
-export function getReportMessage(
-  code: ReportCodes,
-  ...args: unknown[]
-): string {
+export function getReportMessage(code: ReportCodes, ...args: unknown[]): string {
   return format(ReportMessages[code], ...args)
 }
 
@@ -58,14 +55,9 @@ function createExtensionsError(
   return error
 }
 
-export function report(
-  code: ReportCodes,
-  options: ReportOptions = {}
-): void | ExtensionsError {
+export function report(code: ReportCodes, options: ReportOptions = {}): void | ExtensionsError {
   const mode =
-    options.mode &&
-    isString(options.mode) &&
-    ['warn', 'error'].includes(options.mode)
+    options.mode && isString(options.mode) && ['warn', 'error'].includes(options.mode)
       ? options.mode
       : 'warn'
 

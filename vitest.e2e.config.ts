@@ -11,4 +11,4 @@ export default {
     maxWorkers: 1,
     minWorkers: 1
   }
-} as UserConfig
+} satisfies UserConfig

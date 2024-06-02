@@ -19,11 +19,7 @@ function extractSpecificChangelog(changelog, version) {
 }
 
 async function commitChangelog(current, next) {
-  const { stdout } = await execa('npx', [
-    'lerna-changelog',
-    '--next-version',
-    `v${next}`
-  ])
+  const { stdout } = await execa('npx', ['lerna-changelog', '--next-version', `v${next}`])
   const escapedVersion = next.replace(/\./g, '\\.')
   const regex = new RegExp(
     `(#+?\\s\\[?v?${escapedVersion}\\]?[\\s\\S]*?)(#+?\\s\\[?v?\\d\\.\\d\\.\\d\\]?)`,
@@ -48,8 +44,7 @@ module.exports = {
   },
   formatCommitMessage: ({ version, releaseType, mergeStrategy, baseBranch }) =>
     `${releaseType} release v${version}`,
-  formatPullRequestTitle: ({ version, releaseType }) =>
-    `${releaseType} release v${version}`,
+  formatPullRequestTitle: ({ version, releaseType }) => `${releaseType} release v${version}`,
   shouldRelease: () => true,
   releases: {
     extractChangelog: ({ version, dir }) => {

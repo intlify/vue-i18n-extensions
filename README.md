@@ -7,8 +7,8 @@
 Extensions for vue-i18n
 
 ## ⚠️ Notice
-This `next` branch is development branch for Vue 3! The version for Vue 2 is now in [`master`](https://github.com/intlify/vue-i18n-extensions/tree/master) branch!
 
+This `next` branch is development branch for Vue 3! The version for Vue 2 is now in [`master`](https://github.com/intlify/vue-i18n-extensions/tree/master) branch!
 
 This library exports the following extensions:
 
@@ -17,13 +17,11 @@ This library exports the following extensions:
 - Server-side rendering for `v-t` custom directive
 - Pre-Translation
 
-
 ## 💿 Installation
 
 ```sh
 $ npm i --save-dev @intlify/vue-i18n-extensions@next
 ```
-
 
 ## 🚀 Extensions
 
@@ -88,7 +86,6 @@ app.use(i18n)
 console.log(await renderToString(app))
 // output -> <div>I eat 2 bananas!</div>`
 ```
-
 
 ### Pre-Translation with using `v-t` custom directive
 
@@ -175,7 +172,7 @@ module.exports = {
             }
           }
         ]
-      },
+      }
       // ...
     ]
   },
@@ -194,11 +191,9 @@ You can specify the transform resulting from `transformVTDirective` in the compi
 - `rollup-plugin-vue` (`compilerOptions` at [`Options`](https://github.com/vuejs/rollup-plugin-vue/blob/next/src/index.ts#L50))
 - `vite` (`vueCompilerOptions` at [`CoreOptions`](https://github.com/vitejs/vite/blob/master/src/node/config.ts#L154))
 
-
 ## 🤝 API
 
 About details, See [docs](./docs/@intlify/vue-i18n-extensions-api.md)
-
 
 ## ©️ License
 

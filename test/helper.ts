@@ -1,5 +1,6 @@
 import {
   Component,
+  VNodeProps,
   createApp,
   defineComponent,
   h,
@@ -40,10 +41,10 @@ function initialProps<P>(propsOption: ComponentObjectPropsOptions<P>) {
 
   for (const key in propsOption) {
     const prop = propsOption[key]
-    // @ts-ignore
+    // @ts-expect-error -- TODO: fix this
     if (!prop.required && prop.default)
-      // @ts-ignore
-      copy[key] = prop.default
+      // @ts-expect-error -- TODO: fix this
+      copy[key] = prop.default // eslint-disable-line @typescript-eslint/no-unsafe-assignment
   }
 
   return copy
@@ -56,28 +57,25 @@ afterAll(() => {
   activeWrapperRemovers = []
 })
 
-export const isBoolean = (val: unknown): val is boolean =>
-  typeof val === 'boolean'
+export const isBoolean = (val: unknown): val is boolean => typeof val === 'boolean'
 
 export function mount<
-  Messages extends Record<string, unknown> = {},
-  DateTimeFormats extends Record<string, unknown> = {},
-  NumberFormats extends Record<string, unknown> = {},
+  Messages extends Record<string, unknown> = Record<string, unknown>,
+  DateTimeFormats extends Record<string, unknown> = Record<string, unknown>,
+  NumberFormats extends Record<string, unknown> = Record<string, unknown>,
   Legacy extends boolean = true
 >(
   targetComponent: Parameters<typeof createApp>[0],
   i18n: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>,
   options: Partial<MountOptions> = {}
 ): Promise<Wrapper> {
-  const TargetComponent = targetComponent as Component
+  const TargetComponent = targetComponent as Component & {
+    props?: ComponentObjectPropsOptions
+  }
   return new Promise((resolve, reject) => {
     // NOTE: only supports props as an object
     const propsData = reactive(
-      Object.assign(
-        // @ts-ignore
-        initialProps(TargetComponent.props || {}),
-        options.propsData
-      )
+      Object.assign(initialProps(TargetComponent.props || {}), options.propsData)
     )
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -123,8 +121,7 @@ export function mount<
       const keys = getKeys(options.provide)
 
       for (const key of keys) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        app.provide(key, options.provide[key as any])
+        app.provide(key, options.provide[key])
       }
     }
 
@@ -180,16 +177,16 @@ function compileSlot(template: string) {
     prefixIdentifiers: true
   })
 
-  const render = new Function('Vue', codegen.code)(runtimeDom)
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  const render = new Function('Vue', codegen.code)(runtimeDom) as Function
 
   const ToRender = defineComponent({
     inheritAttrs: false,
     render,
-    setup(props, { attrs }) {
+    setup(_props, { attrs }) {
       return { ...attrs }
     }
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (propsData: any) => h(ToRender, { ...propsData })
+  return (propsData: VNodeProps) => h(ToRender, { ...propsData })
 }

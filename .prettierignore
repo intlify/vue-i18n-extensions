@@ -1,3 +1,9 @@
 lib
+dist
 coverage
 tsconfig.json
+tsconfig.base.json
+tsconfig.eslint.json
+pnpm-lock.yaml
+CHANGELOG.md
+docs/@intlify/vue-i18n-extensions-api.md

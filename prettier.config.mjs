@@ -1,7 +1,7 @@
 export default {
   semi: false,
   singleQuote: true,
-  printWidth: 80,
+  printWidth: 100,
   trailingComma: 'none',
   endOfLine: 'auto',
   arrowParens: 'avoid'

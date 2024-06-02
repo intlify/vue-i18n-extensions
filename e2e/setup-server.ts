@@ -1,5 +1,5 @@
 import { getRandomPort, waitForPort } from 'get-port-please'
-import { ChildProcess, spawn } from 'child_process'
+import { ChildProcess, spawn } from 'node:child_process'
 
 export type ServerContext = {
   serverProcess: ChildProcess

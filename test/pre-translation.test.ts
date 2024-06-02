@@ -2,9 +2,9 @@ import { compile } from '@vue/compiler-dom'
 import { createI18n } from 'vue-i18n'
 import { transformVTDirective } from '../src/transform'
 
-let spyWarn: any // eslint-disable-line @typescript-eslint/no-explicit-any
+let spyWarn: ReturnType<typeof vi.spyOn>
 beforeEach(() => {
-  spyWarn = vi.spyOn(global.console, 'warn')
+  spyWarn = vi.spyOn(global.console, 'warn') as ReturnType<typeof vi.spyOn>
 })
 
 afterEach(() => {

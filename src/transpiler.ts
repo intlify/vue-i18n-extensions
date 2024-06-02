@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call */
 import { parse } from '@babel/parser'
 
 interface EvaluateReturn {
@@ -24,11 +24,13 @@ export function evaluateValue(expression: string): EvaluateReturn {
     const ast = parse(`const a = ${expression.trim()}`)
     const node = (ast.program.body[0] as any).declarations[0].init
     if (node.type === 'StringLiteral' || node.type === 'ObjectExpression') {
+      // eslint-disable-next-line @typescript-eslint/no-implied-eval
       const val = new Function(`return ${expression.trim()}`)()
       ret.status = 'ok'
       ret.value = val
     }
-  } catch (e) {}
+    // eslint-disable-next-line no-empty
+  } catch (_e) {}
 
   return ret
 }
@@ -76,7 +78,8 @@ export function parseVTExpression(expression: string): TranslationParams {
         }
       })
     }
-  } catch (e) {}
+    // eslint-disable-next-line no-empty
+  } catch (_e) {}
 
   return ret
 }
@@ -127,4 +130,4 @@ function collectMemberPath(node: any, paths: string[]): void {
   }
 }
 
-/* eslint-enable @typescript-eslint/no-explicit-any */
+/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call */

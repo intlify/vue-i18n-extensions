@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-enum-comparison */
 import {
   DirectiveTransform,
   createSimpleExpression,
@@ -12,19 +13,9 @@ import {
   TO_DISPLAY_STRING,
   TransformContext
 } from '@vue/compiler-dom'
-import {
-  isNumber,
-  isObject,
-  isString,
-  isSymbol,
-  toDisplayString
-} from '@intlify/shared'
+import { isNumber, isObject, isString, isSymbol, toDisplayString } from '@intlify/shared'
 import { I18n, I18nMode, Locale } from 'vue-i18n'
-import {
-  evaluateValue,
-  parseVTExpression,
-  TranslationParams
-} from './transpiler'
+import { evaluateValue, parseVTExpression, TranslationParams } from './transpiler'
 import { report, ReportCodes } from './report'
 import { createContentBuilder, ContentBuilder } from './builder'
 
@@ -43,9 +34,9 @@ type VTDirectiveValue = {
  * @public
  */
 export interface TransformVTDirectiveOptions<
-  Messages extends Record<string, unknown> = {},
-  DateTimeFormats extends Record<string, unknown> = {},
-  NumberFormats extends Record<string, unknown> = {},
+  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
   Legacy extends boolean = true
 > {
   /**
@@ -126,17 +117,12 @@ const enum ConstantTypes {
  * @public
  */
 export function transformVTDirective<
-  Messages extends Record<string, unknown> = {},
-  DateTimeFormats extends Record<string, unknown> = {},
-  NumberFormats extends Record<string, unknown> = {},
+  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
   Legacy extends boolean = true
 >(
-  options: TransformVTDirectiveOptions<
-    Messages,
-    DateTimeFormats,
-    NumberFormats,
-    Legacy
-  > = {}
+  options: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy> = {}
 ): DirectiveTransform {
   const i18nInstance = options.i18n
   const mode =
@@ -226,11 +212,7 @@ export function transformVTDirective<
       }
     } else if (isCompoundExpressionNode(exp)) {
       const content = exp.children.map(mapNodeContentHandler).join('')
-      const code = generateTranslationCode(
-        context,
-        mode,
-        parseVTExpression(content)
-      )
+      const code = generateTranslationCode(context, mode, parseVTExpression(content))
       context.helper(TO_DISPLAY_STRING)
       node.children.push({
         type: NodeTypes.INTERPOLATION,
@@ -255,15 +237,11 @@ export function transformVTDirective<
   }
 }
 
-function isSimpleExpressionNode(
-  node: Node | undefined
-): node is SimpleExpressionNode {
+function isSimpleExpressionNode(node: Node | undefined): node is SimpleExpressionNode {
   return node != null && node.type === NodeTypes.SIMPLE_EXPRESSION
 }
 
-function isCompoundExpressionNode(
-  node: Node | undefined
-): node is CompoundExpressionNode {
+function isCompoundExpressionNode(node: Node | undefined): node is CompoundExpressionNode {
   return node != null && node.type === NodeTypes.COMPOUND_EXPRESSION
 }
 
@@ -356,10 +334,7 @@ function generateTranslationCode(
     : generateLegacyCode(context, params)
 }
 
-function generateComposableCode(
-  context: TransformContext,
-  params: TranslationParams
-): string {
+function generateComposableCode(context: TransformContext, params: TranslationParams): string {
   const baseCode = `${context.prefixIdentifiers ? '_ctx.' : ''}t`
 
   const builder = createContentBuilder()
@@ -407,14 +382,9 @@ function generateNamedCode(builder: ContentBuilder, named: any): void {
   })
 }
 
-function generateLegacyCode(
-  context: TransformContext,
-  params: TranslationParams
-): string {
+function generateLegacyCode(context: TransformContext, params: TranslationParams): string {
   const mode = !params.options.plural ? 'basic' : 'plural'
-  const baseCode = `${context.prefixIdentifiers ? '_ctx.' : ''}${
-    mode === 'basic' ? '$t' : '$tc'
-  }`
+  const baseCode = `${context.prefixIdentifiers ? '_ctx.' : ''}${mode === 'basic' ? '$t' : '$tc'}`
 
   const builder = createContentBuilder()
   builder.push(`${baseCode}(`)
@@ -449,3 +419,5 @@ function generateLegacyCode(
   const content = builder.content
   return content
 }
+
+/* eslint-enable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-enum-comparison */
