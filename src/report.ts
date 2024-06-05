@@ -22,7 +22,6 @@ export const enum ReportCodes {
   FAILED_VALUE_EVALUATION,
   REQUIRED_PARAMETER,
   INVALID_PARAMETER_TYPE,
-  NOT_SUPPORTED_PRESERVE,
   OVERRIDE_ELEMENT_CHILDREN,
   NOT_RESOLVED_COMPOSER,
   UNEXPECTED_ERROR,
@@ -36,7 +35,6 @@ const ReportMessages: { [code: number]: string } = {
   [ReportCodes.FAILED_VALUE_EVALUATION]: `Failed value evaluation: {0}`,
   [ReportCodes.REQUIRED_PARAMETER]: `Required parameter: {0}`,
   [ReportCodes.INVALID_PARAMETER_TYPE]: `Required parameter: {0}`,
-  [ReportCodes.NOT_SUPPORTED_PRESERVE]: `Not supported 'preserve': {0}`,
   [ReportCodes.OVERRIDE_ELEMENT_CHILDREN]: `v-t will override element children: {0}`,
   [ReportCodes.NOT_RESOLVED_COMPOSER]: `Not resolved vue-i18n composer: {0}`,
   [ReportCodes.UNEXPECTED_ERROR]: `Unexpected error: {0}`
