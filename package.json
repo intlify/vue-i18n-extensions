@@ -113,5 +113,5 @@
     "watch": "tsc -p tsconfig.build.json --watch"
   },
   "types": "dist/vue-i18n-extensions.d.ts",
-  "packageManager": "pnpm@9.1.4"
+  "packageManager": "pnpm@9.2.0"
 }
