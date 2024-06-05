@@ -169,13 +169,6 @@ export function transformVTDirective<
       node.children.length = 0
     }
 
-    if (dir.modifiers.includes('preserve')) {
-      report(ReportCodes.NOT_SUPPORTED_PRESERVE, {
-        args: [node.loc.source || ''],
-        loc: node.loc
-      })
-    }
-
     if (isSimpleExpressionNode(exp)) {
       if (isConstant(exp) && i18nInstance) {
         const { status, value } = evaluateValue(exp.content)

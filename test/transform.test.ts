@@ -6,15 +6,6 @@ import { transformVTDirective } from '../src/transform'
 import { getReportMessage, ReportCodes } from '../src/report'
 import { mount } from './helper'
 
-function getMessage(code: ReportCodes, ...args: unknown[]) {
-  return `[vue-i18n-extensions] ${getReportMessage(code, ...args)}`
-}
-
-let spyWarn: ReturnType<typeof vi.spyOn>
-beforeEach(() => {
-  spyWarn = vi.spyOn(global.console, 'warn') as ReturnType<typeof vi.spyOn>
-})
-
 afterEach(() => {
   // vi.clearAllMocks()
   // vi.resetAllMocks()
@@ -75,22 +66,6 @@ describe('binding', () => {
     expect(code).toMatchSnapshot(source)
     expect(ast).toMatchSnapshot(source)
   })
-})
-
-test('preserve modifier', () => {
-  spyWarn.mockImplementation(() => {})
-
-  const transformVT = transformVTDirective()
-  const source = `<div v-t.preserve="'hello'"/>`
-  const { code, ast } = compile(source, {
-    mode: 'function',
-    hoistStatic: false,
-    prefixIdentifiers: true,
-    directiveTransforms: { t: transformVT }
-  })
-  expect(code).toMatchSnapshot(source)
-  expect(ast).toMatchSnapshot(source)
-  expect(spyWarn.mock.calls[0][0]).toEqual(getMessage(ReportCodes.NOT_SUPPORTED_PRESERVE, source))
 })
 
 test('no specify', () => {
