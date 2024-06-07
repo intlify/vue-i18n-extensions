@@ -2,10 +2,11 @@ import {
   createSimpleExpression,
   NodeTypes,
   isText,
+  BindingTypes,
   createCompoundExpression,
   TO_DISPLAY_STRING
 } from '@vue/compiler-dom'
-import { isNumber, isObject, isString, isSymbol, toDisplayString } from '@intlify/shared'
+import { isNumber, isObject, isString, isSymbol, toDisplayString, hasOwn } from '@intlify/shared'
 import { evaluateValue, parseVTExpression } from './transpiler'
 import { report, ReportCodes } from './report'
 import { createContentBuilder } from './builder'
@@ -367,7 +368,16 @@ function generateTranslationCode(
 }
 
 function generateComposableCode(context: TransformContext, params: TranslationParams): string {
-  const baseCode = `${context.prefixIdentifiers ? '_ctx.' : ''}t`
+  const { prefixIdentifiers, bindingMetadata } = context
+  const functionName = 't'
+  const type = hasOwn(bindingMetadata, functionName) && bindingMetadata[functionName]
+  // prettier-ignore
+  const prefixContext = prefixIdentifiers
+    ? type && type.startsWith('setup') || type === BindingTypes.LITERAL_CONST
+      ? '$setup.'
+      : '_ctx.'
+    : ''
+  const baseCode = `${prefixContext}${functionName}`
 
   const builder = createContentBuilder()
   builder.push(`${baseCode}(`)
