@@ -118,7 +118,7 @@ test('script setup', async () => {
   expect(await renderToString(app)).toMatch(`<div>I eat 2 bananas!</div>`)
 })
 
-test('differenct translation signatures', async () => {
+test('different translation signatures', async () => {
   const i18n = createI18n({
     legacy: false,
     locale: 'en',
