@@ -4,7 +4,7 @@ exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, ar
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((_ctx.t || _ctx.$t)(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })), 1 /* TEXT */))
 }"
 `;
 
@@ -19,7 +19,7 @@ exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, ar
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
+                "content": "(_ctx.t || _ctx.$t)(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -61,7 +61,7 @@ exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, ar
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
+                "content": "(_ctx.t || _ctx.$t)(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -699,7 +699,7 @@ exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, ar
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
+            "content": "(_ctx.t || _ctx.$t)(_ctx.foo.bar.buz, { name: 'banana' }, { locale: _ctx.locale, plural: 2 })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -791,7 +791,7 @@ exports[`binding > simple variable > <div v-t="hello"/> 1`] = `
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(_ctx.t(_ctx.hello, {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((_ctx.t || _ctx.$t)(_ctx.hello, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -806,7 +806,7 @@ exports[`binding > simple variable > <div v-t="hello"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(_ctx.hello, {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)(_ctx.hello, {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -848,7 +848,7 @@ exports[`binding > simple variable > <div v-t="hello"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(_ctx.hello, {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)(_ctx.hello, {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -974,7 +974,7 @@ exports[`binding > simple variable > <div v-t="hello"/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t(_ctx.hello, {  }, {  })",
+            "content": "(_ctx.t || _ctx.$t)(_ctx.hello, {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -1066,7 +1066,7 @@ exports[`hoistStatic option: on > <div v-t="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((_ctx.t || _ctx.$t)('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -1081,7 +1081,7 @@ exports[`hoistStatic option: on > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t('hello', {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -1123,7 +1123,7 @@ exports[`hoistStatic option: on > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t('hello', {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -1277,7 +1277,7 @@ exports[`hoistStatic option: on > <div v-t="'hello'"/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t('hello', {  }, {  })",
+            "content": "(_ctx.t || _ctx.$t)('hello', {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -1369,7 +1369,7 @@ exports[`invalid expression > <p v-t="[0]"></p> 1`] = `
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("p", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("p", null, _toDisplayString((_ctx.t || _ctx.$t)(, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -1384,7 +1384,7 @@ exports[`invalid expression > <p v-t="[0]"></p> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(, {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)(, {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -1426,7 +1426,7 @@ exports[`invalid expression > <p v-t="[0]"></p> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(, {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)(, {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -1602,7 +1602,7 @@ exports[`invalid expression > <p v-t="[0]"></p> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t(, {  }, {  })",
+            "content": "(_ctx.t || _ctx.$t)(, {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -4057,7 +4057,7 @@ exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'desse
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((_ctx.t || _ctx.$t)('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })), 1 /* TEXT */))
 }"
 `;
 
@@ -4072,7 +4072,7 @@ exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'desse
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
+                "content": "(_ctx.t || _ctx.$t)('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -4114,7 +4114,7 @@ exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'desse
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
+                "content": "(_ctx.t || _ctx.$t)('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -4594,7 +4594,7 @@ exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'desse
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
+            "content": "(_ctx.t || _ctx.$t)('dessert', { name: 'banana' }, { locale: 'en', plural: 2 })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -4686,7 +4686,7 @@ exports[`literal > path > <div v-t="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(_ctx.t('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((_ctx.t || _ctx.$t)('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -4701,7 +4701,7 @@ exports[`literal > path > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t('hello', {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -4743,7 +4743,7 @@ exports[`literal > path > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t('hello', {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -4897,7 +4897,7 @@ exports[`literal > path > <div v-t="'hello'"/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t('hello', {  }, {  })",
+            "content": "(_ctx.t || _ctx.$t)('hello', {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -4989,7 +4989,7 @@ exports[`no specify > <div v-t=""/> 1`] = `
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(_ctx.t(, {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((_ctx.t || _ctx.$t)(, {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -5004,7 +5004,7 @@ exports[`no specify > <div v-t=""/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(, {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)(, {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5046,7 +5046,7 @@ exports[`no specify > <div v-t=""/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "_ctx.t(, {  }, {  })",
+                "content": "(_ctx.t || _ctx.$t)(, {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5171,7 +5171,7 @@ exports[`no specify > <div v-t=""/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "_ctx.t(, {  }, {  })",
+            "content": "(_ctx.t || _ctx.$t)(, {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -5266,7 +5266,7 @@ return function render(_ctx, _cache) {
   with (_ctx) {
     const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = _Vue
 
-    return (_openBlock(), _createElementBlock("div", null, _toDisplayString(t('hello', {  }, {  })), 1 /* TEXT */))
+    return (_openBlock(), _createElementBlock("div", null, _toDisplayString((t || $t)('hello', {  }, {  })), 1 /* TEXT */))
   }
 }"
 `;
@@ -5282,7 +5282,7 @@ exports[`prefixIdentifiers option: off > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "t('hello', {  }, {  })",
+                "content": "(t || $t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5324,7 +5324,7 @@ exports[`prefixIdentifiers option: off > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "t('hello', {  }, {  })",
+                "content": "(t || $t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5449,7 +5449,7 @@ exports[`prefixIdentifiers option: off > <div v-t="'hello'"/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "t('hello', {  }, {  })",
+            "content": "(t || $t)('hello', {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {
@@ -5541,7 +5541,7 @@ exports[`script setup > <div v-t="'hello'"/> 1`] = `
 "const { toDisplayString: _toDisplayString, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
 return function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString($setup.t('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString(($setup.t || _ctx.$t)('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -5556,7 +5556,7 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "$setup.t('hello', {  }, {  })",
+                "content": "($setup.t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5598,7 +5598,7 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "$setup.t('hello', {  }, {  })",
+                "content": "($setup.t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5752,7 +5752,7 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "$setup.t('hello', {  }, {  })",
+            "content": "($setup.t || _ctx.$t)('hello', {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {

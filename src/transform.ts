@@ -6,7 +6,15 @@ import {
   createCompoundExpression,
   TO_DISPLAY_STRING
 } from '@vue/compiler-dom'
-import { isNumber, isObject, isString, isSymbol, toDisplayString, hasOwn } from '@intlify/shared'
+import {
+  isNumber,
+  isObject,
+  isString,
+  isSymbol,
+  toDisplayString,
+  hasOwn,
+  isArray
+} from '@intlify/shared'
 import { evaluateValue, parseVTExpression } from './transpiler'
 import { report, ReportCodes } from './report'
 import { createContentBuilder } from './builder'
@@ -70,6 +78,16 @@ export interface TransformVTDirectiveOptions<
    * @default 'composition'
    */
   mode?: I18nMode
+  /**
+   * Translation function signatures
+   *
+   * @remarks
+   * You can specify the signature of the translation function attached to the binding context when it is codegen in the Vue Compiler.
+   * If you have changed the signature to a non `t` signature in the `setup` hook or `<script setup>`, you can safely SSR it.
+   * If each Vue component has a different signature for the translation function, you can specify several in an array for safe SSR.
+   * This option value is `undefined` and the signature attached to the binding context is `t`.
+   */
+  translationSignatures?: string | string[]
 }
 
 // compatibility for this commit(v3.0.3)
@@ -142,6 +160,13 @@ export function transformVTDirective<
     isString(options.mode) && ['composition', 'legacy'].includes(options.mode)
       ? options.mode
       : 'composition'
+  // prettier-ignore
+  const translationSignatures = isString(options.translationSignatures)
+    ? [options.translationSignatures]
+    : isArray(options.translationSignatures)
+      ? options.translationSignatures
+      : ['t']
+  translationSignatures.push(`$t`) // fallback to global scope
 
   return (dir, node, context) => {
     const { exp, loc } = dir
@@ -211,7 +236,12 @@ export function transformVTDirective<
         return { props: [] }
       } else {
         const translationParams = parseVTExpression(exp.content)
-        const code = generateTranslationCode(context, mode, translationParams)
+        const code = generateTranslationCode(
+          context,
+          mode,
+          translationParams,
+          translationSignatures
+        )
         context.helper(TO_DISPLAY_STRING)
         node.children.push({
           type: NodeTypes.INTERPOLATION,
@@ -223,7 +253,12 @@ export function transformVTDirective<
       }
     } else if (isCompoundExpressionNode(exp)) {
       const content = exp.children.map(mapNodeContentHandler).join('')
-      const code = generateTranslationCode(context, mode, parseVTExpression(content))
+      const code = generateTranslationCode(
+        context,
+        mode,
+        parseVTExpression(content),
+        translationSignatures
+      )
       context.helper(TO_DISPLAY_STRING)
       node.children.push({
         type: NodeTypes.INTERPOLATION,
@@ -360,24 +395,38 @@ function makeParams(value: VTDirectiveValue): [string, NamedValue, TranslateOpti
 function generateTranslationCode(
   context: TransformContext,
   mode: I18nMode,
-  params: TranslationParams
+  params: TranslationParams,
+  translationSignatures: string[]
 ): string {
   return mode === 'composition'
-    ? generateComposableCode(context, params)
+    ? generateComposableCode(context, params, translationSignatures)
     : generateLegacyCode(context, params)
 }
 
-function generateComposableCode(context: TransformContext, params: TranslationParams): string {
+function generateTranslationCallableSignatures(
+  context: TransformContext,
+  translationSignatures: string[]
+): string {
   const { prefixIdentifiers, bindingMetadata } = context
-  const functionName = 't'
-  const type = hasOwn(bindingMetadata, functionName) && bindingMetadata[functionName]
-  // prettier-ignore
-  const prefixContext = prefixIdentifiers
-    ? type && type.startsWith('setup') || type === BindingTypes.LITERAL_CONST
-      ? '$setup.'
-      : '_ctx.'
-    : ''
-  const baseCode = `${prefixContext}${functionName}`
+  return translationSignatures
+    .map(signature => {
+      const type = hasOwn(bindingMetadata, signature) && bindingMetadata[signature]
+      const bindingContext = prefixIdentifiers
+        ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
+          ? '$setup.'
+          : '_ctx.'
+        : ''
+      return `${bindingContext}${signature}`
+    })
+    .join(' || ')
+}
+
+function generateComposableCode(
+  context: TransformContext,
+  params: TranslationParams,
+  translationSignatures: string[]
+): string {
+  const baseCode = `(${generateTranslationCallableSignatures(context, translationSignatures)})`
 
   const builder = createContentBuilder()
   builder.push(`${baseCode}(`)

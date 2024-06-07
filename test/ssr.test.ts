@@ -1,5 +1,5 @@
 import * as runtimeDom from '@vue/runtime-dom'
-import { BindingTypes } from '@vue/compiler-dom'
+import { BindingTypes, DirectiveTransform } from '@vue/compiler-dom'
 import { compile } from '@vue/compiler-ssr'
 import { transformVTDirective } from '../src/transform'
 import { defineComponent, createSSRApp } from 'vue'
@@ -116,4 +116,85 @@ test('script setup', async () => {
   const app = createSSRApp(App)
   app.use(i18n)
   expect(await renderToString(app)).toMatch(`<div>I eat 2 bananas!</div>`)
+})
+
+test('differenct translation signatures', async () => {
+  const i18n = createI18n({
+    legacy: false,
+    locale: 'en',
+    messages: {
+      en: {
+        hello: 'hello global!'
+      }
+    }
+  })
+
+  const transformVT = transformVTDirective({
+    translationSignatures: ['t1', 't2']
+  })
+
+  const compileWithCustomDirective = (source: string, direcive: DirectiveTransform) => {
+    const { code } = compile(source, {
+      mode: 'function',
+      bindingMetadata: {
+        t1: BindingTypes.SETUP_CONST,
+        t2: BindingTypes.SETUP_CONST,
+        foo: BindingTypes.SETUP_CONST
+      },
+      directiveTransforms: { t: direcive }
+    })
+    // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+    return Function('require', 'Vue', code)(require, runtimeDom) as Function
+  }
+
+  const Comp1 = defineComponent({
+    setup() {
+      const { t: t1 } = useI18n({
+        inheritLocale: true,
+        messages: {
+          en: {
+            hello: 'hello local 1!'
+          }
+        }
+      })
+      // @ts-ignore -- script setup mocking
+      return { t1, foo: 1, __isScriptSetup: true }
+    },
+    ssrRender: compileWithCustomDirective(
+      `<div v-t="{ path: 'hello', args: { foo } }"/>`,
+      transformVT
+    )
+  })
+
+  const Comp2 = defineComponent({
+    setup() {
+      const { t: t2 } = useI18n({
+        inheritLocale: true,
+        messages: {
+          en: {
+            hello: 'hello local 2!'
+          }
+        }
+      })
+      return { t2 }
+    },
+    ssrRender: compileWithCustomDirective(`<div v-t="{ path: 'hello' }"/>`, transformVT)
+  })
+
+  const App = defineComponent({
+    components: { Comp1, Comp2 },
+    ssrRender: compileWithCustomDirective(
+      `
+<div v-t="{ path: 'hello' }"/>
+<Comp1 />
+<Comp2 />`,
+      transformVT
+    )
+  })
+
+  const app = createSSRApp(App)
+  app.use(i18n)
+  expect(await renderToString(app)).include(
+    `<div>hello global!</div><div>hello local 1!</div><div>hello local 2!</div`
+  )
 })
