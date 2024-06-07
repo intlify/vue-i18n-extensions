@@ -1,5 +1,5 @@
 import * as runtimeDom from '@vue/runtime-dom'
-import { compile } from '@vue/compiler-dom'
+import { compile, BindingTypes } from '@vue/compiler-dom'
 import { defineComponent } from 'vue'
 import { createI18n, useI18n } from 'vue-i18n'
 import { transformVTDirective } from '../src/transform'
@@ -7,8 +7,6 @@ import { getReportMessage, ReportCodes } from '../src/report'
 import { mount } from './helper'
 
 afterEach(() => {
-  // vi.clearAllMocks()
-  // vi.resetAllMocks()
   vi.restoreAllMocks()
 })
 
@@ -118,6 +116,23 @@ test('have child elements', () => {
       directiveTransforms: { t: transformVT }
     })
   }).toThrowError(getReportMessage(ReportCodes.OVERRIDE_ELEMENT_CHILDREN, source))
+})
+
+test('script setup', () => {
+  const transformVT = transformVTDirective()
+  const source = `<div v-t="'hello'"/>`
+  const bindingMetadata = {
+    t: BindingTypes.SETUP_CONST
+  }
+  const { code, ast } = compile(source, {
+    mode: 'function',
+    hoistStatic: false,
+    prefixIdentifiers: true,
+    bindingMetadata,
+    directiveTransforms: { t: transformVT }
+  })
+  expect(code).toMatchSnapshot(source)
+  expect(ast).toMatchSnapshot(source)
 })
 
 describe('legacy', () => {
