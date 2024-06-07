@@ -87,7 +87,7 @@
   },
   "scripts": {
     "prepare": "git config --local core.hooksPath .githooks",
-    "changelog": "gh-changelogen --repo=@intlify/vue-i18n-extensions",
+    "changelog": "gh-changelogen --repo=intlify/vue-i18n-extensions",
     "release": "bumpp --commit \"release: v%s\" --push --tag",
     "build": "pnpm build:transpile && pnpm build:extract && pnpm build:docs",
     "build:nightly": "pnpm build:transpile && pnpm build:extract",
