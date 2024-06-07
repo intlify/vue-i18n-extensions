@@ -121,5 +121,18 @@ Specify the API style of vue-i18n. If you use legacy API style (e.g. `$t`) at vu
 
  'composition'
 
+##### translationSignatures
+
+Translation function signatures
+
+**Signature:**
+```typescript
+translationSignatures?: string | string[];
+```
+
+#### Remarks
+
+You can specify the signature of the translation function attached to the binding context when it is codegen in the Vue Compiler. If you have changed the signature to a non `t` signature in the `setup` hook or `<script setup>`, you can safely SSR it. If each Vue component has a different signature for the translation function, you can specify several in an array for safe SSR. This option value is `undefined` and the signature attached to the binding context is `t`.
+
 
 
