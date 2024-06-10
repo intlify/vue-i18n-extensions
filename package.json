@@ -88,7 +88,7 @@
     ".": {
       "types": "./dist/vue-i18n-extensions.d.ts",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "require": "./dist/cjs/index.js"
     }
   },
   "repository": {
