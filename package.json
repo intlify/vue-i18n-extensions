@@ -9,6 +9,16 @@
   "bugs": {
     "url": "https://github.com/intlify/vue-i18n-extensions/issues"
   },
+  "homepage": "https://github.com/intlify/vue-i18n-extensions#readme",
+  "keywords": [
+    "extensions",
+    "i18n",
+    "optimaization",
+    "server-side-rendering",
+    "vue",
+    "vue-i18n"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@babel/parser": "^7.24.6",
     "@intlify/shared": "^9.0.0",
@@ -66,37 +76,21 @@
       "optional": true
     }
   },
-  "engines": {
-    "node": ">= 18"
-  },
   "files": [
-    "lib/*.js",
+    "dist/cjs/*.js",
+    "dist/esm/*.js",
     "dist/*.d.ts"
   ],
-  "homepage": "https://github.com/intlify/vue-i18n-extensions#readme",
-  "keywords": [
-    "extensions",
-    "i18n",
-    "optimaization",
-    "server-side-rendering",
-    "vue",
-    "vue-i18n"
-  ],
-  "license": "MIT",
-  "lint-staged": {
-    "*.{json,md,yml}": [
-      "prettier --write"
-    ],
-    "*.{js,mjs,cjs}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write",
-      "eslint --fix"
-    ]
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/vue-i18n-extensions.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/vue-i18n-extensions.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
+    }
   },
-  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
@@ -109,7 +103,9 @@
     "build:nightly": "pnpm build:transpile && pnpm build:extract",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
-    "build:transpile": "tsc -p tsconfig.build.json",
+    "build:transpile": "run-s build:transpile:*",
+    "build:transpile:cjs": "tsc -p tsconfig.cjs.json",
+    "build:transpile:esm": "tsc -p tsconfig.esm.json",
     "check-install": "tsx scripts/playwright.ts",
     "clean": "git clean -fdx",
     "coverage": "opener coverage/lcov-report/index.html",
@@ -125,8 +121,23 @@
     "test:e2e": "vitest -c ./vitest.e2e.config.ts run",
     "test:unit": "vitest run",
     "test:watch": "vitest --no-cache --watch",
-    "watch": "tsc -p tsconfig.build.json --watch"
+    "watch": "tsc -p tsconfig.cjs.json --watch"
   },
-  "types": "dist/vue-i18n-extensions.d.ts",
-  "packageManager": "pnpm@9.2.0"
+  "packageManager": "pnpm@9.2.0",
+  "engines": {
+    "node": ">= 18"
+  },
+  "lint-staged": {
+    "*.{json,md,yml}": [
+      "prettier --write"
+    ],
+    "*.{js,mjs,cjs}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write",
+      "eslint --fix"
+    ]
+  }
 }
