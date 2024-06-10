@@ -53,6 +53,7 @@
     "tsx": "^4.11.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.9.0",
+    "unbuild": "^2.0.0",
     "vitest": "^1.6.0",
     "vue": "^3.2.45"
   },
@@ -77,19 +78,22 @@
     }
   },
   "files": [
-    "dist/cjs/*.js",
-    "dist/esm/*.js",
-    "dist/*.d.ts"
+    "dist/idnex.cjs",
+    "dist/index.mjs",
+    "dist/index.d.ts",
+    "dist/index.d.mts",
+    "dist/index.d.cts"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/vue-i18n-extensions.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/vue-i18n-extensions.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
   },
   "repository": {
     "type": "git",
@@ -103,9 +107,7 @@
     "build:nightly": "pnpm build:transpile && pnpm build:extract",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
-    "build:transpile": "run-s build:transpile:*",
-    "build:transpile:cjs": "tsc -p tsconfig.cjs.json",
-    "build:transpile:esm": "tsc -p tsconfig.esm.json",
+    "build:transpile": "unbuild",
     "check-install": "tsx scripts/playwright.ts",
     "clean": "git clean -fdx",
     "coverage": "opener coverage/lcov-report/index.html",
