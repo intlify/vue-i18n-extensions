@@ -29,6 +29,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: building
+        run: pnpm build
+
       - name: Create github releases
         run: |
           npx changelogithub
