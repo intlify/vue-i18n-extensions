@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 // import vueJsx from '@vitejs/plugin-vue-jsx'
 // import vueI18n from '@intlify/unplugin-vue-i18n/vite'
 // import bodyParser from 'body-parser'
-import { transformVTDirective } from '../lib/index'
+import { transformVTDirective } from '@intlify/vue-i18n-extensions'
 // import { transformVTDirective } from '@intlify/vue-i18n-extensions'
 
 /**

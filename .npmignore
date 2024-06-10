@@ -7,4 +7,6 @@ __snapshots__
 test
 etc
 dist/*.json
+dist/cjs/*.d.ts
+dist/esm/*.d.ts
 temp/

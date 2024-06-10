@@ -118,6 +118,9 @@ importers:
         specifier: ^9.0.0
         version: 9.13.1(vue@3.4.27(typescript@5.4.5))
     devDependencies:
+      '@intlify/vue-i18n-extensions':
+        specifier: workspace:*
+        version: link:..
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.4(vite@5.2.11(@types/node@20.13.0))(vue@3.4.27(typescript@5.4.5))
