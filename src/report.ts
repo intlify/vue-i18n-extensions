@@ -1,5 +1,5 @@
 import { format, isString } from '@intlify/shared'
-import { SourceLocation } from '@vue/compiler-core'
+import type { SourceLocation } from '@vue/compiler-core'
 
 export interface ExtensionsError extends SyntaxError {
   code: number
