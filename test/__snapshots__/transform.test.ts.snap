@@ -5842,7 +5842,7 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
 
 exports[`script setup inline > <div v-t="'hello'"/> 1`] = `
 "(_ctx, _cache) => {
-  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((t || $t)('hello', {  }, {  })), 1 /* TEXT */))
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((t || _ctx.$t)('hello', {  }, {  })), 1 /* TEXT */))
 }"
 `;
 
@@ -5857,7 +5857,7 @@ exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "(t || $t)('hello', {  }, {  })",
+                "content": "(t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -5899,7 +5899,7 @@ exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
             "children": [
               {
                 "constType": 0,
-                "content": "(t || $t)('hello', {  }, {  })",
+                "content": "(t || _ctx.$t)('hello', {  }, {  })",
                 "isStatic": false,
                 "loc": {
                   "end": {
@@ -6053,7 +6053,7 @@ exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
         "children": [
           {
             "constType": 0,
-            "content": "(t || $t)('hello', {  }, {  })",
+            "content": "(t || _ctx.$t)('hello', {  }, {  })",
             "isStatic": false,
             "loc": {
               "end": {

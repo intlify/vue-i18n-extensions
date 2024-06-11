@@ -99,6 +99,8 @@ const enum ConstantTypes {
   CAN_STRINGIFY
 }
 
+const GLOBAL_TRANSLATE_SIGNATURE = '$t'
+
 /**
  * Transform `v-t` custom directive
  *
@@ -166,7 +168,7 @@ export function transformVTDirective<
     : isArray(options.translationSignatures)
       ? options.translationSignatures
       : ['t']
-  translationSignatures.push(`$t`) // fallback to global scope
+  translationSignatures.push(GLOBAL_TRANSLATE_SIGNATURE) // fallback to global scope
 
   return (dir, node, context) => {
     const { exp, loc } = dir
@@ -410,17 +412,16 @@ function generateTranslationCallableSignatures(
   const { prefixIdentifiers, bindingMetadata, inline } = context
   return translationSignatures
     .map(signature => {
-      const type = hasOwn(bindingMetadata, signature) && bindingMetadata[signature]
-      if (inline) {
+      if (inline && signature !== GLOBAL_TRANSLATE_SIGNATURE) {
         return signature
-      } else {
-        const bindingContext = prefixIdentifiers
-          ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
-            ? '$setup.'
-            : '_ctx.'
-          : ''
-        return `${bindingContext}${signature}`
       }
+      const type = hasOwn(bindingMetadata, signature) && bindingMetadata[signature]
+      const bindingContext = prefixIdentifiers
+        ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
+          ? '$setup.'
+          : '_ctx.'
+        : ''
+      return `${bindingContext}${signature}`
     })
     .join(' || ')
 }
