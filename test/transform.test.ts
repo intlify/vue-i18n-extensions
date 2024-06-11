@@ -135,6 +135,24 @@ test('script setup', () => {
   expect(ast).toMatchSnapshot(source)
 })
 
+test('script setup inline', () => {
+  const transformVT = transformVTDirective()
+  const source = `<div v-t="'hello'"/>`
+  const bindingMetadata = {
+    t: BindingTypes.SETUP_CONST
+  }
+  const { code, ast } = compile(source, {
+    mode: 'function',
+    hoistStatic: false,
+    prefixIdentifiers: true,
+    bindingMetadata,
+    inline: true,
+    directiveTransforms: { t: transformVT }
+  })
+  expect(code).toMatchSnapshot(source)
+  expect(ast).toMatchSnapshot(source)
+})
+
 describe('legacy', () => {
   test('path', () => {
     const transformVT = transformVTDirective({ mode: 'legacy' })

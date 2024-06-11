@@ -5839,3 +5839,304 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
   "type": 0,
 }
 `;
+
+exports[`script setup inline > <div v-t="'hello'"/> 1`] = `
+"(_ctx, _cache) => {
+  return (_openBlock(), _createElementBlock("div", null, _toDisplayString((t || _ctx.$t)('hello', {  }, {  })), 1 /* TEXT */))
+}"
+`;
+
+exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
+{
+  "cached": 0,
+  "children": [
+    {
+      "children": [
+        {
+          "content": {
+            "children": [
+              {
+                "constType": 0,
+                "content": "(t || _ctx.$t)('hello', {  }, {  })",
+                "isStatic": false,
+                "loc": {
+                  "end": {
+                    "column": 19,
+                    "line": 1,
+                    "offset": 18,
+                  },
+                  "source": "v-t="'hello'"",
+                  "start": {
+                    "column": 6,
+                    "line": 1,
+                    "offset": 5,
+                  },
+                },
+                "type": 4,
+              },
+            ],
+            "loc": {
+              "end": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 8,
+          },
+          "type": 5,
+        },
+      ],
+      "codegenNode": {
+        "children": {
+          "content": {
+            "children": [
+              {
+                "constType": 0,
+                "content": "(t || _ctx.$t)('hello', {  }, {  })",
+                "isStatic": false,
+                "loc": {
+                  "end": {
+                    "column": 19,
+                    "line": 1,
+                    "offset": 18,
+                  },
+                  "source": "v-t="'hello'"",
+                  "start": {
+                    "column": 6,
+                    "line": 1,
+                    "offset": 5,
+                  },
+                },
+                "type": 4,
+              },
+            ],
+            "loc": {
+              "end": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+              "source": "",
+              "start": {
+                "column": 1,
+                "line": 1,
+                "offset": 0,
+              },
+            },
+            "type": 8,
+          },
+          "type": 5,
+        },
+        "directives": undefined,
+        "disableTracking": false,
+        "dynamicProps": undefined,
+        "isBlock": true,
+        "isComponent": false,
+        "loc": {
+          "end": {
+            "column": 21,
+            "line": 1,
+            "offset": 20,
+          },
+          "source": "<div v-t="'hello'"/>",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "patchFlag": "1 /* TEXT */",
+        "props": undefined,
+        "tag": ""div"",
+        "type": 13,
+      },
+      "isSelfClosing": true,
+      "loc": {
+        "end": {
+          "column": 21,
+          "line": 1,
+          "offset": 20,
+        },
+        "source": "<div v-t="'hello'"/>",
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "ns": 0,
+      "props": [
+        {
+          "arg": undefined,
+          "exp": {
+            "ast": Node {
+              "comments": [],
+              "end": 8,
+              "errors": [],
+              "extra": {
+                "parenStart": 0,
+                "parenthesized": true,
+                "raw": "'hello'",
+                "rawValue": "hello",
+              },
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 8,
+                  "index": 8,
+                  "line": 1,
+                },
+                "filename": undefined,
+                "identifierName": undefined,
+                "start": Position {
+                  "column": 1,
+                  "index": 1,
+                  "line": 1,
+                },
+              },
+              "start": 1,
+              "type": "StringLiteral",
+              "value": "hello",
+            },
+            "constType": 3,
+            "content": "'hello'",
+            "identifiers": [],
+            "isStatic": false,
+            "loc": {
+              "end": {
+                "column": 18,
+                "line": 1,
+                "offset": 17,
+              },
+              "source": "'hello'",
+              "start": {
+                "column": 11,
+                "line": 1,
+                "offset": 10,
+              },
+            },
+            "type": 4,
+          },
+          "loc": {
+            "end": {
+              "column": 19,
+              "line": 1,
+              "offset": 18,
+            },
+            "source": "v-t="'hello'"",
+            "start": {
+              "column": 6,
+              "line": 1,
+              "offset": 5,
+            },
+          },
+          "modifiers": [],
+          "name": "t",
+          "rawName": "v-t",
+          "type": 7,
+        },
+      ],
+      "tag": "div",
+      "tagType": 0,
+      "type": 1,
+    },
+  ],
+  "codegenNode": {
+    "children": {
+      "content": {
+        "children": [
+          {
+            "constType": 0,
+            "content": "(t || _ctx.$t)('hello', {  }, {  })",
+            "isStatic": false,
+            "loc": {
+              "end": {
+                "column": 19,
+                "line": 1,
+                "offset": 18,
+              },
+              "source": "v-t="'hello'"",
+              "start": {
+                "column": 6,
+                "line": 1,
+                "offset": 5,
+              },
+            },
+            "type": 4,
+          },
+        ],
+        "loc": {
+          "end": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+          "source": "",
+          "start": {
+            "column": 1,
+            "line": 1,
+            "offset": 0,
+          },
+        },
+        "type": 8,
+      },
+      "type": 5,
+    },
+    "directives": undefined,
+    "disableTracking": false,
+    "dynamicProps": undefined,
+    "isBlock": true,
+    "isComponent": false,
+    "loc": {
+      "end": {
+        "column": 21,
+        "line": 1,
+        "offset": 20,
+      },
+      "source": "<div v-t="'hello'"/>",
+      "start": {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "patchFlag": "1 /* TEXT */",
+    "props": undefined,
+    "tag": ""div"",
+    "type": 13,
+  },
+  "components": [],
+  "directives": [],
+  "filters": [],
+  "helpers": Set {
+    Symbol(toDisplayString),
+    Symbol(openBlock),
+    Symbol(createElementBlock),
+  },
+  "hoists": [],
+  "imports": [],
+  "loc": {
+    "end": {
+      "column": 21,
+      "line": 1,
+      "offset": 20,
+    },
+    "source": "<div v-t="'hello'"/>",
+    "start": {
+      "column": 1,
+      "line": 1,
+      "offset": 0,
+    },
+  },
+  "source": "<div v-t="'hello'"/>",
+  "temps": 0,
+  "transformed": true,
+  "type": 0,
+}
+`;
