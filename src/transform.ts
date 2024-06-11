@@ -407,16 +407,20 @@ function generateTranslationCallableSignatures(
   context: TransformContext,
   translationSignatures: string[]
 ): string {
-  const { prefixIdentifiers, bindingMetadata } = context
+  const { prefixIdentifiers, bindingMetadata, inline } = context
   return translationSignatures
     .map(signature => {
       const type = hasOwn(bindingMetadata, signature) && bindingMetadata[signature]
-      const bindingContext = prefixIdentifiers
-        ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
-          ? '$setup.'
-          : '_ctx.'
-        : ''
-      return `${bindingContext}${signature}`
+      if (inline) {
+        return signature
+      } else {
+        const bindingContext = prefixIdentifiers
+          ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
+            ? '$setup.'
+            : '_ctx.'
+          : ''
+        return `${bindingContext}${signature}`
+      }
     })
     .join(' || ')
 }
