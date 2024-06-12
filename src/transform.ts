@@ -11,6 +11,7 @@ import {
   isObject,
   isString,
   isSymbol,
+  isFunction,
   toDisplayString,
   hasOwn,
   isArray
@@ -50,6 +51,41 @@ type VTDirectiveValue = {
 }
 
 /**
+ * Translation signature resolver
+ *
+ * @remarks
+ * This resolver is used at {@link TransformVTDirectiveOptions | 'translationSignatures' option}
+ *
+ * @example
+ * ```js
+ * import { compile } from '@vue/compiler-dom'
+ * import { transformVTDirective } from '@intlify/vue-i18n-extensions'
+ *
+ * // the below is just an example, you can use your own signature resolver
+ * const signatureMap = new Map()
+ *
+ * const transformVT = transformVTDirective({
+ *   translationSignatures: (context) => {
+ *     const { prefixIdentifiers, bindingMetadata, inline, filename } = context
+ *     let signature = ''
+ *
+ *     // something logic to resolve signature like using `signatureMap`
+ *     // signature = signatureMap.get(filename)
+ *     // ...
+ *
+ *     return signature
+ *   }
+ * })
+ *
+ * const { code } = compile(`<p v-t="'hello'"></p>`, {
+ *   // ...
+ *   directiveTransforms: { t: transformVT }
+ * })
+ * ```
+ */
+export type TranslationSignatureResolver = (context: TransformContext) => string
+
+/**
  * Transform options for `v-t` custom directive
  *
  * @public
@@ -87,7 +123,12 @@ export interface TransformVTDirectiveOptions<
    * If each Vue component has a different signature for the translation function, you can specify several in an array for safe SSR.
    * This option value is `undefined` and the signature attached to the binding context is `t`.
    */
-  translationSignatures?: string | string[]
+  translationSignatures?:
+    | string
+    | TranslationSignatureResolver
+    | string[]
+    | TranslationSignatureResolver[]
+    | (string | TranslationSignatureResolver)[]
 }
 
 // compatibility for this commit(v3.0.3)
@@ -163,7 +204,7 @@ export function transformVTDirective<
       ? options.mode
       : 'composition'
   // prettier-ignore
-  const translationSignatures = isString(options.translationSignatures)
+  const translationSignatures = (isString(options.translationSignatures) || isFunction(options.translationSignatures))
     ? [options.translationSignatures]
     : isArray(options.translationSignatures)
       ? options.translationSignatures
@@ -398,7 +439,7 @@ function generateTranslationCode(
   context: TransformContext,
   mode: I18nMode,
   params: TranslationParams,
-  translationSignatures: string[]
+  translationSignatures: (string | TranslationSignatureResolver)[]
 ): string {
   return mode === 'composition'
     ? generateComposableCode(context, params, translationSignatures)
@@ -407,21 +448,25 @@ function generateTranslationCode(
 
 function generateTranslationCallableSignatures(
   context: TransformContext,
-  translationSignatures: string[]
+  translationSignatures: (string | TranslationSignatureResolver)[]
 ): string {
   const { prefixIdentifiers, bindingMetadata, inline } = context
   return translationSignatures
-    .map(signature => {
-      if (inline && signature !== GLOBAL_TRANSLATE_SIGNATURE) {
-        return signature
+    .map(signatureOrResolver => {
+      if (isFunction(signatureOrResolver)) {
+        return signatureOrResolver(context)
       }
-      const type = hasOwn(bindingMetadata, signature) && bindingMetadata[signature]
+      if (inline && signatureOrResolver !== GLOBAL_TRANSLATE_SIGNATURE) {
+        return signatureOrResolver
+      }
+      const type =
+        hasOwn(bindingMetadata, signatureOrResolver) && bindingMetadata[signatureOrResolver]
       const bindingContext = prefixIdentifiers
         ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
           ? '$setup.'
           : '_ctx.'
         : ''
-      return `${bindingContext}${signature}`
+      return `${bindingContext}${signatureOrResolver}`
     })
     .join(' || ')
 }
@@ -429,7 +474,7 @@ function generateTranslationCallableSignatures(
 function generateComposableCode(
   context: TransformContext,
   params: TranslationParams,
-  translationSignatures: string[]
+  translationSignatures: (string | TranslationSignatureResolver)[]
 ): string {
   const baseCode = `(${generateTranslationCallableSignatures(context, translationSignatures)})`
 
