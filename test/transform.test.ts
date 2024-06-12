@@ -153,6 +153,24 @@ test('script setup inline', () => {
   expect(ast).toMatchSnapshot(source)
 })
 
+test('translation signature resolver', () => {
+  const signatureMap = new Map<string, string>()
+  signatureMap.set('inline', 'i18n.t')
+  const source = `<div v-t="'hello'"/>`
+  const transformVT = transformVTDirective({
+    translationSignatures: context => {
+      const signature = context.inline ? signatureMap.get('inline') || '$t' : 't'
+      return `_ctx.${signature}`
+    }
+  })
+  const { code, ast } = compile(source, {
+    mode: 'function',
+    directiveTransforms: { t: transformVT }
+  })
+  expect(code).toMatchSnapshot(source)
+  expect(ast).toMatchSnapshot(source)
+})
+
 describe('legacy', () => {
   test('path', () => {
     const transformVT = transformVTDirective({ mode: 'legacy' })
