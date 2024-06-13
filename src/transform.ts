@@ -56,6 +56,8 @@ type VTDirectiveValue = {
  * @remarks
  * This resolver is used at {@link TransformVTDirectiveOptions | 'translationSignatures' option}
  *
+ * @public
+ *
  * @example
  * ```js
  * import { compile } from '@vue/compiler-dom'
