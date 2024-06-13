@@ -6,6 +6,8 @@
   - [transformVTDirective](#transformvtdirective)
 - [Interface](#interface)
   - [TransformVTDirectiveOptions](#transformvtdirectiveoptions)
+- [TypeAlias](#typealias)
+  - [TranslationSignatureResolver](#translationsignatureresolver)
 
 ## Function
 
@@ -127,12 +129,58 @@ Translation function signatures
 
 **Signature:**
 ```typescript
-translationSignatures?: string | string[];
+translationSignatures?: string | TranslationSignatureResolver | string[] | TranslationSignatureResolver[] | (string | TranslationSignatureResolver)[];
 ```
 
 #### Remarks
 
 You can specify the signature of the translation function attached to the binding context when it is codegen in the Vue Compiler. If you have changed the signature to a non `t` signature in the `setup` hook or `<script setup>`, you can safely SSR it. If each Vue component has a different signature for the translation function, you can specify several in an array for safe SSR. This option value is `undefined` and the signature attached to the binding context is `t`.
+
+
+
+## TypeAlias
+
+### TranslationSignatureResolver
+
+Translation signature resolver
+
+**Signature:**
+```typescript
+type TranslationSignatureResolver = (context: TransformContext) => string;
+```
+
+#### Remarks
+
+This resolver is used at ['translationSignatures' option](#transformvtdirectiveoptions)
+
+###1 Examples
+
+
+```js
+import { compile } from '@vue/compiler-dom'
+import { transformVTDirective } from '@intlify/vue-i18n-extensions'
+
+// the below is just an example, you can use your own signature resolver
+const signatureMap = new Map()
+
+const transformVT = transformVTDirective({
+  translationSignatures: (context) => {
+    const { prefixIdentifiers, bindingMetadata, inline, filename } = context
+    let signature = ''
+
+    // something logic to resolve signature like using `signatureMap`
+    // signature = signatureMap.get(filename)
+    // ...
+
+    return signature
+  }
+})
+
+const { code } = compile(`<p v-t="'hello'"></p>`, {
+  // ...
+  directiveTransforms: { t: transformVT }
+})
+```
 
 
 
