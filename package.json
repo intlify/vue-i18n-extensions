@@ -1,7 +1,7 @@
 {
   "name": "@intlify/vue-i18n-extensions",
   "description": "vue-i18n extensions",
-  "version": "6.1.1",
+  "version": "6.2.0",
   "author": {
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
