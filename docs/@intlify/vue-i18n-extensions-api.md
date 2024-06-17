@@ -146,7 +146,7 @@ Translation signature resolver
 
 **Signature:**
 ```typescript
-type TranslationSignatureResolver = (context: TransformContext) => string;
+type TranslationSignatureResolver = (context: TransformContext, baseResolver: (context: TransformContext, signature: string) => string | undefined) => string | undefined;
 ```
 
 #### Remarks
