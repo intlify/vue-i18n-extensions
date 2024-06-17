@@ -85,7 +85,10 @@ type VTDirectiveValue = {
  * })
  * ```
  */
-export type TranslationSignatureResolver = (context: TransformContext) => string
+export type TranslationSignatureResolver = (
+  context: TransformContext,
+  baseResolver: (context: TransformContext, signature: string) => string | undefined
+) => string | undefined
 
 /**
  * Transform options for `v-t` custom directive
@@ -452,24 +455,27 @@ function generateTranslationCallableSignatures(
   context: TransformContext,
   translationSignatures: (string | TranslationSignatureResolver)[]
 ): string {
-  const { prefixIdentifiers, bindingMetadata, inline } = context
+  const baseResolver = (context: TransformContext, signature: string) => {
+    const { prefixIdentifiers, bindingMetadata, inline } = context
+    if (inline && signature !== GLOBAL_TRANSLATE_SIGNATURE) {
+      return signature
+    }
+    const type = hasOwn(bindingMetadata, signature) && bindingMetadata[signature]
+    const bindingContext = prefixIdentifiers
+      ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
+        ? '$setup.'
+        : '_ctx.'
+      : ''
+    return `${bindingContext}${signature}`
+  }
   return translationSignatures
     .map(signatureOrResolver => {
       if (isFunction(signatureOrResolver)) {
-        return signatureOrResolver(context)
+        return signatureOrResolver(context, baseResolver)
       }
-      if (inline && signatureOrResolver !== GLOBAL_TRANSLATE_SIGNATURE) {
-        return signatureOrResolver
-      }
-      const type =
-        hasOwn(bindingMetadata, signatureOrResolver) && bindingMetadata[signatureOrResolver]
-      const bindingContext = prefixIdentifiers
-        ? (type && type.startsWith('setup')) || type === BindingTypes.LITERAL_CONST
-          ? '$setup.'
-          : '_ctx.'
-        : ''
-      return `${bindingContext}${signatureOrResolver}`
+      return baseResolver(context, signatureOrResolver)
     })
+    .filter(Boolean)
     .join(' || ')
 }
 
