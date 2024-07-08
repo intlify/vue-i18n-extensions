@@ -31,7 +31,7 @@
     "@microsoft/api-extractor": "^7.18.4",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.13.0",
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-v8": "^2.0.0",
     "@vue/compiler-core": "^3.2.45",
     "@vue/compiler-sfc": "^3.2.45",
     "@vue/compiler-ssr": "^3.2.45",
@@ -54,7 +54,7 @@
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.9.0",
     "unbuild": "^2.0.0",
-    "vitest": "^1.6.0",
+    "vitest": "^2.0.0",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
