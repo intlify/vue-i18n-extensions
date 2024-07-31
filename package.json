@@ -52,7 +52,7 @@
     "prettier": "^3.2.5",
     "tsx": "^4.11.0",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.9.0",
+    "typescript-eslint": "^8.0.0",
     "unbuild": "^2.0.0",
     "vitest": "^1.6.0",
     "vue": "^3.2.45"
