@@ -20,7 +20,7 @@ test('v-t: composition', async () => {
     directiveTransforms: { t: transformVT }
   })
   // prettier-ignore
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
   const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     setup() {
@@ -56,7 +56,7 @@ test('v-t: legacy', async () => {
     directiveTransforms: { t: transformVT }
   })
   // prettier-ignore
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
   const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     data: () => ({ dessert: 'banana' }),
@@ -93,7 +93,7 @@ test('script setup', async () => {
     directiveTransforms: { t: transformVT }
   })
   // prettier-ignore
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
   const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     setup() {
@@ -143,7 +143,7 @@ test('different translation signatures', async () => {
       },
       directiveTransforms: { t: direcive }
     })
-    // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
     return Function('require', 'Vue', code)(require, runtimeDom) as Function
   }
 

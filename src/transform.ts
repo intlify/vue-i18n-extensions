@@ -96,9 +96,9 @@ export type TranslationSignatureResolver = (
  * @public
  */
 export interface TransformVTDirectiveOptions<
-  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   Legacy extends boolean = true
 > {
   /**
@@ -196,9 +196,9 @@ const GLOBAL_TRANSLATE_SIGNATURE = '$t'
  * @public
  */
 export function transformVTDirective<
-  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   Legacy extends boolean = true
 >(
   options: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy> = {}

@@ -144,7 +144,7 @@ export function mount<
     try {
       app.mount(rootEl)
     } catch (e) {
-      return reject(e)
+      return reject(e) // eslint-disable-line @typescript-eslint/prefer-promise-reject-errors
     }
 
     function html() {
@@ -176,7 +176,7 @@ function compileSlot(template: string) {
     prefixIdentifiers: true
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
   const render = new Function('Vue', codegen.code)(runtimeDom) as Function
 
   const ToRender = defineComponent({
