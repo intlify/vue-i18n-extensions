@@ -13,7 +13,7 @@ importers:
         version: 7.24.6
       '@intlify/shared':
         specifier: ^10.0.0
-        version: 10.0.2
+        version: 10.0.5
       '@vue/compiler-dom':
         specifier: ^3.2.45
         version: 3.4.27
@@ -886,8 +886,8 @@ packages:
     resolution: {integrity: sha512-sIF9cqB0CwUWLtDb1QDnl4PlTggE4GSnR1aA44thT9Y18rUVdWO2z4w2Ow6O60tsdNzC0WnUd6fU0VXyKQ6WBA==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@10.0.4':
-    resolution: {integrity: sha512-ukFn0I01HsSgr3VYhYcvkTCLS7rGa0gw4A4AMpcy/A9xx/zRJy7PS2BElMXLwUazVFMAr5zuiTk3MQeoeGXaJg==}
+  '@intlify/shared@10.0.5':
+    resolution: {integrity: sha512-bmsP4L2HqBF6i6uaMqJMcFBONVjKt+siGluRq4Ca4C0q7W2eMaVZr8iCgF9dKbcVXutftkC7D6z2SaSMmLiDyA==}
     engines: {node: '>= 16'}
 
   '@intlify/shared@9.13.1':
@@ -3942,7 +3942,7 @@ snapshots:
 
   '@intlify/shared@10.0.2': {}
 
-  '@intlify/shared@10.0.4': {}
+  '@intlify/shared@10.0.5': {}
 
   '@intlify/shared@9.13.1': {}
 
@@ -4502,7 +4502,7 @@ snapshots:
 
   api-docs-gen@0.4.0(@types/node@22.5.5):
     dependencies:
-      '@intlify/shared': 10.0.4
+      '@intlify/shared': 10.0.5
       '@microsoft/api-extractor-model': 7.28.19(@types/node@22.5.5)
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
