@@ -125,7 +125,7 @@
     "test:watch": "vitest --no-cache --watch",
     "watch": "tsc -p tsconfig.cjs.json --watch"
   },
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">= 18"
   },
