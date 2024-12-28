@@ -17,9 +17,9 @@ Transform `v-t` custom directive
 
 **Signature:**
 ```typescript
-declare function transformVTDirective<Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+declare function transformVTDirective<Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
 Legacy extends boolean = true>(options?: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy>): DirectiveTransform;
 ```
 
@@ -86,9 +86,9 @@ Transform options for `v-t` custom directive
 
 **Signature:**
 ```typescript
-interface TransformVTDirectiveOptions<Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
-NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/ban-types -- TODO: fix this
+interface TransformVTDirectiveOptions<Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
 Legacy extends boolean = true> 
 ```
 

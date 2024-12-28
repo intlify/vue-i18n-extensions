@@ -105,7 +105,7 @@
     "release": "bumpp --commit \"release: v%s\" --push --tag",
     "build": "pnpm build:transpile && pnpm build:extract && pnpm build:docs",
     "build:nightly": "pnpm build:transpile && pnpm build:extract",
-    "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.js -o ./docs",
+    "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.cjs -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
     "build:transpile": "unbuild",
     "check-install": "tsx scripts/playwright.ts",
