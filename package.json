@@ -1,7 +1,8 @@
 {
   "name": "@intlify/vue-i18n-extensions",
-  "description": "vue-i18n extensions",
+  "type": "module",
   "version": "7.0.0",
+  "description": "vue-i18n extensions",
   "author": {
     "name": "kazuya kawaguchi",
     "email": "kawakazu80@gmail.com"
@@ -77,24 +78,23 @@
       "optional": true
     }
   },
-  "files": [
-    "dist/idnex.cjs",
-    "dist/index.mjs",
-    "dist/index.d.ts",
-    "dist/index.d.mts",
-    "dist/index.d.cts"
-  ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.cjs",
+    "dist/index.mjs",
+    "dist/index.d.ts",
+    "dist/index.d.mts",
+    "dist/index.d.cts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/intlify/vue-i18n-extensions.git"

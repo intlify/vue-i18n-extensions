@@ -9,3 +9,4 @@ etc
 dist
 temp
 .eslintcache
+.idea/
