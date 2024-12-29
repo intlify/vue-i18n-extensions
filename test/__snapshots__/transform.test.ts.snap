@@ -10,7 +10,7 @@ return function render(_ctx, _cache) {
 
 exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, args: { name: 'banana' } }"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -114,7 +114,7 @@ exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, ar
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -752,7 +752,7 @@ exports[`binding > object > <div v-t="{ path: foo.bar.buz, locale, plural: 2, ar
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -797,7 +797,7 @@ return function render(_ctx, _cache) {
 
 exports[`binding > simple variable > <div v-t="hello"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -901,7 +901,7 @@ exports[`binding > simple variable > <div v-t="hello"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -1027,7 +1027,7 @@ exports[`binding > simple variable > <div v-t="hello"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -1072,7 +1072,7 @@ return function render(_ctx, _cache) {
 
 exports[`hoistStatic option: on > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -1176,7 +1176,7 @@ exports[`hoistStatic option: on > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -1330,7 +1330,7 @@ exports[`hoistStatic option: on > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -1375,7 +1375,7 @@ return function render(_ctx, _cache) {
 
 exports[`invalid expression > <p v-t="[0]"></p> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -1479,7 +1479,7 @@ exports[`invalid expression > <p v-t="[0]"></p> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""p"",
         "type": 13,
@@ -1655,7 +1655,7 @@ exports[`invalid expression > <p v-t="[0]"></p> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""p"",
     "type": 13,
@@ -1700,7 +1700,7 @@ return function render(_ctx, _cache) {
 
 exports[`legacy > path > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -1804,7 +1804,7 @@ exports[`legacy > path > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -1958,7 +1958,7 @@ exports[`legacy > path > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -2003,7 +2003,7 @@ return function render(_ctx, _cache) {
 
 exports[`legacy > path, locale, named > <div v-t="{ path: 'dessert', locale: 'ja', args: { name: 'kazupon' } }"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -2107,7 +2107,7 @@ exports[`legacy > path, locale, named > <div v-t="{ path: 'dessert', locale: 'ja
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -2521,7 +2521,7 @@ exports[`legacy > path, locale, named > <div v-t="{ path: 'dessert', locale: 'ja
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -2566,7 +2566,7 @@ return function render(_ctx, _cache) {
 
 exports[`legacy > path, plural > <div v-t="{ path: 'dessert', choice: 2 }"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -2670,7 +2670,7 @@ exports[`legacy > path, plural > <div v-t="{ path: 'dessert', choice: 2 }"/> 2`]
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -2955,7 +2955,7 @@ exports[`legacy > path, plural > <div v-t="{ path: 'dessert', choice: 2 }"/> 2`]
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -3000,7 +3000,7 @@ return function render(_ctx, _cache) {
 
 exports[`legacy > path, plural, locale > <div v-t="{ path: 'dessert', locale: 'en', choice: 2 }"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -3104,7 +3104,7 @@ exports[`legacy > path, plural, locale > <div v-t="{ path: 'dessert', locale: 'e
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -3455,7 +3455,7 @@ exports[`legacy > path, plural, locale > <div v-t="{ path: 'dessert', locale: 'e
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -3500,7 +3500,7 @@ return function render(_ctx, _cache) {
 
 exports[`legacy > path, plural, named > <div v-t="{ path: 'dessert', choice: 2, args: { name: 'kazupon' } }"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -3604,7 +3604,7 @@ exports[`legacy > path, plural, named > <div v-t="{ path: 'dessert', choice: 2, 
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -4018,7 +4018,7 @@ exports[`legacy > path, plural, named > <div v-t="{ path: 'dessert', choice: 2, 
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -4063,7 +4063,7 @@ return function render(_ctx, _cache) {
 
 exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'dessert', locale: 'en', plural: 2, args: { name: 'banana' } }"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -4167,7 +4167,7 @@ exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'desse
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -4647,7 +4647,7 @@ exports[`literal > object: path, locale, args, plural > <div v-t="{ path: 'desse
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -4692,7 +4692,7 @@ return function render(_ctx, _cache) {
 
 exports[`literal > path > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -4796,7 +4796,7 @@ exports[`literal > path > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -4950,7 +4950,7 @@ exports[`literal > path > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -4995,7 +4995,7 @@ return function render(_ctx, _cache) {
 
 exports[`no specify > <div v-t=""/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -5099,7 +5099,7 @@ exports[`no specify > <div v-t=""/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -5224,7 +5224,7 @@ exports[`no specify > <div v-t=""/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -5273,7 +5273,7 @@ return function render(_ctx, _cache) {
 
 exports[`prefixIdentifiers option: off > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -5377,7 +5377,7 @@ exports[`prefixIdentifiers option: off > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -5502,7 +5502,7 @@ exports[`prefixIdentifiers option: off > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -5547,7 +5547,7 @@ return function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 exports[`script setup > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -5651,7 +5651,7 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -5805,7 +5805,7 @@ exports[`script setup > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -5848,7 +5848,7 @@ exports[`script setup inline > <div v-t="'hello'"/> 1`] = `
 
 exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -5952,7 +5952,7 @@ exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -6106,7 +6106,7 @@ exports[`script setup inline > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -6151,7 +6151,7 @@ return function render(_ctx, _cache) {
 
 exports[`translation signature resolver > basic > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -6255,7 +6255,7 @@ exports[`translation signature resolver > basic > <div v-t="'hello'"/> 2`] = `
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -6409,7 +6409,7 @@ exports[`translation signature resolver > basic > <div v-t="'hello'"/> 2`] = `
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -6454,7 +6454,7 @@ return function render(_ctx, _cache) {
 
 exports[`translation signature resolver > call base resolver > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -6558,7 +6558,7 @@ exports[`translation signature resolver > call base resolver > <div v-t="'hello'
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -6712,7 +6712,7 @@ exports[`translation signature resolver > call base resolver > <div v-t="'hello'
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
@@ -6757,7 +6757,7 @@ return function render(_ctx, _cache) {
 
 exports[`translation signature resolver > return undefined > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": [],
+  "cached": 0,
   "children": [
     {
       "children": [
@@ -6861,7 +6861,7 @@ exports[`translation signature resolver > return undefined > <div v-t="'hello'"/
             "offset": 0,
           },
         },
-        "patchFlag": 1,
+        "patchFlag": "1 /* TEXT */",
         "props": undefined,
         "tag": ""div"",
         "type": 13,
@@ -7015,7 +7015,7 @@ exports[`translation signature resolver > return undefined > <div v-t="'hello'"/
         "offset": 0,
       },
     },
-    "patchFlag": 1,
+    "patchFlag": "1 /* TEXT */",
     "props": undefined,
     "tag": ""div"",
     "type": 13,
