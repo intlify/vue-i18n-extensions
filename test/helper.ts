@@ -176,7 +176,7 @@ function compileSlot(template: string) {
     prefixIdentifiers: true
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type, @typescript-eslint/no-unsafe-call
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
   const render = new Function('Vue', codegen.code)(runtimeDom) as Function
 
   const ToRender = defineComponent({
