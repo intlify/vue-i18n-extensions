@@ -1,7 +1,7 @@
 {
   "name": "@intlify/vue-i18n-extensions",
   "type": "module",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "description": "vue-i18n extensions",
   "author": {
     "name": "kazuya kawaguchi",
