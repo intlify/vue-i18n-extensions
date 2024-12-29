@@ -10,7 +10,7 @@ return function render(_ctx, _cache) {
 
 exports[`basic > <div v-t="'hello'"/> 2`] = `
 {
-  "cached": 0,
+  "cached": [],
   "children": [
     {
       "children": [
@@ -204,7 +204,7 @@ return function render(_ctx, _cache) {
 
 exports[`missing translation > <div v-t="'foo.bar'"/> 2`] = `
 {
-  "cached": 0,
+  "cached": [],
   "children": [
     {
       "children": [
@@ -398,7 +398,7 @@ return function render(_ctx, _cache) {
 
 exports[`named > <div v-t="{ path: 'hello', locale: 'ja', args: { name: 'kazupon' } }"/> 2`] = `
 {
-  "cached": 0,
+  "cached": [],
   "children": [
     {
       "children": [
@@ -852,7 +852,7 @@ return function render(_ctx, _cache) {
 
 exports[`plural > <div v-t="{ path: 'banana', choice: 2 }"/> 2`] = `
 {
-  "cached": 0,
+  "cached": [],
   "children": [
     {
       "children": [
