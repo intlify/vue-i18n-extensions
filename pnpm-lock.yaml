@@ -12,8 +12,8 @@ importers:
         specifier: ^7.24.6
         version: 7.26.3
       '@intlify/shared':
-        specifier: ^11.0.0
-        version: 11.0.1
+        specifier: ^10.0.0
+        version: 10.0.5
       '@vue/compiler-dom':
         specifier: ^3.2.45
         version: 3.5.13
@@ -1293,6 +1293,7 @@ packages:
   /@intlify/shared@11.0.1:
     resolution: {integrity: sha512-lH164+aDDptHZ3dBDbIhRa1dOPQUp+83iugpc+1upTOWCnwyC1PVis6rSWNMMJ8VQxvtHQB9JMib48K55y0PvQ==}
     engines: {node: '>= 16'}
+    dev: true
 
   /@intlify/shared@9.14.2:
     resolution: {integrity: sha512-uRAHAxYPeF+G5DBIboKpPgC/Waecd4Jz8ihtkpJQD5ycb5PwXp0k/+hBGl5dAjwF7w+l74kz/PKA8r8OK//RUw==}
