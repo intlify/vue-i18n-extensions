@@ -313,7 +313,7 @@ test('render in app', async () => {
     prefixIdentifiers: true,
     directiveTransforms: { t: transformVT }
   })
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
+  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type, @typescript-eslint/no-unsafe-call
   const render = new Function('Vue', code)(runtimeDom) as Function
   const App = defineComponent({
     render,

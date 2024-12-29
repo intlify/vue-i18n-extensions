@@ -29,7 +29,7 @@ export function evaluateValue(expression: string): EvaluateReturn {
     ) {
       const node = ast.program.body[0].declarations[0].init
       if (node != null && (node.type === 'StringLiteral' || node.type === 'ObjectExpression')) {
-        // eslint-disable-next-line @typescript-eslint/no-implied-eval
+        // eslint-disable-next-line @typescript-eslint/no-implied-eval,@typescript-eslint/no-unsafe-call
         const val = new Function(`return ${expression.trim()} `)() as unknown
         ret.status = 'ok'
         ret.value = val
