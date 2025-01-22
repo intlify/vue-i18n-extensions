@@ -16,7 +16,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@intlify/vue-i18n-extensions": "workspace:*",
     "typescript": "^5.0.2",
-    "vite": "^5.2.11",
+    "vite": "^6.0.0",
     "vue-tsc": "^2.0.17"
   }
 }
