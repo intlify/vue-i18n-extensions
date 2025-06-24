@@ -890,8 +890,8 @@ packages:
     resolution: {integrity: sha512-bmsP4L2HqBF6i6uaMqJMcFBONVjKt+siGluRq4Ca4C0q7W2eMaVZr8iCgF9dKbcVXutftkC7D6z2SaSMmLiDyA==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@11.0.1':
-    resolution: {integrity: sha512-lH164+aDDptHZ3dBDbIhRa1dOPQUp+83iugpc+1upTOWCnwyC1PVis6rSWNMMJ8VQxvtHQB9JMib48K55y0PvQ==}
+  '@intlify/shared@11.1.7':
+    resolution: {integrity: sha512-4yZeMt2Aa/7n5Ehy4KalUlvt3iRLcg1tq9IBVfOgkyWFArN4oygn6WxgGIFibP3svpaH8DarbNaottq+p0gUZQ==}
     engines: {node: '>= 16'}
 
   '@intlify/shared@9.13.1':
@@ -3971,7 +3971,7 @@ snapshots:
 
   '@intlify/shared@10.0.5': {}
 
-  '@intlify/shared@11.0.1': {}
+  '@intlify/shared@11.1.7': {}
 
   '@intlify/shared@9.13.1': {}
 
@@ -4540,7 +4540,7 @@ snapshots:
 
   api-docs-gen@0.4.0(@types/node@22.5.5):
     dependencies:
-      '@intlify/shared': 11.0.1
+      '@intlify/shared': 11.1.7
       '@microsoft/api-extractor-model': 7.28.19(@types/node@22.5.5)
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
