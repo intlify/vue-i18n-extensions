@@ -73,7 +73,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [24]
+        node-version: [22, 24]
         os: [ubuntu-latest]
 
     name: Test on Node.js ${{ matrix.node-version }}
