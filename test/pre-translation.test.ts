@@ -1,10 +1,11 @@
 import { compile } from '@vue/compiler-dom'
 import { createI18n } from 'vue-i18n'
 import { transformVTDirective } from '../src/transform'
+import type { MockInstance } from 'vitest'
 
-let spyWarn: ReturnType<typeof vi.spyOn>
+let spyWarn: MockInstance
 beforeEach(() => {
-  spyWarn = vi.spyOn(global.console, 'warn') as ReturnType<typeof vi.spyOn>
+  spyWarn = vi.spyOn(global.console, 'warn')
 })
 
 afterEach(() => {
