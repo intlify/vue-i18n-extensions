@@ -124,7 +124,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [18]
+        node-version: [24]
         os: [ubuntu-latest]
 
     name: Nightly release
