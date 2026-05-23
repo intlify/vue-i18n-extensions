@@ -47,7 +47,7 @@
     "opener": "^1.5.2",
     "pkg-types": "^1.1.1",
     "playwright": "^1.44.0",
-    "prettier": "^3.3.3",
+    "prettier": "^3.8.3",
     "tsx": "^4.22.3",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.6.0",

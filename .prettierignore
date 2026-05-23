@@ -7,3 +7,5 @@ tsconfig.eslint.json
 pnpm-lock.yaml
 CHANGELOG.md
 docs/@intlify/vue-i18n-extensions-api.md
+.claude
+.plans
