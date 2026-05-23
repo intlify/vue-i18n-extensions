@@ -122,6 +122,9 @@ jobs:
       - build
       - test
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+      id-token: write
     strategy:
       matrix:
         node-version: [24]
@@ -140,6 +143,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install
@@ -156,5 +160,4 @@ jobs:
           !startsWith(github.event.head_commit.message, 'docs')
         run: ./scripts/release.sh
         env:
-          NPM_TOKEN: ${{secrets.NPM_ORG_TOKEN}}
           NIGHTLY_RELEASE: 'true'

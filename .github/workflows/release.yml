@@ -11,6 +11,11 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      issues: read
+      pull-requests: read
     steps:
       - name: Checkout codes
         uses: actions/checkout@v4
@@ -25,6 +30,7 @@ jobs:
         with:
           node-version: 24
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install
@@ -61,5 +67,3 @@ jobs:
 
       - name: Publish package
         run: ./scripts/release.sh
-        env:
-          NPM_TOKEN: ${{secrets.NPM_ORG_TOKEN}}
