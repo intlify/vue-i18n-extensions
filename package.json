@@ -37,7 +37,7 @@
     "@vue/runtime-dom": "^3.2.45",
     "@vue/server-renderer": "^3.2.45",
     "api-docs-gen": "^0.4.0",
-    "bumpp": "^11.1.0",
+    "bumpp": "^12.0.0",
     "eslint": "^9.11.0",
     "get-port-please": "^3.1.2",
     "gh-changelogen": "^0.2.8",
