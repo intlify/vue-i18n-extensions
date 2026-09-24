@@ -70,8 +70,8 @@ importers:
         specifier: ^0.2.8
         version: 0.2.8
       globals:
-        specifier: ^15.0.0
-        version: 15.3.0
+        specifier: ^17.0.0
+        version: 17.12.0
       jsdom:
         specifier: ^24.0.0
         version: 24.1.0(supports-color@8.1.1)
@@ -1072,8 +1072,8 @@ packages:
     resolution: {integrity: sha512-Om86EjuQtA69hdNj3GQec9ZC0L0vPSAnXzB3gP/gyJ7+mA7t06d9aOAiqMZ+xEOsumGP4eEBlfl8zF2LOTzf2A==}
     engines: {node: '>= 16'}
 
-  '@intlify/shared@11.4.10':
-    resolution: {integrity: sha512-FeImVdPeoSHTm3NBFFZHv0eRP9gQ3F4lj2puDBX5Kw7iiM1uJW6JTf39ian0K/17pbXCI3ef5i9RVsRrALqI6Q==}
+  '@intlify/shared@11.4.12':
+    resolution: {integrity: sha512-ojfehaXMFrGFcSnK3cJPaMxlrSXT8FwZUG9H4i+WKX4OFD4Yl1WKdTmfwoC0REnwIfTrnt1QhRtd8kwi/te6bQ==}
     engines: {node: '>= 22'}
 
   '@intlify/shared@9.13.1':
@@ -2131,8 +2131,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.3.0:
-    resolution: {integrity: sha512-cCdyVjIUVTtX8ZsPkq1oCsOsLmGIswqnjZYMJJTGaNApj1yHtLSymKhwH51ttirREn75z3p4k051clwg7rvNKA==}
+  globals@17.12.0:
+    resolution: {integrity: sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==}
     engines: {node: '>=18'}
 
   globby@13.2.2:
@@ -4107,7 +4107,7 @@ snapshots:
 
   '@intlify/shared@11.1.12': {}
 
-  '@intlify/shared@11.4.10': {}
+  '@intlify/shared@11.4.12': {}
 
   '@intlify/shared@9.13.1': {}
 
@@ -4704,7 +4704,7 @@ snapshots:
 
   api-docs-gen@0.4.0(@types/node@25.9.1)(supports-color@8.1.1):
     dependencies:
-      '@intlify/shared': 11.4.10
+      '@intlify/shared': 11.4.12
       '@microsoft/api-extractor-model': 7.28.19(@types/node@25.9.1)
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
@@ -5350,7 +5350,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.3.0: {}
+  globals@17.12.0: {}
 
   globby@13.2.2:
     dependencies:
