@@ -9,6 +9,14 @@ export default defineConfig({
   staged: {
     '*': 'vp check --fix'
   },
+  pack: {
+    entry: ['src/index.ts'],
+    outDir: 'dist',
+    format: ['esm', 'cjs'],
+    fixedExtension: true,
+    dts: true,
+    clean: true
+  },
   test: {
     // Vitest v4 compatibility: preserve mock call history.
     // https://viteplus.dev/guide/vitest-v5#remove-unneeded-compatibility-settings

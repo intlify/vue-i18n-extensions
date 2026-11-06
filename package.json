@@ -26,18 +26,23 @@
   "files": [
     "dist/index.cjs",
     "dist/index.mjs",
-    "dist/index.d.ts",
     "dist/index.d.mts",
     "dist/index.d.cts"
   ],
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./package.json": "./package.json"
   },
@@ -47,7 +52,7 @@
     "build": "pnpm build:transpile",
     "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.cjs -o ./docs",
     "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
-    "build:transpile": "unbuild",
+    "build:transpile": "vp pack",
     "check-install": "vpx scripts/playwright.ts",
     "clean": "git clean -fdx",
     "coverage": "opener coverage/lcov-report/index.html",
@@ -84,7 +89,6 @@
     "opener": "^1.5.2",
     "playwright": "^1.64.1",
     "typescript": "^5.9.3",
-    "unbuild": "^2.0.0",
     "vite": "catalog:",
     "vite-plus": "catalog:",
     "vitest": "catalog:",
