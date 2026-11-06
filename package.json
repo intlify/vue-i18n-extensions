@@ -1,16 +1,7 @@
 {
   "name": "@intlify/vue-i18n-extensions",
-  "type": "module",
   "version": "9.0.1",
   "description": "vue-i18n extensions",
-  "author": {
-    "name": "kazuya kawaguchi",
-    "email": "kawakazu80@gmail.com"
-  },
-  "bugs": {
-    "url": "https://github.com/intlify/vue-i18n-extensions/issues"
-  },
-  "homepage": "https://github.com/intlify/vue-i18n-extensions#readme",
   "keywords": [
     "extensions",
     "i18n",
@@ -19,18 +10,67 @@
     "vue",
     "vue-i18n"
   ],
+  "homepage": "https://github.com/intlify/vue-i18n-extensions#readme",
+  "bugs": {
+    "url": "https://github.com/intlify/vue-i18n-extensions/issues"
+  },
   "license": "MIT",
+  "author": {
+    "name": "kazuya kawaguchi",
+    "email": "kawakazu80@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
+  },
+  "files": [
+    "dist/index.cjs",
+    "dist/index.mjs",
+    "dist/index.d.ts",
+    "dist/index.d.mts",
+    "dist/index.d.cts"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "prepare": "vp config --no-agent",
+    "release": "bumpp",
+    "build": "pnpm build:transpile",
+    "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.cjs -o ./docs",
+    "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
+    "build:transpile": "unbuild",
+    "check-install": "vpx scripts/playwright.ts",
+    "clean": "git clean -fdx",
+    "coverage": "opener coverage/lcov-report/index.html",
+    "example": "webpack serve --config example/webpack.config.js --inline --hot",
+    "lint": "vp check",
+    "fix": "vp check --fix",
+    "test": "pnpm test:cover && pnpm check-install && pnpm test:e2e",
+    "test:cover": "pnpm test:unit --coverage --coverage.include=src",
+    "test:e2e": "vp test run -c ./vitest.e2e.config.ts",
+    "test:unit": "vp test run",
+    "test:watch": "vp test watch --no-cache",
+    "watch": "tsc -p tsconfig.cjs.json --watch"
+  },
   "dependencies": {
     "@babel/parser": "^7.24.6",
     "@vue/compiler-dom": "^3.2.45"
   },
   "devDependencies": {
     "@babel/types": "^7.24.6",
-    "@eslint/js": "^9.11.0",
+    "@kazupon/vp-config": "^1.1.0",
     "@microsoft/api-extractor": "^7.18.4",
-    "@types/eslint": "^9.6.1",
     "@types/node": "^25.9.1",
-    "@vitest/coverage-v8": "^4.1.7",
+    "@vitest/coverage-v8": "catalog:",
     "@vue/compiler-core": "^3.2.45",
     "@vue/compiler-sfc": "^3.2.45",
     "@vue/compiler-ssr": "^3.2.45",
@@ -38,21 +78,16 @@
     "@vue/server-renderer": "^3.2.45",
     "api-docs-gen": "^0.4.0",
     "bumpp": "^12.0.0",
-    "eslint": "^9.11.0",
     "get-port-please": "^3.1.2",
     "gh-changelogen": "^2.0.2",
-    "globals": "^15.0.0",
     "jsdom": "^31.0.0",
-    "lint-staged": "^17.0.5",
     "opener": "^1.5.2",
     "playwright": "^1.64.1",
-    "prettier": "^3.8.3",
-    "tsx": "^4.22.3",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.6.0",
     "unbuild": "^2.0.0",
-    "vite": "^7.3.3",
-    "vitest": "^4.1.7",
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:",
     "vue": "^3.2.45"
   },
   "peerDependencies": {
@@ -75,66 +110,8 @@
       "optional": true
     }
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "./package.json": "./package.json"
-  },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/index.cjs",
-    "dist/index.mjs",
-    "dist/index.d.ts",
-    "dist/index.d.mts",
-    "dist/index.d.cts"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/intlify/vue-i18n-extensions.git"
-  },
-  "scripts": {
-    "prepare": "git config --local core.hooksPath .githooks",
-    "release": "bumpp",
-    "build": "pnpm build:transpile",
-    "build:docs": "api-docs-gen ./temp/vue-i18n-extensions.api.json -c ./docsgen.config.cjs -o ./docs",
-    "build:extract": "api-extractor run -l -c ./api-extractor.json --typescript-compiler-folder node_modules/typescript",
-    "build:transpile": "unbuild",
-    "check-install": "tsx scripts/playwright.ts",
-    "clean": "git clean -fdx",
-    "coverage": "opener coverage/lcov-report/index.html",
-    "example": "webpack serve --config example/webpack.config.js --inline --hot",
-    "lint": "pnpm --color run \"/^lint:/\"",
-    "lint:prettier": "prettier . --check",
-    "lint:eslint": "eslint .",
-    "fix": "pnpm --color run \"/^fix:/\"",
-    "fix:prettier": "prettier . --write",
-    "fix:eslint": "eslint . --fix",
-    "test": "pnpm test:cover && pnpm check-install && pnpm test:e2e",
-    "test:cover": "pnpm test:unit --coverage --coverage.include=src",
-    "test:e2e": "vitest -c ./vitest.e2e.config.ts run",
-    "test:unit": "vitest run",
-    "test:watch": "vitest --no-cache --watch",
-    "watch": "tsc -p tsconfig.cjs.json --watch"
-  },
-  "packageManager": "pnpm@11.28.11",
   "engines": {
     "node": ">= 22"
   },
-  "lint-staged": {
-    "*.{json,md,yml}": [
-      "prettier --write"
-    ],
-    "*.{js,mjs,cjs}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.ts?(x)": [
-      "prettier --parser=typescript --write",
-      "eslint --fix"
-    ]
-  }
+  "packageManager": "pnpm@11.28.11"
 }

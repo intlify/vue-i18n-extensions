@@ -1,7 +1,7 @@
 import { compile } from '@vue/compiler-dom'
 import { createI18n } from 'vue-i18n'
 import { transformVTDirective } from '../src/transform'
-import type { MockInstance } from 'vitest'
+import type { MockInstance } from 'vite-plus/test'
 
 let spyWarn: MockInstance
 beforeEach(() => {

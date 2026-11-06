@@ -1,5 +1,6 @@
 import * as runtimeDom from '@vue/runtime-dom'
-import { BindingTypes, DirectiveTransform } from '@vue/compiler-dom'
+import type { DirectiveTransform } from '@vue/compiler-dom'
+import { BindingTypes } from '@vue/compiler-dom'
 import { compile } from '@vue/compiler-ssr'
 import { transformVTDirective } from '../src/transform'
 import { defineComponent, createSSRApp } from 'vue'
@@ -20,7 +21,7 @@ test('v-t: composition', async () => {
     directiveTransforms: { t: transformVT }
   })
   // prettier-ignore
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
+  // oxlint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-function-type
   const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     setup() {
@@ -56,7 +57,7 @@ test('v-t: legacy', async () => {
     directiveTransforms: { t: transformVT }
   })
   // prettier-ignore
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
+  // oxlint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-function-type
   const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     data: () => ({ dessert: 'banana' }),
@@ -93,7 +94,7 @@ test('script setup', async () => {
     directiveTransforms: { t: transformVT }
   })
   // prettier-ignore
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
+  // oxlint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-function-type
   const render = Function('require', 'Vue', code)(require, runtimeDom) as Function
   const App = defineComponent({
     setup() {
@@ -143,7 +144,7 @@ test('different translation signatures', async () => {
       },
       directiveTransforms: { t: direcive }
     })
-    // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
+    // oxlint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-function-type
     return Function('require', 'Vue', code)(require, runtimeDom) as Function
   }
 

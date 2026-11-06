@@ -33,8 +33,7 @@ yarn add -D @intlify/vue-i18n-extensions
 
 You can use transform offered with this package, to support Server-side rendering for `v-t` custom directives.
 
-In order to use this feature, you need to specify to Vue compiler option.
-The following example that use `compile` of `@vue/compiler-ssr`:
+In order to use this feature, you need to specify to Vue compiler option. The following example that use `compile` of `@vue/compiler-ssr`:
 
 ```js
 import * as runtimeDom from '@vue/runtime-dom'
@@ -101,8 +100,7 @@ You can pre-translation i18n locale messages of vue-i18n.
 > [!WARNING]
 > only `v-t` custom directive is supported !!
 
-In order to use this feature, you need to specify to Vue compiler option.
-The following example that use `compile` of `@vue/compiler-dom`:
+In order to use this feature, you need to specify to Vue compiler option. The following example that use `compile` of `@vue/compiler-dom`:
 
 ```js
 import { compile } from '@vue/compiler-dom'

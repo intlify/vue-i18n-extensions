@@ -1,26 +1,20 @@
-import {
+import type {
   Component,
   VNodeProps,
-  createApp,
-  defineComponent,
-  h,
   ComponentPublicInstance,
-  reactive,
-  nextTick,
   ComponentObjectPropsOptions,
   App,
   VNode,
-  shallowRef,
-  onErrorCaptured,
   ComponentOptions
 } from 'vue'
+import { createApp, defineComponent, h, reactive, nextTick, shallowRef, onErrorCaptured } from 'vue'
 import { compile } from '@vue/compiler-dom'
 import * as runtimeDom from '@vue/runtime-dom'
-import { I18n } from 'vue-i18n'
+import type { I18n } from 'vue-i18n'
 
 export interface MountOptions {
-  propsData: Record<string, any> // eslint-disable-line @typescript-eslint/no-explicit-any
-  provide: Record<string | symbol, any> // eslint-disable-line @typescript-eslint/no-explicit-any
+  propsData: Record<string, any> // oxlint-disable-line @typescript-eslint/no-explicit-any
+  provide: Record<string | symbol, any> // oxlint-disable-line @typescript-eslint/no-explicit-any
   components: ComponentOptions['components']
   slots: Record<string, string>
   installI18n: boolean
@@ -42,9 +36,10 @@ function initialProps<P>(propsOption: ComponentObjectPropsOptions<P>) {
   for (const key in propsOption) {
     const prop = propsOption[key]
     // @ts-expect-error -- TODO: fix this
-    if (!prop.required && prop.default)
+    if (!prop.required && prop.default) {
       // @ts-expect-error -- TODO: fix this
-      copy[key] = prop.default // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+      copy[key] = prop.default // oxlint-disable-line @typescript-eslint/no-unsafe-assignment
+    }
   }
 
   return copy
@@ -77,13 +72,13 @@ export function mount<
       Object.assign(initialProps(TargetComponent.props || {}), options.propsData)
     )
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line @typescript-eslint/no-explicit-any
     function setProps(partialProps: Record<string, any>) {
       Object.assign(propsData, partialProps)
       return nextTick()
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line @typescript-eslint/no-explicit-any
     const slots: Record<string, (propsData: any) => VNode> = {}
 
     const Wrapper = defineComponent({
@@ -95,7 +90,7 @@ export function mount<
         })
         return () => {
           return h(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            // oxlint-disable-next-line @typescript-eslint/no-explicit-any
             TargetComponent as any,
             {
               ref: componentInstanceRef,
@@ -144,7 +139,7 @@ export function mount<
     try {
       app.mount(rootEl)
     } catch (e) {
-      return reject(e) // eslint-disable-line @typescript-eslint/prefer-promise-reject-errors
+      return reject(e) // oxlint-disable-line @typescript-eslint/prefer-promise-reject-errors
     }
 
     function html() {
@@ -162,7 +157,7 @@ export function mount<
   })
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line @typescript-eslint/no-explicit-any
 function getKeys(object: Record<string | symbol, any>): Array<symbol | string> {
   return (Object.getOwnPropertyNames(object) as Array<string | symbol>).concat(
     Object.getOwnPropertySymbols(object)
@@ -176,7 +171,7 @@ function compileSlot(template: string) {
     prefixIdentifiers: true
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-function-type
+  // oxlint-disable-next-line @typescript-eslint/no-implied-eval, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-function-type
   const render = new Function('Vue', codegen.code)(runtimeDom) as Function
 
   const ToRender = defineComponent({

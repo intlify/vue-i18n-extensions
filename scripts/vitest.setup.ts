@@ -1,13 +1,12 @@
-import { afterAll, beforeAll } from 'vitest'
+import { afterAll, beforeAll } from 'vite-plus/test'
 import playwright from 'playwright'
 
 import type { Browser, Page, LaunchOptions } from 'playwright'
 
 // TODO: extract to shim.d.ts
-// eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace global {
-  let browser: Browser
-  let page: Page
+declare global {
+  var browser: Browser
+  var page: Page
 }
 
 type BrowserType = 'chromium' | 'firefox' | 'webkit'

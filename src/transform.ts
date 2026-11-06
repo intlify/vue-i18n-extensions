@@ -96,9 +96,9 @@ export type TranslationSignatureResolver = (
  * @public
  */
 export interface TransformVTDirectiveOptions<
-  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
-  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
-  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  Messages extends Record<string, unknown> = {}, // oxlint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  DateTimeFormats extends Record<string, unknown> = {}, // oxlint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  NumberFormats extends Record<string, unknown> = {}, // oxlint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   Legacy extends boolean = true,
   OptionLocale = Locale
 > {
@@ -197,9 +197,9 @@ const GLOBAL_TRANSLATE_SIGNATURE = '$t'
  * @public
  */
 export function transformVTDirective<
-  Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
-  DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
-  NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  Messages extends Record<string, unknown> = {}, // oxlint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  DateTimeFormats extends Record<string, unknown> = {}, // oxlint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
+  NumberFormats extends Record<string, unknown> = {}, // oxlint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   Legacy extends boolean = true,
   OptionLocale = Locale
 >(
@@ -337,7 +337,7 @@ function getComposer(i18n: I18n): Composer | null {
   return isI18nInstance(i18n) ? getComposerInternal(i18n) : null
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line @typescript-eslint/no-explicit-any
 function isI18nInstance(i18n: any): i18n is I18n {
   return i18n != null && 'global' in i18n && 'mode' in i18n
 }
@@ -346,17 +346,17 @@ function getComposerInternal(i18n: I18n): Composer | null {
   if (i18n.mode === 'composition') {
     return isComposer(i18n.global) ? i18n.global : null
   } else {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
     return isVueI18n(i18n.global) ? ((i18n.global as any).__composer as Composer) : null
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line @typescript-eslint/no-explicit-any
 function isComposer(target: any): target is Composer {
   return target != null && !('__composer' in target)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// oxlint-disable-next-line @typescript-eslint/no-explicit-any
 function isVueI18n(target: any): target is VueI18n {
   return target != null && '__composer' in target
 }
@@ -372,7 +372,7 @@ function isCompoundExpressionNode(node: Node | undefined): node is CompoundExpre
 function isConstant(node: SimpleExpressionNode): boolean {
   if ('isConstant' in node) {
     // for v3.0.3 earlier
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
     return (node as any).isConstant as boolean
   } else if ('constType' in node) {
     // for v3.0.3 or later

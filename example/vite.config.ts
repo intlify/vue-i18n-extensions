@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, lazyPlugins } from 'vite-plus'
 import vue from '@vitejs/plugin-vue'
 // import vueJsx from '@vitejs/plugin-vue-jsx'
 // import vueI18n from '@intlify/unplugin-vue-i18n/vite'
@@ -61,7 +61,7 @@ export default defineConfig({
   //   target: 'esnext'
   // },
 
-  plugins: [
+  plugins: lazyPlugins(() => [
     vue({
       template: {
         compilerOptions: {
@@ -69,5 +69,5 @@ export default defineConfig({
         }
       }
     })
-  ]
+  ])
 })
