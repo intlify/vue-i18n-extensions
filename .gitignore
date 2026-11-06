@@ -10,3 +10,5 @@ dist
 temp
 .eslintcache
 .idea/
+.notes
+.plans
