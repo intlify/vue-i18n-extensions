@@ -1,9 +1,16 @@
 name: Release
 
 # Triggers:
-#   - tag push (v*): publish to npm, then create release notes on success.
-#   - workflow_dispatch: fallback recovery. Pick which job to run for an
-#     existing tag (npm-publish / release-notes / all).
+#   - tag push (v*): publish to npm, then create the GitHub Release once it
+#     succeeds.
+#   - workflow_dispatch: recover an existing tag by running one job
+#     (npm-publish / release-notes) or both. A version that is already
+#     published is skipped, so `all` is safe to re-run. To publish a version
+#     that is not on npm yet, start the run from the tag ("Use workflow from"),
+#     so that the provenance points at the tagged commit.
+#
+# CHANGELOG.md is already part of the tagged release commit made by
+# `pnpm release` (see bump.config.ts). This workflow never writes or commits files.
 on:
   push:
     branches-ignore:
@@ -22,7 +29,7 @@ on:
           - npm-publish
           - release-notes
       tag:
-        description: Existing tag to release, e.g. v8.1.0
+        description: Existing tag to release (e.g. v9.0.1 or v10.0.0-beta.0)
         type: string
         required: true
 
@@ -40,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
+      id-token: write # npm trusted publisher (OIDC)
 
     steps:
       - name: Checkout codes
@@ -49,15 +56,43 @@ jobs:
           ref: ${{ env.TAG }}
           persist-credentials: false
 
+      - name: Resolve dist-tag from tag
+        id: meta
+        # A prerelease goes to its first identifier (`beta` for v10.0.0-beta.0), or to
+        # `next` when that starts with a digit, since npm rejects a dist-tag that looks
+        # like a semver range. Only a stable release moves `latest`.
+        run: |
+          if [[ "$TAG" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+-([A-Za-z][0-9A-Za-z-]*) ]]; then
+            echo "dist_tag=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+          elif [[ "$TAG" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+- ]]; then
+            echo "dist_tag=next" >> "$GITHUB_OUTPUT"
+          else
+            echo "dist_tag=latest" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Setup pnpm
         uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
 
       - name: Setup node.js
+        # pnpm 11 and later publish without the npm CLI, so npm only checks
+        # whether the version is already published (`npm view`). setup-node
+        # caches automatically only for npm, but keep the cache off explicitly
+        # in a release job (zizmor: cache-poisoning).
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version: 24
           package-manager-cache: false
-          registry-url: 'https://registry.npmjs.org'
+
+      - name: Check the tag against package.json
+        # The publish step skips a version that is already on npm. Without this
+        # check, a hand-made tag on a commit that did not bump the version would
+        # pass there and get a GitHub Release for a version that was never published.
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [[ "$TAG" != "v$version" ]]; then
+            echo "::error::$TAG does not match the version in package.json ($version)"
+            exit 1
+          fi
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -66,7 +101,28 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        run: npm publish --access public --tag next
+        # Under OIDC trusted publishing, pnpm attaches provenance on its own, so
+        # no token or provenance setting is needed. `--no-git-checks`: the tag
+        # checkout is a detached HEAD, and pnpm publishes only from master/main
+        # by default.
+        # Skip a version that is already on npm, so that a retry is idempotent.
+        # npm does not serve a new version until its malware scan ends, so do not
+        # retry this job right after a publish.
+        # The provenance records the ref that started the run. A run started
+        # from a branch would attest the head of that branch instead of the
+        # tagged commit, so only a run started from the tag publishes.
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "@intlify/vue-i18n-extensions@$version" version > /dev/null 2>&1; then
+            echo "↺ @intlify/vue-i18n-extensions@$version is already on npm, skipping"
+          elif [[ "$GITHUB_REF" != "refs/tags/$TAG" ]]; then
+            echo "::error::Start this workflow from the tag $TAG (Use workflow from) to publish it"
+            exit 1
+          else
+            pnpm publish --access public --no-git-checks --tag "$DIST_TAG"
+          fi
+        env:
+          DIST_TAG: ${{ steps.meta.outputs.dist_tag }}
 
   release-notes:
     needs:
@@ -81,48 +137,26 @@ jobs:
       )
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      issues: read
-      pull-requests: read
+      contents: write # create GitHub Release
 
     steps:
       - name: Checkout codes
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          # zizmor: ignore[artipacked] git-auto-commit-action needs checkout credentials to push CHANGELOG.md
-          ref: next
-          fetch-depth: 0
+          ref: ${{ env.TAG }}
+          persist-credentials: false
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
-
-      - name: Setup node.js
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
-        with:
-          node-version: 24
-          package-manager-cache: false
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Create GitHub Release
+      - name: Create GitHub Release (idempotent)
         run: |
           if gh release view "$TAG" >/dev/null 2>&1; then
             echo "Release $TAG already exists, skipping creation"
           else
-            gh release create "$TAG" --generate-notes
+            FLAGS=(--verify-tag --generate-notes)
+            # SemVer prerelease: '-' right after major.minor.patch, not build metadata
+            if [[ "$TAG" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+- ]]; then
+              FLAGS+=(--prerelease)
+            fi
+            gh release create "$TAG" "${FLAGS[@]}"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Sync changelog from GitHub Releases
-        run: pnpm changelog --tag="$TAG"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Commit changelog
-        uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5
-        with:
-          branch: next
-          file_pattern: CHANGELOG.md
-          commit_message: 'chore: generate changelog'

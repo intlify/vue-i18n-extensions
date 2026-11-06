@@ -1,6 +1,5 @@
 # 🌏 @intlify/vue-i18n-extensions
 
-[![npm](https://img.shields.io/npm/v/@intlify/vue-i18n-extensions/next.svg)](https://www.npmjs.com/package/@intlify/vue-i18n-extensions)
 [![npm](https://img.shields.io/npm/v/@intlify/vue-i18n-extensions.svg)](https://www.npmjs.com/package/@intlify/vue-i18n-extensions)
 
 Extensions for vue-i18n
@@ -19,13 +18,13 @@ This library exports the following extensions:
 
 ```sh
 # npm
-npm i --save-dev @intlify/vue-i18n-extensions@next
+npm i --save-dev @intlify/vue-i18n-extensions
 
 # pnpm
-pnpm add -D @intlify/vue-i18n-extensions@next
+pnpm add -D @intlify/vue-i18n-extensions
 
 # yarn
-yarn add -D @intlify/vue-i18n-extensions@next
+yarn add -D @intlify/vue-i18n-extensions
 ```
 
 ## 🚀 Extensions

@@ -6,6 +6,7 @@
     - [Work Step Example](#work-step-example)
   - [Development Setup](#development-setup)
     - [Commonly used NPM scripts](#commonly-used-npm-scripts)
+    - [Release](#release)
 
 ## Issue Reporting Guidelines
 
@@ -76,3 +77,13 @@ After cloning the repo, run:
 There are some other scripts available in the `scripts` section of the `package.json` file.
 
 The default test script will do the following: lint with ESLint -> unit tests with coverage. **Please make sure to have this pass successfully before submitting a PR.** Although the same tests will be run against your PR on the CI server, it is better to have it working locally beforehand.
+
+### Release
+
+Bump the version, write `CHANGELOG.md` from GitHub-generated notes, then commit, tag, and push. The settings are in `bump.config.ts`. Run on a clean `next` whose `HEAD` is already on `origin`, after `pnpm install`. Provide a token with Contents: write:
+
+```sh
+GH_TOKEN="$(gh auth token)" pnpm release
+```
+
+Leave nothing in the working tree, untracked files included: bumpp commits every change (`all: true` runs `git add --all`), so `bump.config.ts` stops the release otherwise. Do not keep local-only tags either: bumpp pushes all tags (`git push --tags`).
