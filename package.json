@@ -120,7 +120,7 @@
     "test:watch": "vitest --no-cache --watch",
     "watch": "tsc -p tsconfig.cjs.json --watch"
   },
-  "packageManager": "pnpm@11.25.0",
+  "packageManager": "pnpm@11.28.11",
   "engines": {
     "node": ">= 22"
   },
