@@ -29,7 +29,7 @@
     "@eslint/js": "^9.11.0",
     "@microsoft/api-extractor": "^7.18.4",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.9.1",
+    "@types/node": "^26.0.0",
     "@vitest/coverage-v8": "^4.1.7",
     "@vue/compiler-core": "^3.2.45",
     "@vue/compiler-sfc": "^3.2.45",
