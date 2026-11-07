@@ -1,13 +1,13 @@
 import { getText } from './helper'
-import { ServerContext, startServer } from './setup-server'
+import type { ServerContext } from './setup-server'
+import { startServer } from './setup-server'
 
 import type { Browser, Page } from 'playwright'
 
 // TODO: extract to shim.d.ts
-// eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace global {
-  let browser: Browser
-  let page: Page
+declare global {
+  var browser: Browser
+  var page: Page
 }
 
 let ctx: ServerContext

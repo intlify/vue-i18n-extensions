@@ -1,5 +1,6 @@
-import { UserConfig } from 'vitest/config'
-import config from './vitest.config'
+import config from './vite.config'
+
+import type { UserConfig } from 'vite-plus'
 
 export default {
   ...config,
@@ -8,7 +9,6 @@ export default {
     environment: 'node',
     setupFiles: ['./scripts/vitest.setup.ts'],
     include: ['./e2e/**/*.spec.ts'],
-    maxWorkers: 1,
-    minWorkers: 1
+    maxWorkers: 1
   }
 } satisfies UserConfig

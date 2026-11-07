@@ -41,8 +41,7 @@ permissions: {}
 jobs:
   npm-publish:
     if: >-
-      github.event_name == 'push' ||
-      (github.event_name == 'workflow_dispatch' &&
+      github.event_name == 'push' || (github.event_name == 'workflow_dispatch' &&
         (inputs.job == 'all' || inputs.job == 'npm-publish'))
     runs-on: ubuntu-latest
     permissions:

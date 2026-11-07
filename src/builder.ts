@@ -23,7 +23,8 @@ export interface ContentBuilderOptions {
 export interface ContentBuilder {
   /**
    * Indent level
-   * @defaultValue 0
+   *
+   * @default 0
    */
   readonly indentLevel: number
   /**
@@ -32,6 +33,7 @@ export interface ContentBuilder {
   readonly content: string
   /**
    * Add content
+   *
    * @param content - additional content
    */
   push(content: string): void
@@ -41,16 +43,19 @@ export interface ContentBuilder {
   newline(): void
   /**
    * Add content with line break
+   *
    * @param content - additional content
    */
   pushline(content: string): void
   /**
    * Indent content
-   * @param withNewLine - whether indent to be added without new line
+   *
+   * @param withoutNewLine - whether indent to be added without new line
    */
   indent(withoutNewLine?: boolean): void
   /**
    * DeIndent content
+   *
    * @param withoutNewLine - whether deindent to be added without new line
    */
   deindent(withoutNewLine?: boolean): void

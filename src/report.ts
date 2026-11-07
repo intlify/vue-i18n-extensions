@@ -1,3 +1,4 @@
+/* oxlint-disable ox-jsdoc/require-jsdoc -- internal module, not exported from src/index.ts */
 import { format, isString } from '@intlify/shared'
 import type { SourceLocation } from '@vue/compiler-core'
 
