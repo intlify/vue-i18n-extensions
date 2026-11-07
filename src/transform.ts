@@ -99,7 +99,8 @@ export interface TransformVTDirectiveOptions<
   Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
-  Legacy extends boolean = true
+  Legacy extends boolean = true,
+  OptionLocale = Locale
 > {
   /**
    * I18n instance
@@ -109,7 +110,7 @@ export interface TransformVTDirectiveOptions<
    * The translation will use the global resources registered in the I18n instance,
    * that is, `v-t` directive transform is also a limitation that the resources of each component cannot be used.
    */
-  i18n?: I18n<Messages, DateTimeFormats, NumberFormats, Legacy>
+  i18n?: I18n<Messages, DateTimeFormats, NumberFormats, OptionLocale, Legacy>
   /**
    * I18n Mode
    *
@@ -199,9 +200,16 @@ export function transformVTDirective<
   Messages extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   DateTimeFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
   NumberFormats extends Record<string, unknown> = {}, // eslint-disable-line @typescript-eslint/no-empty-object-type -- TODO: fix this
-  Legacy extends boolean = true
+  Legacy extends boolean = true,
+  OptionLocale = Locale
 >(
-  options: TransformVTDirectiveOptions<Messages, DateTimeFormats, NumberFormats, Legacy> = {}
+  options: TransformVTDirectiveOptions<
+    Messages,
+    DateTimeFormats,
+    NumberFormats,
+    Legacy,
+    OptionLocale
+  > = {}
 ): DirectiveTransform {
   const i18nInstance = options.i18n
   const mode =
