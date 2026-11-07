@@ -41,7 +41,7 @@
     "eslint": "^9.11.0",
     "get-port-please": "^3.1.2",
     "gh-changelogen": "^2.0.2",
-    "globals": "^15.0.0",
+    "globals": "^17.0.0",
     "jsdom": "^31.0.0",
     "lint-staged": "^17.0.5",
     "opener": "^1.5.2",
