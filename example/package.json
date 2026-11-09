@@ -3,20 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vp dev",
+    "build": "vp build",
     "check": "vue-tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vp preview"
   },
   "dependencies": {
     "vue": "^3.4.27",
     "vue-i18n": "^9.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
     "@intlify/vue-i18n-extensions": "workspace:*",
+    "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.0.2",
-    "vite": "^5.2.11",
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
     "vue-tsc": "^2.0.17"
   }
 }

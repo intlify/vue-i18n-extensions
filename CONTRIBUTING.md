@@ -53,17 +53,17 @@
 
 ## Development Setup
 
-After cloning the repo, run:
+Node.js 22.18 or later is required. After cloning the repo, run:
 
     $ pnpm install
 
 ### Commonly used NPM scripts
 
-    # watch and serve with hot reload unit test at localhost:8080
-    $ pnpm dev
-
-    # lint source codes
+    # check format, lint, and types (`vp check` of Vite+)
     $ pnpm lint
+
+    # fix format and lint issues
+    $ pnpm fix
 
     # run unit tests
     $ pnpm test:unit
@@ -71,12 +71,12 @@ After cloning the repo, run:
     # build all dist files, including npm packages
     $ pnpm build
 
-    # run the full test suite, include linting
+    # run the unit tests with coverage and the e2e tests (build first)
     $ pnpm test
 
 There are some other scripts available in the `scripts` section of the `package.json` file.
 
-The default test script will do the following: lint with ESLint -> unit tests with coverage. **Please make sure to have this pass successfully before submitting a PR.** Although the same tests will be run against your PR on the CI server, it is better to have it working locally beforehand.
+**Please make sure that `pnpm lint` and `pnpm test` pass before submitting a PR.** Although the same checks run against your PR on the CI server, it is better to have them working locally beforehand.
 
 ### Release
 

@@ -8,7 +8,8 @@ lib
 etc
 dist
 temp
-.eslintcache
 .idea/
 .notes
 .plans
+.vite-hooks/_
+.vitest/
