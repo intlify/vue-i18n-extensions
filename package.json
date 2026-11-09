@@ -84,7 +84,7 @@
     "opener": "^1.5.2",
     "playwright": "^1.64.1",
     "typescript": "^5.9.3",
-    "unbuild": "^2.0.0",
+    "unbuild": "^3.0.0",
     "vite": "catalog:",
     "vite-plus": "catalog:",
     "vitest": "catalog:",
