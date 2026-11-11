@@ -67,11 +67,11 @@
     "watch": "tsc -p tsconfig.cjs.json --watch"
   },
   "dependencies": {
-    "@babel/parser": "^7.24.6",
+    "@babel/parser": "^8.0.0",
     "@vue/compiler-dom": "^3.2.45"
   },
   "devDependencies": {
-    "@babel/types": "^7.24.6",
+    "@babel/types": "^8.0.0",
     "@kazupon/vp-config": "^1.1.0",
     "@microsoft/api-extractor": "^7.18.4",
     "@types/node": "^25.9.1",
