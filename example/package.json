@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@intlify/vue-i18n-extensions": "workspace:*",
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue": "^6.0.0",
     "typescript": "^5.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:",
