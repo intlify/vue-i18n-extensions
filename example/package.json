@@ -18,6 +18,6 @@
     "typescript": "^5.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "vue-tsc": "^2.0.17"
+    "vue-tsc": "^3.0.0"
   }
 }
